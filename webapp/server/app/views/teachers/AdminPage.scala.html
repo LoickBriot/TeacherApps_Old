@@ -1,0 +1,190 @@
+@import teacherapps.dbmodels.Tables._
+@import views.html.teachers._
+@import util._
+@import java.time.Duration
+@import java.time.temporal.ChronoUnit
+
+
+@(account: TeachersRow)
+
+
+@template(account) {
+<!-- Content Header (Page header) -->
+<section class="content-header">
+
+
+    <div>
+        <ol class="breadcrumb" style="background-color: transparent;">
+            <li><a href="@controllers.teachers.routes.HomePage.index()"><i class="fa fa-dashboard"></i> Accueil</a></li>
+            <li class="active">Mon Profil</li>
+        </ol>
+
+    </div>
+
+</section>
+
+
+<section class="content">
+<div class="row">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-6">
+        <div class="login-box-body">
+            <h4 >Modifier vos informations:</h4>
+            <form action="@controllers.teachers.routes.AdminPage.update()" method="post">
+                <input type="hidden" name="user_id" value="@account.id">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group has-feedback">
+                            <label>Prénom:
+                                <input class="form-control" name="first_name" type="text" placeholder="" value="@account.firstName">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group has-feedback">
+                            <label>Nom:
+                                <input class="form-control" name="last_name" type="text" placeholder="" value="@account.lastName">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group has-feedback">
+                            <label>Mot de passe:
+                                <input class="form-control" name="password" type="text" placeholder="" >
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group has-feedback">
+                            <label>Confirmation mot de passe:
+                                <input class="form-control" name="confirm_password" type="text" placeholder="">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group has-feedback">
+                            <label>Login:
+                                <input class="form-control" name="login" type="text" placeholder="" value="@account.login">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <label>Email:
+                            <input class="form-control" name="email" type="text" placeholder="Example" value="@account.email">
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-8">
+
+                    </div>
+                    <div class="col-xs-3">
+                        <button class="btn btn-block btn-primary">Valider</button>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-xs-3">
+    </div>
+</div>
+</section>
+@*
+<div class="row">
+    <div class="small-12 medium-12 columns info-area">
+        <form action="@controllers.teachers.routes.AdminPage.update()" method="post">
+            <input type="hidden" name="user_id" value="@account.id">
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>First name:
+                        <input name="first_name" type="text" placeholder="Example" value="@account.firstName">
+                    </label>
+                </div>
+                <div class="medium-6 columns">
+                    <label>Last name:
+                        <input name="last_name" type="text" placeholder="Example" value="@account.lastName">
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="medium-6 end columns">
+                    <label>Password:
+                        <input name="password" type="text" placeholder="Write your new password" >
+                    </label>
+                </div>
+                <div class="medium-6 end columns">
+                    <label>Confirm Password:
+                        <input name="confirm_password" type="text" placeholder="Confirm your new password">
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>Login:
+                        <input name="login" type="text" placeholder="Example" value="@account.login">
+                    </label>
+                </div>
+                <div class="medium-6 columns">
+                    <label>Email:
+                        <input name="email" type="text" placeholder="Example" value="@account.email">
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="small-12 medium-12 columns small-btn">
+                <button class="button">Update</button>
+            </div>
+             <div class="row">
+
+            <a href="#" class="grey-btn button" data-open="exampleModal2">Disable</a>
+            <!-- This is the first modal -->
+            <div class="reveal" id="exampleModal2" data-reveal>
+                <p> <img src='@routes.Assets.at("assets/img/trash.png")' alt="delete_icon"> </p>
+                <p class="lead">Are you sur you want to disable?</p>
+                <a href="#" class="grey-btn button">Yes</a><a href="#" class="grey-btn button">No</a>
+                <button class="close-button" data-close aria-label="Close reveal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="small-12 medium-12 columns info-area">
+        <form action="@controllers.teachers.routes.AdminPage.insertNewClass()" method="post">
+            <input type="hidden" name="user_id" value="@account.id">
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>Class Name
+                        <input name="class_name" type="text" placeholder="Example" value="">
+                    </label>
+                </div>
+            </div>
+            <div class="small-12 medium-12 columns small-btn">
+                <button class="button">Insert new class</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+*@
+}

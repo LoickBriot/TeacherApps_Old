@@ -1,0 +1,182 @@
+@import teacherapps.dbmodels.Tables._
+@import views.html.teachers._
+@import util._
+@import java.time.Duration
+@import java.time.temporal.ChronoUnit
+
+
+@(teacher_account:TeachersRow, selected_class: ClassesRow, pupils: Seq[PupilsRow])
+
+@template(teacher_account) {
+
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+
+    <div class="row">
+        <div class="col-xs-9">
+            <ol class="breadcrumb" style="background-color: transparent;">
+                <li><a href="@controllers.teachers.routes.HomePage.index()"><i class="fa fa-dashboard"></i> Accueil</a></li>
+                <li class="active">Classe n°@selected_class.id</li>
+            </ol>
+        </div>
+        @if(selected_class.disabled){
+        <div class="col-xs-2">
+            <form action="@controllers.teachers.routes.ClassPage.enableClass(selected_class.id)" method="post">
+                <input name="class_id" type="hidden" value="@selected_class.id">
+                <div class="small-12 medium-12 columns small-btn">
+                    <button class="btn btn-block btn-success">Activer la classe</button>
+                </div>
+            </form>
+        </div>
+        } else {
+        <div class="col-xs-2">
+            <form action="@controllers.teachers.routes.ClassPage.disableClass(selected_class.id)" method="post">
+                <input name="class_id" type="hidden" value="@selected_class.id">
+                <div class="small-12 medium-12 columns small-btn">
+                    <button class="btn btn-block btn-danger">Désactiver la classe</button>
+                </div>
+            </form>
+        </div>
+        }
+    </div>
+
+
+</section>
+
+@*
+<div class="row" style="margin-top:20px;">
+    @if(selected_class.disabled){
+    <div class="col-xs-5">
+        <p style="color:white;background-color:red;font-size:18px;text-align: center;margin-left:15px;">Attention ! La classe séléctionnée est désactivée. </p>
+    </div>
+    <div class="col-xs-4">
+    </div>
+
+    } else {
+    <div class="col-xs-9">
+
+    </div>
+    <div class="col-xs-2">
+        <form action="@controllers.teachers.routes.ClassPage.disableClass(selected_class.id)" method="post">
+            <input name="class_id" type="hidden" value="@selected_class.id">
+            <div class="small-12 medium-12 columns small-btn">
+                <button class="btn btn-block btn-danger">Désactiver la classe</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-1">
+
+    </div>
+    }
+</div>
+*@
+
+<section class="content">
+    <div class="row" style="margin-top:20px;">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Elèves de la classe :</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Login</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @for( pupil <- pupils) {
+                        <tr>
+                            <td><a href="@controllers.teachers.routes.PupilPage.index(pupil.id)">@{pupil.id}</a></td>
+                            <td><a href="@controllers.teachers.routes.PupilPage.index(pupil.id)">@{pupil.firstName}</a></td>
+                            <td><a href="@controllers.teachers.routes.PupilPage.index(pupil.id)">@{pupil.lastName}</a></td>
+                            <td><a href="@controllers.teachers.routes.PupilPage.index(pupil.id)">@{pupil.login}</a></td>
+                        </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-6">
+            <div class="login-box-body">
+                <h4 >Ajouter un nouvel élève:</h4>
+                <form style="margin-top:20px" action="@controllers.teachers.routes.ClassPage.insertPupil(selected_class.id)" method="post">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <label>Prénom:
+                                    <input class="form-control" name="first_name" type="text" placeholder="" value="">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <label>Nom:
+                                    <input class="form-control" name="last_name" type="text" placeholder="" value="">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <label>Mot de passe:
+                                    <input class="form-control" name="password" type="text" placeholder="" >
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <label>Confirmation mot de passe:
+                                    <input class="form-control" name="confirm_password" type="text" placeholder="">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <label>Login:
+                                    <input class="form-control" name="login" type="text" placeholder="" value="">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-xs-8">
+
+                        </div>
+                        <div class="col-xs-3">
+                            <button class="btn btn-block btn-primary">Valider</button>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-xs-3">
+        </div>
+    </div>
+</section>
+</div><!-- /.content -->
+}

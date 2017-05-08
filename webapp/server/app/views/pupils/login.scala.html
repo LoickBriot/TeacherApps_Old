@@ -1,0 +1,74 @@
+@(loginForm:Form[controllers.pupils.auth.PupilLoginAccountData])(implicit flash:Flash)
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tetrao</title>
+	<link rel="stylesheet" href='@routes.Assets.at("assets/css/app.css")'>
+</head>
+<body>
+
+
+<div id="login-container">
+	<form class="row" method="post" action="@controllers.pupils.auth.routes.PupilAuthController.login()">
+
+		<div class="small-12 medium-6 end medium-offset-3 columns login-area">
+			<div class="row">
+				<div class="small-12 medium-6 end medium-offset-3 columns login-title">
+					<h1> Sign in</h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-12 columns">
+					<input name="login" type="text" placeholder="Email Address" value='@loginForm("login").value' required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<input name="password" type="password" placeholder="Password" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<button class="expanded button"> Sign in </button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<input id="remember-me" type="checkbox"><label for="remember-me">Remember me</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns not-password">
+					<a href="mailto:info@@tetrao.eu"> Forgot password?</a>
+				</div>
+			</div>
+			@if(flash.get("error").isDefined) {
+			<div class="small-12 columns notification">
+				<span class="alert label">flash.get("error")</span>
+			</div>
+			} else {
+			@for(e <- loginForm.errors) {
+			<div class="small-12 columns notification">
+				<span class="alert label">e.message</span>
+			</div>
+			}
+			}
+		</div>
+	</form>
+</div>
+
+<div class="row">
+	<div class="small-12 medium-12 columns copyright">
+		<p> Copyright 2016 - Tetrao</p>
+	</div>
+</div>
+
+
+<script src='@routes.Assets.at("assets/js/app.js")'></script>
+</body>
+</html>

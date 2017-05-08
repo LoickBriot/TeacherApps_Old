@@ -1,0 +1,158 @@
+@import teacherapps.dbmodels.Tables._
+@import views.html.teachers._
+@import util._
+@import java.time.Duration
+@import java.time.temporal.ChronoUnit
+
+
+@(teacher_account:TeachersRow)
+
+
+@template(teacher_account) {
+
+@playscalajs.html.scripts("teacherapps_client")
+
+<section class="content-header">
+
+    <div class="row">
+        <div class="col-xs-9">
+            <ol class="breadcrumb" style="background-color: transparent;">
+                <li class="active"><i class="fa fa-dashboard"></i> Accueil</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+
+
+
+            <input type="hidden" value="" id ="canvas_data">
+
+
+
+            <div class="row-fluid" id="menuBarDiv">
+
+                <form class="form-inline">
+                    <div class="form-group">
+
+                        <div class="btn-group">
+                            <div style="cursor: pointer;" title="Fonts" class="btn-group">
+                                <a aria-expanded="false" title="Fonts" id="font" value="arial" href="javascript:void(0)" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Arial</span></a>
+                                <ul id="font-family" class="dropdown-menu">
+                                    <li onclick="client.teachers.OperationPageJS().changeFont('arial');"><a href="javascript:void(0)" tabindex="-1">Arial</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFont('helvetica')"><a href="javascript:void(0)" tabindex="-1">Helvetica</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFont('verdana')"><a href="javascript:void(0)" tabindex="-1">Verdana</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFont('courier')"><a href="javascript:void(0)" tabindex="-1">Courier</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFont('pacifico')"><a href="javascript:void(0)" tabindex="-1">Pacifico</a></li>
+
+
+                                </ul>
+                            </div>
+
+
+                            <div style="cursor: pointer;" title="Font Size" class="btn-group">
+                                <a aria-expanded="false" title="Font Size" id="fontSizeForm" value="20" href="javascript:void(0)" data-toggle="dropdown" class="btn btn-default dropdown-toggle">20</span></a>
+                                <ul class="dropdown-menu">
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(2)"><a href="javascript:void(0)" tabindex="-1">2</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(4)"><a href="javascript:void(0)" tabindex="-1">4</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(6)"><a href="javascript:void(0)" tabindex="-1">6</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(8)"><a href="javascript:void(0)" tabindex="-1">8</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(10)"><a href="javascript:void(0)" tabindex="-1">10</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(12)"><a href="javascript:void(0)" tabindex="-1">12</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(14)"><a href="javascript:void(0)" tabindex="-1">14</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(16)"><a href="javascript:void(0)" tabindex="-1">16</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(18)"><a href="javascript:void(0)" tabindex="-1">18</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(20)"><a href="javascript:void(0)" tabindex="-1">20</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(24)"><a href="javascript:void(0)" tabindex="-1">24</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(28)"><a href="javascript:void(0)" tabindex="-1">28</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(32)"><a href="javascript:void(0)" tabindex="-1">32</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(40)"><a href="javascript:void(0)" tabindex="-1">40</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(48)"><a href="javascript:void(0)" tabindex="-1">48</a></li>
+                                    <li onclick="client.teachers.OperationPageJS().changeFontSize(72)"><a href="javascript:void(0)" tabindex="-1">72</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a onclick="client.teachers.OperationPageJS().changeFontWeight()" id="fontWeight" value="" style="cursor: pointer;" title="Bold" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-bold"></i></a>
+                            <a onclick="client.teachers.OperationPageJS().changeFontStyle()" id="fontStyle" style="cursor: pointer;" title="Italics" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-italic"></i></a>
+                            <a onclick="client.teachers.OperationPageJS().changeTextDecoration()" id="textDecoration" style="cursor: pointer;" title="Underline" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-underline"></i></a>
+
+                        </div>
+
+                        <input class="form-control" title="Text Color" type="color" value="#000000" id="text-color" style="height:25px;width:25px;border:none;margin:0;padding:0; border-radius:0;"/>
+                        <input class="form-control" title="Backgroung Color" type="color" value="#FFFFFF" id="text-bg-color" style="height:25px;width:25px;border:none;margin:0;padding:0; border-radius:0;";/>
+
+
+
+                        <div class="btn-group" id="textAlignForm" value="left">
+                            <a onclick="client.teachers.OperationPageJS().changeTextAlign('left')" style="cursor: pointer;filter:brightness(85%);" id="textAlignLeft" title="Align Left" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-align-left"></i></a>
+                            <a onclick="client.teachers.OperationPageJS().changeTextAlign('center')" style="cursor: pointer;" id="textAlignCenter" title="Align Center" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-align-center"></i></a>
+                            <a onclick="client.teachers.OperationPageJS().changeTextAlign('right')" style="cursor: pointer;" id="textAlignRight" title="Align Right" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-align-right"></i></a>
+                            <a onclick="client.teachers.OperationPageJS().changeTextAlign('justify')" style="cursor: pointer;" id="textAlignJustify" title="Justify" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-align-justify"></i></a>
+                        </div>
+
+                        <div class="btn-group">
+                            <a style="cursor: pointer;" title="Insert/Remove Numbered List" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-list-ol"></i></a>
+                            <a style="cursor: pointer;" title="Insert/Remove Bulleted List" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-list-ul"></i></a>
+                        </div>
+
+                        <div class="btn-group">
+                            <a style="cursor: pointer;" title="Undo" class="btn btn-default" href="javascript:undo();"><i class="fa fa-undo"></i></a>
+                            <a style="cursor: pointer;" title="Redo" class="btn btn-default" href="javascript:redo();"><i class="fa fa-repeat"></i></a>
+                        </div>
+
+                        <div class="btn-group">
+                            <a title="Insert Image" data-toggle="modal" class="btn btn-default" role="button" href="#InsertImage"><i class="fa fa-picture-o"></i></a>
+                            <a title="Insert Table" data-toggle="modal" class="btn btn-default" role="button" href="#InsertTable"><i class="fa fa-table"></i></a>
+                        </div>
+
+                        <div class="btn-group">
+                            <a style="cursor: pointer;" title="Horizontal Rule" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-plus"></i></a>
+                            <a style="cursor: pointer;" title="Horizontal Rule" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-minus"></i></a>
+                            <a style="cursor: pointer;" title="Insert Special Character" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-asterisk"></i></a>
+                            <a style="cursor: pointer;" title="Insert Special Character" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-percent"></i></a>
+                        </div>
+
+                        <div class="btn-group">
+                            <a style="cursor: pointer;" title="Print" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-print"></i></a>
+                            <a style="cursor: pointer;" title="Remove Formatting" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-eraser"></i></a>
+                            <a style="cursor: pointer;" title="Select All" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-file-text"></i></a>
+                        </div>
+
+                    </div>
+                    <div style="overflow: auto;" class="Editor-editor" contenteditable="true">
+                    </div>
+                    <div unselectable="on" class="row-fluid" id="statusbar">
+                    </div>
+            </div>
+            </form>
+
+
+    <button id="addText">Add Texto</button>
+    <button id="addLine">Add Line</button>
+    <button id="addImage">Add Image</button>
+
+
+    <div  class="box" style="width:622px">
+        <canvas id="main_canvas"></canvas>
+    </div>
+</section><!-- /.content -->
+
+
+<script src='@routes.Assets.at("assets/plugins/jQuery/jQuery-2.1.3.min.js")'></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.9/fabric.min.js"></script>
+
+
+<script language="javascript">
+        client.teachers.OperationPageJS().main();
+</script>
+
+}

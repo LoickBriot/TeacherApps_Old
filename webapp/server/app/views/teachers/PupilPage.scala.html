@@ -1,0 +1,205 @@
+@import teacherapps.dbmodels.Tables._
+@import views.html.teachers._
+@import util._
+@import java.time.Duration
+@import java.time.temporal.ChronoUnit
+
+
+@(teacher_account:TeachersRow, selected_class: ClassesRow, pupil: PupilsRow)
+
+@template(teacher_account) {
+
+
+
+<section class="content-header">
+
+    <div class="row">
+        <div class="col-xs-9">
+            <ol class="breadcrumb" style="background-color: transparent;">
+                <li><a href="@controllers.teachers.routes.HomePage.index()"><i class="fa fa-dashboard"></i> Accueil</a></li>
+                <li><a href="@controllers.teachers.routes.ClassPage.index(selected_class.id)"> Classe n°@selected_class.id</a></li>
+                <li class="active">Elève n°@pupil.id</li>
+            </ol>
+
+        </div>
+        @if(pupil.disabled){
+        <div class="col-xs-2">
+            <form action="@controllers.teachers.routes.PupilPage.enablePupil(pupil.id)" method="post">
+                <input name="pupil_id" type="hidden" value="@pupil.id">
+                <div class="small-12 medium-12 columns small-btn">
+                    <button class="btn btn-block btn-success">Activer l'élève</button>
+                </div>
+            </form>
+        </div>
+        } else {
+        <div class="col-xs-2">
+            <form action="@controllers.teachers.routes.PupilPage.disablePupil(pupil.id)" method="post">
+                <input name="pupil_id" type="hidden" value="@pupil.id">
+                <div class="small-12 medium-12 columns small-btn">
+                    <button class="btn btn-block btn-danger">Désactiver l'élève</button>
+                </div>
+            </form>
+        </div>
+        }
+    </div>
+
+
+
+</section>
+
+
+<section class="content">
+
+
+    <div class="row">
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-6">
+            <div class="login-box-body">
+                <h4 >Modifier les informations de l'élève:</h4>
+                <form action="@controllers.teachers.routes.PupilPage.updatePupil(pupil.id)" method="post">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <label>Prénom:
+                                    <input class="form-control" name="first_name" type="text" placeholder="" value="@pupil.firstName">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <label>Nom:
+                                    <input class="form-control" name="last_name" type="text" placeholder="" value="@pupil.lastName">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <label>Mot de passe:
+                                    <input class="form-control" name="password" type="text" placeholder="" >
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <label>Confirmation mot de passe:
+                                    <input class="form-control" name="confirm_password" type="text" placeholder="">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <label>Login:
+                                    <input class="form-control" name="login" type="text" placeholder="" value="@pupil.login">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-xs-8">
+
+                        </div>
+                        <div class="col-xs-3">
+                            <button class="btn btn-block btn-primary">Valider</button>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-xs-3">
+        </div>
+    </div>
+
+    @*
+    <div class="row">
+        <div class="small-12 medium-12 columns info-area">
+            <form action="@controllers.teachers.routes.PupilPage.updatePupil(pupil.id)" method="post">
+                <input name="id" type="hidden" placeholder="" value="@pupil.id">
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <label>First name:
+                            <input name="first_name" type="text" placeholder="" value="@pupil.firstName">
+                        </label>
+                    </div>
+                    <div class="medium-6 columns">
+                        <label>Last name:
+                            <input name="last_name" type="text" placeholder="" value="@pupil.lastName">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="medium-6 end columns">
+                        <label>Password:
+                            <input name="password" type="text" placeholder="" >
+                        </label>
+                    </div>
+                    <div class="medium-6 end columns">
+                        <label>Confirm Password:
+                            <input name="confirm_password" type="text" placeholder="">
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <label>Login:
+                            <input name="login" type="text" placeholder="" value="@pupil.login">
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="small-12 medium-12 columns small-btn">
+                    <button class="button">Update pupil</button>
+                </div>
+                <div class="row">
+
+                    <a href="#" class="grey-btn button" data-open="exampleModal2">Disable</a>
+                    <!-- This is the first modal -->
+                    <div class="reveal" id="exampleModal2" data-reveal>
+                        <p> <img src='@routes.Assets.at("assets/img/trash.png")' alt="delete_icon"> </p>
+                        <p class="lead">Are you sur you want to disable?</p>
+                        <a href="#" class="grey-btn button">Yes</a><a href="#" class="grey-btn button">No</a>
+                        <button class="close-button" data-close aria-label="Close reveal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                *@
+            </form>
+
+
+
+        </div>
+    </div>
+</section>
+}
+@*
+@if(pupil.disabled){
+<form action="@controllers.teachers.routes.PupilPage.enablePupil(pupil.id)" method="post">
+    <input name="pupil_id" type="hidden" value="@pupil.id">
+    <div class="small-12 medium-12 columns small-btn">
+        <button class="button">Enable this pupil</button>
+    </div>
+</form>
+} else {
+
+<form action="@controllers.teachers.routes.PupilPage.disablePupil(pupil.id)" method="post">
+    <input name="pupil_id" type="hidden" value="@pupil.id">
+    <div class="small-12 medium-12 columns small-btn">
+        <button class="button">Disable this pupil</button>
+    </div>
+</form>
+}
+*@

@@ -1,0 +1,28 @@
+@import teacherapps.dbmodels.Tables._
+@import views.html.pupils._
+@import util._
+@import java.time.Duration
+@import java.time.temporal.ChronoUnit
+
+
+@(pupil_account:PupilsRow)
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetrao</title>
+    <link rel="stylesheet" href='@routes.Assets.at("assets/css/app.css")'>
+</head>
+<body>
+<div id="main-container">
+    TEXT PUPIL @{pupil_account.login}
+
+
+    <a href="@controllers.pupils.auth.routes.PupilAuthController.logout()">Deconnexion</a>
+
+</div>
+</body>
+</html>

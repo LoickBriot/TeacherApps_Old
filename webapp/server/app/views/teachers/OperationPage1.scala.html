@@ -1,0 +1,325 @@
+@import teacherapps.dbmodels.Tables._
+@import views.html.teachers._
+@import util._
+@import java.time.Duration
+@import java.time.temporal.ChronoUnit
+
+
+@(teacher_account:TeachersRow)
+
+
+@template(teacher_account) {
+
+
+
+<button class="secondary hollow button"  id = "console">Run console</button>
+
+
+
+<form action="@controllers.teachers.routes.OperationPage.download()" method="post">
+
+
+    <input type="hidden" value="[]" name="text" id="text">
+    <button class="secondary hollow button"  id = "pdf" onclick="download()">Download PDF</button>
+
+</form>
+
+
+<section class="content-header">
+
+    <div class="row">
+        <div class="col-xs-9">
+            <ol class="breadcrumb" style="background-color: transparent;">
+                <li class="active"><i class="fa fa-dashboard"></i> Accueil</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+
+
+
+            <input type="hidden" value="" id ="canvas_data">
+
+
+
+            <div class="row-fluid" id="menuBarDiv">
+
+                <form class="form-inline">
+                    <div class="form-group">
+
+                        <div class="btn-group">
+                            <div style="cursor: pointer;" title="Fonts" class="btn-group">
+                                <a aria-expanded="false" title="Fonts" href="javascript:void(0)" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Font<span class="caret"></span></a>
+                                <ul id="font-family" class="dropdown-menu">
+                                    <li onclick="changeFont('arial')"><a href="javascript:void(0)" tabindex="-1">Arial</a></li>
+                                    <li onclick="changeFont('helvetica')"><a href="javascript:void(0)" tabindex="-1">Helvetica</a></li>
+                                    <li onclick="changeFont('verdana')"><a href="javascript:void(0)" tabindex="-1">Verdana</a></li>
+                                    <li onclick="changeFont('courier')"><a href="javascript:void(0)" tabindex="-1">Courier</a></li>
+                                    <li onclick="changeFont('pacifico')"><a href="javascript:void(0)" tabindex="-1">Pacifico</a></li>
+
+
+                                </ul>
+                            </div>
+
+
+                            <div style="cursor: pointer;" title="Font Size" class="btn-group">
+                                <a aria-expanded="false" title="Font Size" href="javascript:void(0)" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Font size<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li onclick="changeFontSize(2)"><a href="javascript:void(0)" tabindex="-1">2</a></li>
+                                    <li onclick="changeFontSize(4)"><a href="javascript:void(0)" tabindex="-1">4</a></li>
+                                    <li onclick="changeFontSize(6)"><a href="javascript:void(0)" tabindex="-1">6</a></li>
+                                    <li onclick="changeFontSize(8)"><a href="javascript:void(0)" tabindex="-1">8</a></li>
+                                    <li onclick="changeFontSize(10)"><a href="javascript:void(0)" tabindex="-1">10</a></li>
+                                    <li onclick="changeFontSize(12)"><a href="javascript:void(0)" tabindex="-1">12</a></li>
+                                    <li onclick="changeFontSize(14)"><a href="javascript:void(0)" tabindex="-1">14</a></li>
+                                    <li onclick="changeFontSize(16)"><a href="javascript:void(0)" tabindex="-1">16</a></li>
+                                    <li onclick="changeFontSize(18)"><a href="javascript:void(0)" tabindex="-1">18</a></li>
+                                    <li onclick="changeFontSize(20)"><a href="javascript:void(0)" tabindex="-1">20</a></li>
+                                    <li onclick="changeFontSize(24)"><a href="javascript:void(0)" tabindex="-1">24</a></li>
+                                    <li onclick="changeFontSize(28)"><a href="javascript:void(0)" tabindex="-1">28</a></li>
+                                    <li onclick="changeFontSize(32)"><a href="javascript:void(0)" tabindex="-1">32</a></li>
+                                    <li onclick="changeFontSize(40)"><a href="javascript:void(0)" tabindex="-1">40</a></li>
+                                    <li onclick="changeFontSize(48)"><a href="javascript:void(0)" tabindex="-1">48</a></li>
+                                    <li onclick="changeFontSize(72)"><a href="javascript:void(0)" tabindex="-1">72</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a onclick="changeFontWeight()" style="cursor: pointer;" title="Bold" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-bold"></i></a>
+                            <a onclick="changeFontStyle()" style="cursor: pointer;" title="Italics" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-italic"></i></a>
+                            <a onclick="changeTextDecoration()" style="cursor: pointer;" title="Underline" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-underline"></i></a>
+
+                        </div>
+
+                        <input class="form-control" title="Text Color" type="color" value="" id="text-color" style="height:25px;width:25px;border:none;margin:0;padding:0; border-radius:0;"/>
+                        <input class="form-control" title="Backgroung Color" type="color" value="" id="text-bg-color" style="height:25px;width:25px;border:none;margin:0;padding:0; border-radius:0;";/>
+
+
+
+                        <div class="btn-group">
+                            <a onclick="changeTextAlign('left')" style="cursor: pointer;" title="Align Left" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-align-left"></i></a>
+                            <a onclick="changeTextAlign('center')" style="cursor: pointer;" title="Align Center" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-align-center"></i></a>
+                            <a onclick="changeTextAlign('right')" style="cursor: pointer;" title="Align Right" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-align-right"></i></a>
+                            <a onclick="changeTextAlign('justify')" style="cursor: pointer;" title="Justify" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-align-justify"></i></a>
+                        </div>
+
+                        <div class="btn-group">
+                            <a style="cursor: pointer;" title="Insert/Remove Numbered List" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-list-ol"></i></a>
+                            <a style="cursor: pointer;" title="Insert/Remove Bulleted List" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-list-ul"></i></a>
+                        </div>
+
+                        <div class="btn-group">
+                            <a style="cursor: pointer;" title="Undo" class="btn btn-default" href="javascript:undo();"><i class="fa fa-undo"></i></a>
+                            <a style="cursor: pointer;" title="Redo" class="btn btn-default" href="javascript:redo();"><i class="fa fa-repeat"></i></a>
+                        </div>
+
+                        <div class="btn-group">
+                            <a title="Insert Image" data-toggle="modal" class="btn btn-default" role="button" href="#InsertImage"><i class="fa fa-picture-o"></i></a>
+                            <a title="Insert Table" data-toggle="modal" class="btn btn-default" role="button" href="#InsertTable"><i class="fa fa-table"></i></a>
+                        </div>
+
+                        <div class="btn-group">
+                            <a style="cursor: pointer;" title="Horizontal Rule" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-plus"></i></a>
+                            <a style="cursor: pointer;" title="Horizontal Rule" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-minus"></i></a>
+                            <a style="cursor: pointer;" title="Insert Special Character" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-asterisk"></i></a>
+                            <a style="cursor: pointer;" title="Insert Special Character" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-percent"></i></a>
+                        </div>
+
+                        <div class="btn-group">
+                            <a style="cursor: pointer;" title="Print" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-print"></i></a>
+                            <a style="cursor: pointer;" title="Remove Formatting" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-eraser"></i></a>
+                            <a style="cursor: pointer;" title="Select All" class="btn btn-default" href="javascript:void(0)"><i class="fa fa-file-text"></i></a>
+                        </div>
+
+                    </div>
+                    <div style="overflow: auto;" class="Editor-editor" contenteditable="true">
+                    </div>
+                    <div unselectable="on" class="row-fluid" id="statusbar">
+                    </div>
+            </div>
+            </form>
+
+
+
+
+
+
+
+            <button onclick="addText()">Add Texto</button>
+            <button onclick="addLine()">Add Lineto</button>
+            <button onclick="addImageFromURL('http://fabricjs.com/assets/pug_small.jpg')">Add Imageto</button>
+
+            <div  class="box" style="width:622px">
+
+                <canvas id="c"></canvas>
+            </div>
+
+
+            <script src='@routes.Assets.at("assets/plugins/jQuery/jQuery-2.1.3.min.js")'></script>
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.9/fabric.min.js"></script>
+
+            @playscalajs.html.scripts("teacherapps_client")
+            <script language="javascript">
+        client.teachers.OperationPageJS().main();
+</script>
+
+
+            <script type="text/javascript" src='@routes.Assets.at("assets/js/canvas_math_fabricjs.js")'></script>
+            <script type="text/javascript">
+
+
+
+document.onclick = function(e) {
+
+
+    var boxList = [];
+
+    console.log("here");
+    console.log(canvas.getObjects());
+    var list = canvas.getObjects()
+
+    for (i = 0; i < list.length; i++) {
+        var text = list[i];
+        if (text.get('type') === 'textbox') {
+
+            var small_text = new SmallTextBox(
+            text.text,
+            text.left,
+            text.top,
+            text.width,
+            text.height,
+            text.fontSize,
+            text.fontFamily,
+            text.fill,
+            text.textAlign,
+            text.fontWeight,
+            text.fontStyle,
+            text.textDecoration
+            );
+
+        boxList.push(small_text);
+        }
+
+    }
+
+    document.getElementById("canvas_data").value = JSON.stringify(boxList, null, 2);
+    document.getElementById("text").value = JSON.stringify(boxList, null, 2);
+
+
+};
+
+var isRedoing = false;
+
+document.onkeypress = function(e) {
+
+var activeGroup;
+if(canvas.getActiveGroup()){
+ activeGroup =canvas.getActiveGroup() ;
+} else {
+ activeGroup =canvas.getActiveObject() ;
+}
+
+
+if(e.keyCode==37){
+activeGroup.set("left",activeGroup.left-4);
+canvas.renderAll();
+}
+if(e.keyCode==38){
+activeGroup.set("top",activeGroup.top-4);
+ canvas.renderAll();
+
+}
+if(e.keyCode==39){
+activeGroup.set("left",activeGroup.left+4);
+ canvas.renderAll();
+
+}
+if(e.keyCode==40){
+activeGroup.set("top",activeGroup.top+4);
+ canvas.renderAll();
+}
+if(e.keyCode==46){
+if(canvas.getActiveGroup()){
+  canvas.getActiveGroup().forEachObject(function(text){
+    canvas_history.push( [text,false] );
+    index = canvas_history.length-1;
+    //index++;
+    text.remove();
+console.log("remove2 -- " + canvas_history.length + " index: " +index);
+  });
+} else {
+  canvas_history.push( [canvas.getActiveObject(),false] );
+  canvas.getActiveObject().remove();
+  //index++;
+index = canvas_history.length-1;
+console.log("remove1 -- " + canvas_history.length + " index: " +index);
+}
+ canvas.discardActiveGroup().renderAll();
+}
+
+};
+
+
+
+
+
+
+
+function undo(){
+  if(canvas_history.length>0 && canvas_history.length>index && index>=0){
+    if(canvas_history[index][1]==false){
+//     canvas_history.push( [canvas._objects.pop(), true] );
+     canvas.add( canvas_history[index][0] );
+     index--;
+     canvas.renderAll();
+console.log("undo add -- " + canvas_history.length + " index: " +index);
+   } else {
+     canvas_history[index][0].remove();
+     index--;
+     canvas.renderAll();
+console.log("undo remove -- " + canvas_history.length + " index: " +index);
+   }
+  }
+}
+function redo(){
+
+if(canvas_history.length>index+1 && index>=-1){
+     if(canvas_history[index+1][1]==true){
+//     canvas_history.push( [canvas._objects.pop(), true] );
+     canvas.add( canvas_history[index+1][0] );
+     index++;
+     canvas.renderAll();
+console.log("redo add-- " + canvas_history.length + " index: " +index);
+   } else {
+     canvas_history[index+1][0].remove();
+     index++;
+     canvas.renderAll();
+console.log("redo remove-- " + canvas_history.length + " index: " +index);
+   }
+  }
+}
+
+
+/*document.onclick = function(e) {
+var text = canvas.getActiveObject()
+if(e.which==3){
+text.set("fontSize","25");
+}
+};*/
+
+</script>
+        </div>
+    </div>
+</section><!-- /.content -->
+}

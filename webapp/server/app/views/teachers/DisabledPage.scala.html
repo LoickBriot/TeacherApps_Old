@@ -1,0 +1,64 @@
+@import teacherapps.dbmodels.Tables._
+@import views.html.teachers._
+@import util._
+@import java.time.Duration
+@import java.time.temporal.ChronoUnit
+
+
+@(teacher_account:TeachersRow, classes: Seq[ClassesRow], pupils: Seq[PupilsRow])
+
+
+@template(teacher_account) {
+
+    <div>
+        <div class="expanded row tb-area">
+            <div class="small-12 medium-12 large-12 columns tb-display">
+                <table class="hover">
+                    <thead>
+                    <tr>
+                        <th>Class ID</th>
+                        <th>Class FirstName</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @for( classe <- classes) {
+                    <tr>
+                        <td><a href="@controllers.teachers.routes.ClassPage.index(classe.id)">@{classe.id}</a></td>
+                        <td><a href="@controllers.teachers.routes.ClassPage.index(classe.id)">@{classe.name}</a></td>
+                    </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="expanded row tb-area">
+                <div class="small-12 medium-12 large-12 columns tb-display">
+                    <table class="hover">
+                        <thead>
+                        <tr>
+                            <th>Pupil ID</th>
+                            <th>Pupil FirstName</th>
+                            <th>Pupil LastName</th>
+                            <th>Pupil Login</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @for( pupil <- pupils) {
+                        <tr>
+                            <td><a href="@controllers.teachers.routes.PupilPage.index(pupil.id)">@{pupil.id}</a></td>
+                            <td><a href="@controllers.teachers.routes.PupilPage.index(pupil.id)">@{pupil.firstName}</a></td>
+                            <td><a href="@controllers.teachers.routes.PupilPage.index(pupil.id)">@{pupil.lastName}</a></td>
+                            <td><a href="@controllers.teachers.routes.PupilPage.index(pupil.id)">@{pupil.login}</a></td>
+                        </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
