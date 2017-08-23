@@ -184,7 +184,7 @@ class StaticCanvas(el: String, options: js.Object = new js.Object()) extends js.
   /**
     * Returns an array of children objects of this instance Type parameter introduced in 1.3.10
     */
-  def getObjects(`type`: String = ""): js.Array[String] = js.native
+  def getObjects(`type`: String = ""): js.Array[facades.fabricjs.Object] = js.native
   /**
     * Returns canvas width (in px)
     */

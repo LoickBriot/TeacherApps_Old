@@ -31,14 +31,14 @@
 
 
 
-            <input type="hidden" value="" id ="canvas_data">
 
 
 
             <div class="row-fluid" id="menuBarDiv">
 
                 <form class="form-inline">
-                    <div class="form-group">
+
+                <div class="form-group">
 
                         <div class="btn-group">
                             <div style="cursor: pointer;" title="Fonts" class="btn-group">
@@ -56,7 +56,8 @@
 
 
                             <div style="cursor: pointer;" title="Font Size" class="btn-group">
-                                <a aria-expanded="false" title="Font Size" id="fontSizeForm" value="20" href="javascript:void(0)" data-toggle="dropdown" class="btn btn-default dropdown-toggle">20</span></a>
+                                <input type="hidden" id="fontSizeForm" value="20">
+                                <a aria-expanded="false" title="Font Size"  href="javascript:void(0)" data-toggle="dropdown" class="btn btn-default dropdown-toggle">20</span></a>
                                 <ul class="dropdown-menu">
                                     <li onclick="client.teachers.OperationPageJS().changeFontSize(2)"><a href="javascript:void(0)" tabindex="-1">2</a></li>
                                     <li onclick="client.teachers.OperationPageJS().changeFontSize(4)"><a href="javascript:void(0)" tabindex="-1">4</a></li>
@@ -131,13 +132,25 @@
                     </div>
                     <div unselectable="on" class="row-fluid" id="statusbar">
                     </div>
+                </form>
             </div>
-            </form>
+        </div>
+    </div>
+
+    <form class="form-inline" method="post" action="@controllers.teachers.routes.OperationPage.download()">
+        <input type="hidden" value="" id ="canvas_data" name="text">
+        <button>Run console</button>
+    </form>
 
 
-    <button id="addText">Add Texto</button>
+    <button id="console">Run console2</button>
+
+    <button id="addText">Add Text</button>
     <button id="addLine">Add Line</button>
     <button id="addImage">Add Image</button>
+    <button id="createGroup">Create Group</button>
+    <button id="deleteGroup">Delete Group</button>
+    <button id="addGroup">Add Group</button>
 
 
     <div  class="box" style="width:622px">

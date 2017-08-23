@@ -142,7 +142,8 @@ lazy val server  = (project in file("webapp/server"))
       "com.cronutils" % "cron-utils" % "5.0.5",
       "org.apache.pdfbox" % "pdfbox" % "2.0.5",
       "org.apache.poi" % "poi" % "3.15",
-      "org.apache.poi" % "poi-ooxml" % "3.15"
+      "org.apache.poi" % "poi-ooxml" % "3.15",
+      "org.apache.commons" % "commons-lang3" % "3.1"
     )
   )
   .settings(scalaJSProjects := Seq(client))

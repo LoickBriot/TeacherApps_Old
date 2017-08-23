@@ -37,22 +37,30 @@ class OperationPage extends Controller with AuthElement with TeacherAuthConfigTr
   def download() = AsyncStack(AuthorityKey -> TeacherRole.Teacher) { implicit request =>
     val account = loggedIn
 
-    case class formData(text: String)
+    /*case class formData(text: String)
 
-
+    println("HEREEE 66")
     val form = Form(mapping("text" -> text)(formData.apply)(formData.unapply))
     form.bindFromRequest().fold(
-      errors =>  { Future.successful{Redirect(controllers.teachers.routes.OperationPage.index())} }   ,
+      errors =>  {
+        println("HEREEE 88")
+        Future.successful{Redirect(controllers.teachers.routes.OperationPage.index())}
+      }   ,
       success => {
+
+        println(success.text)
         var boxList = read[Seq[SmallTextBox]](success.text)
 
-        println("HEREEE")
+        println("HEREEE 99")
         createPDFPage(boxList)
         Future.successful {
           Ok.sendFile(new File("/home/loick/smalltextbox.pdf"), inline = true).withHeaders(CACHE_CONTROL -> "max-age=3600", CONTENT_DISPOSITION -> "attachment; filename=smalltextbox.pdf", CONTENT_TYPE -> "application/x-download");
         }
       }
-    )
+    )*/
+    Future.successful {
+      Ok.sendFile(new File("/home/loick/smalltextbox.pdf"), inline = true).withHeaders(CACHE_CONTROL -> "max-age=3600", CONTENT_DISPOSITION -> "attachment; filename=smalltextbox.pdf", CONTENT_TYPE -> "application/x-download");
+    }
   }
 
 
@@ -65,6 +73,7 @@ class OperationPage extends Controller with AuthElement with TeacherAuthConfigTr
     case class ApiInstance() extends ajaxApiTrait{
       override def createPDF(boxList : Seq[SmallTextBox])={
 
+        println("HERE 777")
         createPDFPage(boxList)
 
       }
@@ -77,8 +86,6 @@ class OperationPage extends Controller with AuthElement with TeacherAuthConfigTr
 
       override def createPDF(boxList : Seq[SmallTextBox])= {
         createPDFPage(boxList)
-
-
       }
       /* override def getScreenshotUrl(serverDirectory: String): String = {
          return controllers.admin.routes.ExtractionDebuggerPage.getScreenshotFile(serverDirectory).toString
@@ -91,6 +98,7 @@ class OperationPage extends Controller with AuthElement with TeacherAuthConfigTr
 
     //Loading an existing document
     val document = new PDDocument()
+    println("PDF HERE")
 
     val docCatalog = document.getDocumentCatalog();
     val acroForm = new PDAcroForm(document)
@@ -127,9 +135,7 @@ class OperationPage extends Controller with AuthElement with TeacherAuthConfigTr
     //Closing the document
     document.close();
 
-
-
-
+    Ok.sendFile(new File("/home/loick/smalltextbox.pdf"), inline = true).withHeaders(CACHE_CONTROL -> "max-age=3600", CONTENT_DISPOSITION -> "attachment; filename=smalltextbox.pdf", CONTENT_TYPE -> "application/x-download");
   }
 }
 

@@ -1149,12 +1149,6 @@ function $s_Lupickle_Generated$class__Tuple12W__Lupickle_Generated__O__O__O__O__
   })($$this, evidence$133, evidence$134, evidence$135, evidence$136, evidence$137, evidence$138, evidence$139, evidence$140, evidence$141, evidence$142, evidence$143, evidence$144));
   return $s_Lupickle_Implicits$class__makeWriter__Lupickle_Implicits__F1__Lupickle_Types$Writer($$this, f)
 }
-function $s_Lupickle_Generated$class__Tuple12R__Lupickle_Generated__O__O__O__O__O__O__O__O__O__O__O__O__O($$this, evidence$145, evidence$146, evidence$147, evidence$148, evidence$149, evidence$150, evidence$151, evidence$152, evidence$153, evidence$154, evidence$155, evidence$156) {
-  var pf = new $c_Lupickle_Generated$$anonfun$Tuple12R$1().init___Lupickle_Generated__O__O__O__O__O__O__O__O__O__O__O__O($$this, evidence$145, evidence$146, evidence$147, evidence$148, evidence$149, evidence$150, evidence$151, evidence$152, evidence$153, evidence$154, evidence$155, evidence$156);
-  var this$1 = $$this.Internal__Lupickle_Implicits$Internal$();
-  var pf$1 = new $c_Lupickle_Implicits$Internal$$anon$1().init___Lupickle_Implicits$Internal$__T__s_PartialFunction(this$1, "Array(12)", pf);
-  return $s_Lupickle_Implicits$class__makeReader__Lupickle_Implicits__s_PartialFunction__Lupickle_Types$Reader($$this, pf$1)
-}
 function $is_Lupickle_GeneratedUtil(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lupickle_GeneratedUtil)))
 }
@@ -1197,23 +1191,6 @@ function $s_Lupickle_GeneratedUtil$class__arrayToMap__Lupickle_GeneratedUtil__sc
   };
   return jsx$2.wrapRefArray__AO__scm_WrappedArray(b.result__AO())
 }
-function $s_Lupickle_GeneratedUtil$class__mapToArray__Lupickle_GeneratedUtil__sc_Seq__AT__ALupickle_Js$Value__sc_Seq($$this, o, names, defaults) {
-  var accumulated = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [names.u.length]);
-  var map = o.toMap__s_Predef$$less$colon$less__sci_Map($m_s_Predef$().singleton$und$less$colon$less$2);
-  var i = 0;
-  var l = names.u.length;
-  while ((i < l)) {
-    if (map.contains__O__Z(names.u[i])) {
-      accumulated.u[i] = $as_Lupickle_Js$Value(map.apply__O__O(names.u[i]))
-    } else if ((defaults.u[i] !== null)) {
-      accumulated.u[i] = defaults.u[i]
-    } else {
-      throw new $c_Lupickle_Invalid$Data().init___Lupickle_Js$Value__T(new $c_Lupickle_Js$Obj().init___sc_Seq(o), ("Key Missing: " + names.u[i]))
-    };
-    i = ((1 + i) | 0)
-  };
-  return $m_s_Predef$().genericWrapArray__O__scm_WrappedArray(accumulated)
-}
 function $s_Lupickle_Implicits$class__upickle$Implicits$$NumericReadWriter__Lupickle_Implicits__F1__F1__s_math_Numeric__Lupickle_Types$Reader($$this, func, func2, evidence$17) {
   var this$8 = $$this.Aliases__Lupickle_Types$Aliases$().RW$1;
   var _write = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(evidence$17$1) {
@@ -1242,12 +1219,6 @@ function $s_Lupickle_Implicits$class__upickle$Implicits$$NumericReadWriter__Lupi
   var _read = $s_Lupickle_Implicits$class__upickle$Implicits$$numericReaderFunc__Lupickle_Implicits__F1__F1__s_math_Numeric__s_PartialFunction($$this, func, func2, evidence$17);
   var src = new $c_Lsourcecode_Enclosing().init___T("upickle.Implicits#NumericReadWriter");
   return new $c_Lupickle_Types$ReadWriter$$anon$1().init___Lupickle_Types$ReadWriter$__F1__s_PartialFunction__Lsourcecode_Enclosing(this$8, _write, _read, src)
-}
-function $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader($$this, f, names, defaults, evidence$14) {
-  var this$1 = $$this.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_Implicits$$anonfun$CaseR$1().init___Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader($$this, f, names, defaults, evidence$14);
-  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.Implicits#CaseR");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$1, _read, src)
 }
 function $s_Lupickle_Implicits$class__$$init$__Lupickle_Implicits__V($$this) {
   var this$1 = $$this.Internal__Lupickle_Implicits$Internal$();
@@ -1412,14 +1383,6 @@ function $s_Lupickle_Implicits$class__$$init$__Lupickle_Implicits__V($$this) {
   var src$9 = new $c_Lsourcecode_Enclosing().init___T("upickle.Implicits#DurationR");
   $$this.DurationR$1 = new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$47, _read$6, src$9)
 }
-function $s_Lupickle_Implicits$class__SeqishR__Lupickle_Implicits__scg_CanBuildFrom__Lupickle_Types$Reader__Lupickle_Types$Reader($$this, cbf, r) {
-  var this$2 = $$this.Aliases__Lupickle_Types$Aliases$().R$1;
-  var this$1 = $$this.Internal__Lupickle_Implicits$Internal$();
-  var pf = new $c_Lupickle_Implicits$$anonfun$SeqishR$1().init___Lupickle_Implicits__scg_CanBuildFrom__Lupickle_Types$Reader($$this, cbf, r);
-  var _read = new $c_Lupickle_Implicits$Internal$$anon$1().init___Lupickle_Implicits$Internal$__T__s_PartialFunction(this$1, "Array(n)", pf);
-  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.Implicits#SeqishR");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$2, _read, src)
-}
 function $s_Lupickle_Implicits$class__upickle$Implicits$$NumericStringReadWriter__Lupickle_Implicits__F1__Lupickle_Types$Writer($$this, func) {
   var this$1 = $$this.Aliases__Lupickle_Types$Aliases$().RW$1;
   var _write = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2) {
@@ -1456,11 +1419,6 @@ function $s_Lupickle_Implicits$class__makeWriter__Lupickle_Implicits__F1__Lupick
   var this$1 = $$this.Writer__Lupickle_Types$Writer$();
   var src = new $c_Lsourcecode_Enclosing().init___T("upickle.Implicits#makeWriter");
   return new $c_Lupickle_Types$Writer$$anon$3().init___Lupickle_Types$Writer$__F1__Lsourcecode_Enclosing(this$1, f, src)
-}
-function $s_Lupickle_Implicits$class__makeReader__Lupickle_Implicits__s_PartialFunction__Lupickle_Types$Reader($$this, pf) {
-  var this$1 = $$this.Reader__Lupickle_Types$Reader$();
-  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.Implicits#makeReader");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$1, pf, src)
 }
 function $is_Lupickle_Js$Value(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lupickle_Js$Value)))
@@ -1516,10 +1474,6 @@ function $s_Lupickle_Types$Writer$class__$$init$__Lupickle_Types$Writer__V($$thi
 }
 function $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O($$this, expr, evidence$4) {
   return evidence$4.read__s_PartialFunction().apply__O__O(expr)
-}
-function $s_Lupickle_Types$class__read__Lupickle_Types__T__Lupickle_Types$Reader__O($$this, expr, evidence$3) {
-  var expr$1 = $m_Lupickle_json_package$().read__T__Lupickle_Js$Value(expr);
-  return $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O($$this, expr$1, evidence$3)
 }
 function $s_Lupickle_Types$class__writeJs__Lupickle_Types__O__Lupickle_Types$Writer__Lupickle_Js$Value($$this, expr, evidence$2) {
   return $as_Lupickle_Js$Value(evidence$2.write__F1().apply__O__O(expr))
@@ -3601,71 +3555,38 @@ function $s_scm_ResizableArray$class__$$init$__scm_ResizableArray__V($$this) {
   $$this.size0$6 = 0
 }
 /** @constructor */
-function $c_Lclient_teachers_OperationPageJS$$anon$2() {
-  $c_O.call(this);
-  this.derive$macro$22$1 = null;
-  this.bitmap$0$1 = false
-}
-$c_Lclient_teachers_OperationPageJS$$anon$2.prototype = new $h_O();
-$c_Lclient_teachers_OperationPageJS$$anon$2.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anon$2;
-/** @constructor */
-function $h_Lclient_teachers_OperationPageJS$$anon$2() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_OperationPageJS$$anon$2.prototype = $c_Lclient_teachers_OperationPageJS$$anon$2.prototype;
-$c_Lclient_teachers_OperationPageJS$$anon$2.prototype.init___ = (function() {
-  return this
-});
-$c_Lclient_teachers_OperationPageJS$$anon$2.prototype.derive$macro$22__Lupickle_Types$Writer = (function() {
-  return ((!this.bitmap$0$1) ? this.derive$macro$22$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$22$1)
-});
-$c_Lclient_teachers_OperationPageJS$$anon$2.prototype.derive$macro$22$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if ((!this.bitmap$0$1)) {
-    this.derive$macro$22$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1().init___Lclient_teachers_OperationPageJS$$anon$2(this));
-    this.bitmap$0$1 = true
-  };
-  return this.derive$macro$22$1
-});
-var $d_Lclient_teachers_OperationPageJS$$anon$2 = new $TypeData().initClass({
-  Lclient_teachers_OperationPageJS$$anon$2: 0
-}, false, "client.teachers.OperationPageJS$$anon$2", {
-  Lclient_teachers_OperationPageJS$$anon$2: 1,
-  O: 1
-});
-$c_Lclient_teachers_OperationPageJS$$anon$2.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anon$2;
-/** @constructor */
-function $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1() {
+function $c_Lclient_teachers_OperationPageJS$$anon$1() {
   $c_O.call(this);
   this.derive$macro$1$1 = null;
   this.bitmap$0$1 = false
 }
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1.prototype = new $h_O();
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1;
+$c_Lclient_teachers_OperationPageJS$$anon$1.prototype = new $h_O();
+$c_Lclient_teachers_OperationPageJS$$anon$1.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anon$1;
 /** @constructor */
-function $h_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1() {
+function $h_Lclient_teachers_OperationPageJS$$anon$1() {
   /*<skip>*/
 }
-$h_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1.prototype;
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$9 = (function($$outer) {
+$h_Lclient_teachers_OperationPageJS$$anon$1.prototype = $c_Lclient_teachers_OperationPageJS$$anon$1.prototype;
+$c_Lclient_teachers_OperationPageJS$$anon$1.prototype.init___ = (function() {
   return this
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1.prototype.derive$macro$1$lzycompute__p1__Lupickle_Types$Reader = (function() {
+$c_Lclient_teachers_OperationPageJS$$anon$1.prototype.derive$macro$1$lzycompute__p1__Lupickle_Types$Writer = (function() {
   if ((!this.bitmap$0$1)) {
-    this.derive$macro$1$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1().init___Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1(this));
+    this.derive$macro$1$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1().init___Lclient_teachers_OperationPageJS$$anon$1(this));
     this.bitmap$0$1 = true
   };
   return this.derive$macro$1$1
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1.prototype.derive$macro$1__Lupickle_Types$Reader = (function() {
-  return ((!this.bitmap$0$1) ? this.derive$macro$1$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$1$1)
+$c_Lclient_teachers_OperationPageJS$$anon$1.prototype.derive$macro$1__Lupickle_Types$Writer = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$1$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$1$1)
 });
-var $d_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1 = new $TypeData().initClass({
-  Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1: 0
-}, false, "client.teachers.OperationPageJS$$anonfun$9$$anon$1", {
-  Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1: 1,
+var $d_Lclient_teachers_OperationPageJS$$anon$1 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anon$1: 0
+}, false, "client.teachers.OperationPageJS$$anon$1", {
+  Lclient_teachers_OperationPageJS$$anon$1: 1,
   O: 1
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1;
+$c_Lclient_teachers_OperationPageJS$$anon$1.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anon$1;
 /** @constructor */
 function $c_Ljava_math_BigInteger$QuotAndRem() {
   $c_O.call(this);
@@ -10447,7 +10368,11 @@ function $c_Lclient_teachers_OperationPageJS$() {
   this.currentTextDecoration$1 = null;
   this.addTextButton$1 = null;
   this.addLineButton$1 = null;
-  this.addImageButton$1 = null
+  this.addImageButton$1 = null;
+  this.group$undlist$1 = null;
+  this.createGroupButton$1 = null;
+  this.deleteGroupButton$1 = null;
+  this.addGroupButton$1 = null
 }
 $c_Lclient_teachers_OperationPageJS$.prototype = new $h_O();
 $c_Lclient_teachers_OperationPageJS$.prototype.constructor = $c_Lclient_teachers_OperationPageJS$;
@@ -10462,19 +10387,22 @@ $c_Lclient_teachers_OperationPageJS$.prototype.init___ = (function() {
   this.ajaxClientHandler$1 = new $c_Lautowire_ClientProxy().init___Lautowire_Client(this$1);
   this.display$undimage$undbutton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#console");
   this.display$undimage$undbutton$1.click((function(e0$2) {
+    var this$3 = $m_s_Console$();
+    var this$4 = $as_Ljava_io_PrintStream(this$3.outVar$2.v$1);
+    this$4.java$lang$JSConsoleBasedPrintStream$$printString__T__V("HERE 999\n");
     $m_Lclient_teachers_OperationPageJS$().createPDF__V()
   }));
   var array = [new $c_T2().init___O__O("arial", "Arial"), new $c_T2().init___O__O("helvetica", "Helvetica"), new $c_T2().init___O__O("verdana", "Verdana"), new $c_T2().init___O__O("courier", "Courier"), new $c_T2().init___O__O("pacifico", "Pacifico")];
-  var this$13 = new $c_scm_MapBuilder().init___sc_GenMap($m_sci_Map$EmptyMap$());
+  var this$16 = new $c_scm_MapBuilder().init___sc_GenMap($m_sci_Map$EmptyMap$());
   var i = 0;
   var len = $uI(array.length);
   while ((i < len)) {
     var index = i;
     var arg1 = array[index];
-    this$13.$$plus$eq__T2__scm_MapBuilder($as_T2(arg1));
+    this$16.$$plus$eq__T2__scm_MapBuilder($as_T2(arg1));
     i = ((1 + i) | 0)
   };
-  this.fontMap$1 = $as_sci_Map(this$13.elems$1);
+  this.fontMap$1 = $as_sci_Map(this$16.elems$1);
   this.canvas$1 = new $g.fabric.Canvas("main_canvas");
   this.canvas$1.setHeight(878.0);
   this.canvas$1.setWidth(622.0);
@@ -10493,9 +10421,9 @@ $c_Lclient_teachers_OperationPageJS$.prototype.init___ = (function() {
   })(new $c_Lclient_teachers_OperationPageJS$$anonfun$1().init___()));
   this.canvas$1.on("selection:created", (function() {
     if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
-      var this$15 = $m_s_Console$();
-      var this$16 = $as_Ljava_io_PrintStream(this$15.outVar$2.v$1);
-      this$16.java$lang$JSConsoleBasedPrintStream$$printString__T__V("group selected\n")
+      var this$18 = $m_s_Console$();
+      var this$19 = $as_Ljava_io_PrintStream(this$18.outVar$2.v$1);
+      this$19.java$lang$JSConsoleBasedPrintStream$$printString__T__V("group selected\n")
     }
   }));
   this.canvas$1.on("object:selected", (function(f$1) {
@@ -10523,21 +10451,48 @@ $c_Lclient_teachers_OperationPageJS$.prototype.init___ = (function() {
       return f$3.apply__O__O(arg1$2)
     })
   })(new $c_Lclient_teachers_OperationPageJS$$anonfun$7().init___()));
-  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument()).keydown((function(f$4) {
+  this.group$undlist$1 = $as_scm_ListBuffer($m_scm_ListBuffer$().apply__sc_Seq__sc_GenTraversable($m_sci_Nil$()));
+  this.createGroupButton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#createGroup");
+  this.createGroupButton$1.click((function(e0$2$2) {
+    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+      var activeGroup = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
+      var this$20 = $m_Lclient_teachers_OperationPageJS$().group$undlist$1;
+      var elems = new $c_sjs_js_WrappedArray().init___sjs_js_Array([activeGroup]);
+      this$20.$$plus$plus$eq__sc_TraversableOnce__scm_ListBuffer(elems)
+    }
+  }));
+  this.deleteGroupButton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#deleteGroup");
+  this.deleteGroupButton$1.click((function(f$4) {
     return (function(arg1$3) {
       return f$4.apply__O__O(arg1$3)
     })
-  })(new $c_Lclient_teachers_OperationPageJS$$anonfun$8().init___()));
-  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").change((function(f$5) {
-    return (function() {
-      return f$5.apply__O()
+  })(new $c_Lclient_teachers_OperationPageJS$$anonfun$9().init___()));
+  this.addGroupButton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#addGroup");
+  this.addGroupButton$1.click((function(f$5) {
+    return (function(arg1$4) {
+      return f$5.apply__O__O(arg1$4)
     })
   })(new $c_Lclient_teachers_OperationPageJS$$anonfun$10().init___()));
-  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").change((function(f$6) {
-    return (function() {
-      return f$6.apply__O()
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument()).click((function(f$6) {
+    return (function(arg1$5) {
+      return f$6.apply__O__O(arg1$5)
     })
   })(new $c_Lclient_teachers_OperationPageJS$$anonfun$11().init___()));
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument()).keydown((function(f$7) {
+    return (function(arg1$6) {
+      return f$7.apply__O__O(arg1$6)
+    })
+  })(new $c_Lclient_teachers_OperationPageJS$$anonfun$12().init___()));
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").change((function(f$8) {
+    return (function() {
+      return f$8.apply__O()
+    })
+  })(new $c_Lclient_teachers_OperationPageJS$$anonfun$13().init___()));
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").change((function(f$9) {
+    return (function() {
+      return f$9.apply__O()
+    })
+  })(new $c_Lclient_teachers_OperationPageJS$$anonfun$14().init___()));
   return this
 });
 $c_Lclient_teachers_OperationPageJS$.prototype.changeFontSize__I__V = (function(fontsize) {
@@ -10693,52 +10648,71 @@ $c_Lclient_teachers_OperationPageJS$.prototype.changeTextDecoration__V = (functi
   this.canvas$1.renderAll()
 });
 $c_Lclient_teachers_OperationPageJS$.prototype.createPDF__V = (function() {
-  var json = $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("canvas_data").getAttribute("value"));
-  var this$4 = $m_Lupickle_default$();
-  var this$3 = $m_Lupickle_default$();
-  var this$1 = $m_s_Predef$();
-  var cbf = new $c_s_LowPriorityImplicits$$anon$4().init___s_LowPriorityImplicits(this$1);
-  var this$2 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
-  var r = new $c_Lclient_teachers_OperationPageJS$$anonfun$9().init___();
-  var r$1 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$2, "Tagged Object teachers.SmallTextBox", r);
-  var evidence$3 = $s_Lupickle_Implicits$class__SeqishR__Lupickle_Implicits__scg_CanBuildFrom__Lupickle_Types$Reader__Lupickle_Types$Reader(this$3, cbf, r$1);
-  var boxList = $as_sc_Seq($s_Lupickle_Types$class__read__Lupickle_Types__T__Lupickle_Types$Reader__O(this$4, json, evidence$3));
-  var jsx$2 = this.ajaxClientHandler$1.self$1;
-  var jsx$1 = $as_sc_Seq($m_sc_Seq$().apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["teachers", "AjaxApi_OperationPage", "createPDF"])));
-  var this$7 = $m_Lupickle_default$();
+  var smallTextBoxes = $as_scm_ListBuffer($m_scm_ListBuffer$().apply__sc_Seq__sc_GenTraversable($m_sci_Nil$()));
+  this.canvas$1.forEachObject((function(smallTextBoxes$1) {
+    return (function(text$2) {
+      var jsx$10 = $as_T(text$2.getText());
+      var jsx$9 = $uD(text$2.getLeft());
+      var jsx$8 = $uD(text$2.getTop());
+      var jsx$7 = $uD(text$2.getWidth());
+      var jsx$6 = $uD(text$2.getHeight());
+      var this$2 = new $c_sci_StringOps().init___T($as_T(text$2.getFontSize()));
+      var this$4 = $m_jl_Integer$();
+      var s = this$2.repr$1;
+      var jsx$5 = this$4.parseInt__T__I__I(s, 10);
+      var jsx$4 = $as_T(text$2.getFontFamily());
+      var jsx$3 = $as_T(text$2.getTextBackgroundColor());
+      var jsx$2 = $as_T(text$2.getTextAlign());
+      var thiz = $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontWeight").getAttribute("value"));
+      if ((thiz === null)) {
+        var jsx$1;
+        throw new $c_jl_NullPointerException().init___()
+      } else {
+        var jsx$1 = thiz
+      };
+      var elems = new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Lteachers_SmallTextBox().init___T__I__I__I__I__I__T__T__T__T__T__T(jsx$10, $doubleToInt(jsx$9), $doubleToInt(jsx$8), $doubleToInt(jsx$7), $doubleToInt(jsx$6), jsx$5, jsx$4, jsx$3, jsx$2, ((jsx$1 === "") ? "" : "bold"), $as_T(text$2.getFontStyle()), $as_T(text$2.getTextDecoration()))]);
+      smallTextBoxes$1.$$plus$plus$eq__sc_TraversableOnce__scm_ListBuffer(elems)
+    })
+  })(smallTextBoxes), null);
+  var this$7 = $m_s_Console$();
+  var this$8 = $as_Ljava_io_PrintStream(this$7.outVar$2.v$1);
+  this$8.java$lang$JSConsoleBasedPrintStream$$printString__T__V((smallTextBoxes + "\n"));
+  var jsx$12 = this.ajaxClientHandler$1.self$1;
+  var jsx$11 = $as_sc_Seq($m_sc_Seq$().apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["teachers", "AjaxApi_OperationPage", "createPDF"])));
+  var this$11 = $m_Lupickle_default$();
   var v = $m_s_Predef$().singleton$und$less$colon$less$2;
-  var this$6 = new $c_Lclient_teachers_OperationPageJS$$anon$2().init___();
-  var w = this$6.derive$macro$22__Lupickle_Types$Writer();
-  var this$8 = this$7.Aliases__Lupickle_Types$Aliases$().W$1;
-  var _write = new $c_Lupickle_Implicits$$anonfun$SeqishW$1().init___Lupickle_Implicits__s_Predef$$less$colon$less__Lupickle_Types$Writer(this$7, v, w);
+  var this$10 = new $c_Lclient_teachers_OperationPageJS$$anon$1().init___();
+  var w = this$10.derive$macro$1__Lupickle_Types$Writer();
+  var this$12 = this$11.Aliases__Lupickle_Types$Aliases$().W$1;
+  var _write = new $c_Lupickle_Implicits$$anonfun$SeqishW$1().init___Lupickle_Implicits__s_Predef$$less$colon$less__Lupickle_Types$Writer(this$11, v, w);
   var src = new $c_Lsourcecode_Enclosing().init___T("upickle.Implicits#SeqishW");
-  var evidence$2 = new $c_Lupickle_Types$Writer$$anon$3().init___Lupickle_Types$Writer$__F1__Lsourcecode_Enclosing(this$8, _write, src);
-  var this$10 = $m_Lupickle_default$();
-  var y = $s_Lupickle_Types$class__writeJs__Lupickle_Types__O__Lupickle_Types$Writer__Lupickle_Js$Value(this$10, boxList, evidence$2);
+  var evidence$2 = new $c_Lupickle_Types$Writer$$anon$3().init___Lupickle_Types$Writer$__F1__Lsourcecode_Enclosing(this$12, _write, src);
+  var this$14 = $m_Lupickle_default$();
+  var y = $s_Lupickle_Types$class__writeJs__Lupickle_Types__O__Lupickle_Types$Writer__Lupickle_Js$Value(this$14, smallTextBoxes, evidence$2);
   var array = [new $c_T2().init___O__O("boxList", y)];
-  var this$13 = new $c_scm_MapBuilder().init___sc_GenMap($m_sci_Map$EmptyMap$());
+  var this$17 = new $c_scm_MapBuilder().init___sc_GenMap($m_sci_Map$EmptyMap$());
   var i = 0;
   var len = $uI(array.length);
   while ((i < len)) {
     var index = i;
     var arg1 = array[index];
-    this$13.$$plus$eq__T2__scm_MapBuilder($as_T2(arg1));
+    this$17.$$plus$eq__T2__scm_MapBuilder($as_T2(arg1));
     i = ((1 + i) | 0)
   };
-  var this$16 = jsx$2.doCall__Lautowire_Core$Request__s_concurrent_Future(new $c_Lautowire_Core$Request().init___sc_Seq__sci_Map(jsx$1, $as_sci_Map(this$13.elems$1)));
+  var this$20 = jsx$12.doCall__Lautowire_Core$Request__s_concurrent_Future(new $c_Lautowire_Core$Request().init___sc_Seq__sci_Map(jsx$11, $as_sci_Map(this$17.elems$1)));
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2$2) {
     var x$2 = $as_Lupickle_Js$Value(x$2$2);
     $m_Lclient_teachers_OperationPageJS$();
     var evidence$1 = $m_Lupickle_default$().UnitRW$1;
     var evidence$1$1 = $as_Lupickle_Types$Reader(evidence$1);
-    var this$15 = $m_Lupickle_default$();
-    $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$15, x$2, evidence$1$1)
+    var this$19 = $m_Lupickle_default$();
+    $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$19, x$2, evidence$1$1)
   }));
   var executor = $m_sjs_concurrent_JSExecutionContext$Implicits$().queue$1;
-  var this$17 = $s_s_concurrent_Future$class__map__s_concurrent_Future__F1__s_concurrent_ExecutionContext__s_concurrent_Future(this$16, f, executor);
+  var this$21 = $s_s_concurrent_Future$class__map__s_concurrent_Future__F1__s_concurrent_ExecutionContext__s_concurrent_Future(this$20, f, executor);
   var pf = new $c_Lclient_teachers_OperationPageJS$$anonfun$createPDF$1().init___();
   var executor$1 = $m_sjs_concurrent_JSExecutionContext$Implicits$().queue$1;
-  $s_s_concurrent_Future$class__onSuccess__s_concurrent_Future__s_PartialFunction__s_concurrent_ExecutionContext__V(this$17, pf, executor$1)
+  $s_s_concurrent_Future$class__onSuccess__s_concurrent_Future__s_PartialFunction__s_concurrent_ExecutionContext__V(this$21, pf, executor$1)
 });
 $c_Lclient_teachers_OperationPageJS$.prototype.main = (function() {
   return this.$$js$exported$meth$main__O()
@@ -11433,62 +11407,6 @@ var $d_Lsbt_testing_TaskDef = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_Lsbt_testing_TaskDef.prototype.$classData = $d_Lsbt_testing_TaskDef;
-/** @constructor */
-function $c_Lupickle_Implicits$Internal$$anon$3() {
-  $c_O.call(this);
-  this.read0$1 = null;
-  this.$$outer$1 = null;
-  this.name$2$1 = null;
-  this.r$1$1 = null;
-  this.upickle$Types$Reader$$readNull$1 = null;
-  this.read$1 = null
-}
-$c_Lupickle_Implicits$Internal$$anon$3.prototype = new $h_O();
-$c_Lupickle_Implicits$Internal$$anon$3.prototype.constructor = $c_Lupickle_Implicits$Internal$$anon$3;
-/** @constructor */
-function $h_Lupickle_Implicits$Internal$$anon$3() {
-  /*<skip>*/
-}
-$h_Lupickle_Implicits$Internal$$anon$3.prototype = $c_Lupickle_Implicits$Internal$$anon$3.prototype;
-$c_Lupickle_Implicits$Internal$$anon$3.prototype.read0__s_PartialFunction = (function() {
-  return this.read0$1
-});
-$c_Lupickle_Implicits$Internal$$anon$3.prototype.toString__T = (function() {
-  return new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["validateReader(", ", ", ")"])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([this.name$2$1, this.r$1$1.apply__O()]))
-});
-$c_Lupickle_Implicits$Internal$$anon$3.prototype.upickle$Types$Reader$$undsetter$und$read$und$eq__s_PartialFunction__V = (function(x$1) {
-  this.read$1 = x$1
-});
-$c_Lupickle_Implicits$Internal$$anon$3.prototype.read__s_PartialFunction = (function() {
-  return this.read$1
-});
-$c_Lupickle_Implicits$Internal$$anon$3.prototype.upickle$Types$Reader$$undsetter$und$upickle$Types$Reader$$readNull$und$eq__s_PartialFunction__V = (function(x$1) {
-  this.upickle$Types$Reader$$readNull$1 = x$1
-});
-$c_Lupickle_Implicits$Internal$$anon$3.prototype.upickle$Types$Reader$$readNull__s_PartialFunction = (function() {
-  return this.upickle$Types$Reader$$readNull$1
-});
-$c_Lupickle_Implicits$Internal$$anon$3.prototype.init___Lupickle_Implicits$Internal$__T__F0 = (function($$outer, name$2, r$1) {
-  if (($$outer === null)) {
-    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
-  } else {
-    this.$$outer$1 = $$outer
-  };
-  this.name$2$1 = name$2;
-  this.r$1$1 = r$1;
-  $s_Lupickle_Types$Reader$class__$$init$__Lupickle_Types$Reader__V(this);
-  var pf = $as_Lupickle_Types$Reader(r$1.apply__O()).read__s_PartialFunction();
-  this.read0$1 = new $c_Lupickle_Implicits$Internal$$anon$1().init___Lupickle_Implicits$Internal$__T__s_PartialFunction($$outer, name$2, pf);
-  return this
-});
-var $d_Lupickle_Implicits$Internal$$anon$3 = new $TypeData().initClass({
-  Lupickle_Implicits$Internal$$anon$3: 0
-}, false, "upickle.Implicits$Internal$$anon$3", {
-  Lupickle_Implicits$Internal$$anon$3: 1,
-  O: 1,
-  Lupickle_Types$Reader: 1
-});
-$c_Lupickle_Implicits$Internal$$anon$3.prototype.$classData = $d_Lupickle_Implicits$Internal$$anon$3;
 /** @constructor */
 function $c_Lupickle_Types$Reader$$anon$4() {
   $c_O.call(this);
@@ -12455,39 +12373,6 @@ var $d_s_FallbackArrayBuilding$$anon$1 = new $TypeData().initClass({
   scg_CanBuildFrom: 1
 });
 $c_s_FallbackArrayBuilding$$anon$1.prototype.$classData = $d_s_FallbackArrayBuilding$$anon$1;
-/** @constructor */
-function $c_s_LowPriorityImplicits$$anon$4() {
-  $c_O.call(this)
-}
-$c_s_LowPriorityImplicits$$anon$4.prototype = new $h_O();
-$c_s_LowPriorityImplicits$$anon$4.prototype.constructor = $c_s_LowPriorityImplicits$$anon$4;
-/** @constructor */
-function $h_s_LowPriorityImplicits$$anon$4() {
-  /*<skip>*/
-}
-$h_s_LowPriorityImplicits$$anon$4.prototype = $c_s_LowPriorityImplicits$$anon$4.prototype;
-$c_s_LowPriorityImplicits$$anon$4.prototype.apply__scm_Builder = (function() {
-  $m_sci_IndexedSeq$();
-  $m_sci_Vector$();
-  return new $c_sci_VectorBuilder().init___()
-});
-$c_s_LowPriorityImplicits$$anon$4.prototype.apply__O__scm_Builder = (function(from) {
-  $as_T(from);
-  $m_sci_IndexedSeq$();
-  $m_sci_Vector$();
-  return new $c_sci_VectorBuilder().init___()
-});
-$c_s_LowPriorityImplicits$$anon$4.prototype.init___s_LowPriorityImplicits = (function($$outer) {
-  return this
-});
-var $d_s_LowPriorityImplicits$$anon$4 = new $TypeData().initClass({
-  s_LowPriorityImplicits$$anon$4: 0
-}, false, "scala.LowPriorityImplicits$$anon$4", {
-  s_LowPriorityImplicits$$anon$4: 1,
-  O: 1,
-  scg_CanBuildFrom: 1
-});
-$c_s_LowPriorityImplicits$$anon$4.prototype.$classData = $d_s_LowPriorityImplicits$$anon$4;
 /** @constructor */
 function $c_s_Predef$$anon$3() {
   $c_O.call(this)
@@ -14508,11 +14393,11 @@ function $h_jl_Double$() {
   /*<skip>*/
 }
 $h_jl_Double$.prototype = $c_jl_Double$.prototype;
-$c_jl_Double$.prototype.doubleStrPat__p1__sjs_js_RegExp = (function() {
-  return ((!this.bitmap$0$1) ? this.doubleStrPat$lzycompute__p1__sjs_js_RegExp() : this.doubleStrPat$1)
-});
 $c_jl_Double$.prototype.init___ = (function() {
   return this
+});
+$c_jl_Double$.prototype.doubleStrPat__p1__sjs_js_RegExp = (function() {
+  return ((!this.bitmap$0$1) ? this.doubleStrPat$lzycompute__p1__sjs_js_RegExp() : this.doubleStrPat$1)
 });
 $c_jl_Double$.prototype.doubleStrPat$lzycompute__p1__sjs_js_RegExp = (function() {
   if ((!this.bitmap$0$1)) {
@@ -14730,6 +14615,9 @@ $h_jl_Long$.prototype = $c_jl_Long$.prototype;
 $c_jl_Long$.prototype.init___ = (function() {
   return this
 });
+$c_jl_Long$.prototype.StringRadixInfos__p1__sjs_js_Array = (function() {
+  return ((!this.bitmap$0$1) ? this.StringRadixInfos$lzycompute__p1__sjs_js_Array() : this.StringRadixInfos$1)
+});
 $c_jl_Long$.prototype.parseLong__T__I__J = (function(s, radix) {
   if ((s === "")) {
     this.parseLongError__p1__T__sr_Nothing$(s)
@@ -14764,9 +14652,6 @@ $c_jl_Long$.prototype.parseLong__T__I__J = (function(s, radix) {
     };
     return unsignedResult
   }
-});
-$c_jl_Long$.prototype.StringRadixInfos__p1__sjs_js_Array = (function() {
-  return ((!this.bitmap$0$1) ? this.StringRadixInfos$lzycompute__p1__sjs_js_Array() : this.StringRadixInfos$1)
 });
 $c_jl_Long$.prototype.parseLongError__p1__T__sr_Nothing$ = (function(s) {
   throw new $c_jl_NumberFormatException().init___T(new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["For input string: \"", "\""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([s])))
@@ -20782,20 +20667,17 @@ var $d_Lautowire_Core$Request = new $TypeData().initClass({
 });
 $c_Lautowire_Core$Request.prototype.$classData = $d_Lautowire_Core$Request;
 /** @constructor */
-function $c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1() {
+function $c_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1;
+$c_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1;
 /** @constructor */
-function $h_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1() {
+function $h_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1() {
   /*<skip>*/
 }
-$h_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1.prototype = $c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1.prototype;
-$c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1.prototype.init___Lclient_teachers_OperationPageJS$$anon$2 = (function($$outer) {
-  return this
-});
-$c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1.prototype.apply__Lupickle_Types$Writer = (function() {
+$h_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1.prototype = $c_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1.prototype;
+$c_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1.prototype.apply__Lupickle_Types$Writer = (function() {
   var this$10 = $m_Lupickle_default$();
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
     var x$0 = $as_Lteachers_SmallTextBox(x$0$2);
@@ -20839,25 +20721,28 @@ $c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1.prototype
   var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple12W__Lupickle_Generated__O__O__O__O__O__O__O__O__O__O__O__O__O(this$9, evidence$133, evidence$134, evidence$135, evidence$136, evidence$137, evidence$138, evidence$139, evidence$140, evidence$141, evidence$142, evidence$143, evidence$144));
   return $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15)
 });
-$c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1.prototype.apply__O = (function() {
+$c_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1.prototype.init___Lclient_teachers_OperationPageJS$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Writer()
 });
-var $d_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1 = new $TypeData().initClass({
-  Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1: 0
-}, false, "client.teachers.OperationPageJS$$anon$2$$anonfun$derive$macro$22$1", {
-  Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1: 1,
+var $d_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1: 0
+}, false, "client.teachers.OperationPageJS$$anon$1$$anonfun$derive$macro$1$1", {
+  Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anon$2$$anonfun$derive$macro$22$1;
+$c_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anon$1$$anonfun$derive$macro$1$1;
 /** @constructor */
 function $c_Lclient_teachers_OperationPageJS$$anonfun$10() {
-  $c_sr_AbstractFunction0.call(this)
+  $c_sr_AbstractFunction1.call(this)
 }
-$c_Lclient_teachers_OperationPageJS$$anonfun$10.prototype = new $h_sr_AbstractFunction0();
+$c_Lclient_teachers_OperationPageJS$$anonfun$10.prototype = new $h_sr_AbstractFunction1();
 $c_Lclient_teachers_OperationPageJS$$anonfun$10.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$10;
 /** @constructor */
 function $h_Lclient_teachers_OperationPageJS$$anonfun$10() {
@@ -20867,79 +20752,91 @@ $h_Lclient_teachers_OperationPageJS$$anonfun$10.prototype = $c_Lclient_teachers_
 $c_Lclient_teachers_OperationPageJS$$anonfun$10.prototype.init___ = (function() {
   return this
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$10.prototype.apply__Lfacades_fabricjs_Canvas = (function() {
-  var color = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").val());
-  if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().forEachObject((function(f) {
-      return (function(arg1) {
-        return f.apply__O__O(arg1)
-      })
-    })(new $c_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11().init___Lclient_teachers_OperationPageJS$$anonfun$10__T(this, color)), null)
-  } else {
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().set("fill", (function(color$1) {
-      return (function() {
-        return color$1
-      })
-    })(color))
-  };
-  return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
+$c_Lclient_teachers_OperationPageJS$$anonfun$10.prototype.apply__O__O = (function(v1) {
+  this.apply__Lorg_scalajs_dom_raw_MouseEvent__V(v1)
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$10.prototype.apply__O = (function() {
-  return this.apply__Lfacades_fabricjs_Canvas()
+$c_Lclient_teachers_OperationPageJS$$anonfun$10.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__V = (function(e0) {
+  var text = new $g.fabric.Textbox("Tap and Typeeee");
+  text.left = 50.0;
+  text.top = 100.0;
+  text.set("editable", (function() {
+    return "true"
+  }));
+  text.width = 400.0;
+  text.set("fontSize", (function() {
+    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontSizeForm").getAttribute("value"))
+  }));
+  text.set("fontFamily", (function() {
+    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("font").getAttribute("value"))
+  }));
+  text.set("fontWeight", (function() {
+    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontWeight").getAttribute("value"))
+  }));
+  text.fill = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").val());
+  text.backgroundColor = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").val());
+  var text1 = new $g.fabric.Textbox("Tap and Typeeee");
+  text1.left = 50.0;
+  text1.top = 200.0;
+  text1.set("editable", (function() {
+    return "true"
+  }));
+  text1.width = 400.0;
+  text1.set("fontSize", (function() {
+    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontSizeForm").getAttribute("value"))
+  }));
+  text1.set("fontFamily", (function() {
+    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("font").getAttribute("value"))
+  }));
+  text1.set("fontWeight", (function() {
+    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontWeight").getAttribute("value"))
+  }));
+  text1.fill = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").val());
+  text1.backgroundColor = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").val());
+  var text2 = new $g.fabric.Textbox("Tap and Typeeee");
+  text2.left = 50.0;
+  text2.top = 150.0;
+  text2.set("editable", (function() {
+    return "true"
+  }));
+  text2.width = 400.0;
+  text2.set("fontSize", (function() {
+    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontSizeForm").getAttribute("value"))
+  }));
+  text2.set("fontFamily", (function() {
+    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("font").getAttribute("value"))
+  }));
+  text2.set("fontWeight", (function() {
+    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontWeight").getAttribute("value"))
+  }));
+  text2.fill = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").val());
+  text2.backgroundColor = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").val());
+  var group = new $g.fabric.Group([text, text1, text2]);
+  group.setCoords();
+  $m_Lclient_teachers_OperationPageJS$().canvas$1.add(text);
+  $m_Lclient_teachers_OperationPageJS$().canvas$1.add(text1);
+  $m_Lclient_teachers_OperationPageJS$().canvas$1.add(text2);
+  $m_Lclient_teachers_OperationPageJS$().canvas$1.setActiveGroup(group);
+  $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll();
+  var this$1 = $m_Lclient_teachers_OperationPageJS$().group$undlist$1;
+  var elems = new $c_sjs_js_WrappedArray().init___sjs_js_Array([group]);
+  this$1.$$plus$plus$eq__sc_TraversableOnce__scm_ListBuffer(elems)
 });
 var $d_Lclient_teachers_OperationPageJS$$anonfun$10 = new $TypeData().initClass({
   Lclient_teachers_OperationPageJS$$anonfun$10: 0
 }, false, "client.teachers.OperationPageJS$$anonfun$10", {
   Lclient_teachers_OperationPageJS$$anonfun$10: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$10.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$10;
-/** @constructor */
-function $c_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11() {
-  $c_sr_AbstractFunction1.call(this);
-  this.color$1$f = null
-}
-$c_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11;
-/** @constructor */
-function $h_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11.prototype;
-$c_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object(v1)
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11.prototype.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object = (function(myobj) {
-  return myobj.set("fill", (function(arg$outer) {
-    return (function() {
-      return arg$outer.color$1$f
-    })
-  })(this))
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$10__T = (function($$outer, color$1) {
-  this.color$1$f = color$1;
-  return this
-});
-var $d_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11 = new $TypeData().initClass({
-  Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11: 0
-}, false, "client.teachers.OperationPageJS$$anonfun$10$$anonfun$apply$11", {
-  Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$10$$anonfun$apply$11;
+$c_Lclient_teachers_OperationPageJS$$anonfun$10.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$10;
 /** @constructor */
 function $c_Lclient_teachers_OperationPageJS$$anonfun$11() {
-  $c_sr_AbstractFunction0.call(this)
+  $c_sr_AbstractFunction1.call(this)
 }
-$c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype = new $h_sr_AbstractFunction0();
+$c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype = new $h_sr_AbstractFunction1();
 $c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$11;
 /** @constructor */
 function $h_Lclient_teachers_OperationPageJS$$anonfun$11() {
@@ -20949,14 +20846,389 @@ $h_Lclient_teachers_OperationPageJS$$anonfun$11.prototype = $c_Lclient_teachers_
 $c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype.init___ = (function() {
   return this
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype.apply__Lfacades_fabricjs_Canvas = (function() {
+$c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype.apply__O__O = (function(v1) {
+  this.apply__Lorg_scalajs_dom_raw_MouseEvent__V(v1)
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__V = (function(e0) {
+  if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+    var groups_to_handle = $as_scm_ListBuffer($m_scm_ListBuffer$().apply__sc_Seq__sc_GenTraversable($m_sci_Nil$()));
+    var this$1 = $m_Lclient_teachers_OperationPageJS$().group$undlist$1;
+    var f = new $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24().init___Lclient_teachers_OperationPageJS$$anonfun$11__scm_ListBuffer(this, groups_to_handle);
+    var this$2 = this$1.scala$collection$mutable$ListBuffer$$start$6;
+    var these = this$2;
+    while ((!these.isEmpty__Z())) {
+      var v1 = these.head__O();
+      f.apply__Lfacades_fabricjs_Group__V(v1);
+      these = $as_sci_List(these.tail__O())
+    };
+    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+      var f$1 = new $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26().init___Lclient_teachers_OperationPageJS$$anonfun$11(this);
+      var this$3 = groups_to_handle.scala$collection$mutable$ListBuffer$$start$6;
+      var these$1 = this$3;
+      while ((!these$1.isEmpty__Z())) {
+        var v1$1 = these$1.head__O();
+        f$1.apply__Lfacades_fabricjs_Group__V(v1$1);
+        these$1 = $as_sci_List(these$1.tail__O())
+      }
+    } else {
+      var this$4 = groups_to_handle.scala$collection$mutable$ListBuffer$$start$6;
+      if ($s_sc_TraversableOnce$class__nonEmpty__sc_TraversableOnce__Z(this$4)) {
+        $m_Lclient_teachers_OperationPageJS$().canvas$1.discardActiveObject();
+        $m_Lclient_teachers_OperationPageJS$().canvas$1.discardActiveGroup();
+        $m_Lclient_teachers_OperationPageJS$().canvas$1.setActiveGroup(groups_to_handle.scala$collection$mutable$ListBuffer$$start$6.head__O());
+        $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().forEachObject((function(f$2) {
+          return (function(arg1) {
+            return f$2.apply__O__O(arg1)
+          })
+        })(new $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28().init___Lclient_teachers_OperationPageJS$$anonfun$11(this)), null)
+      }
+    }
+  }
+});
+var $d_Lclient_teachers_OperationPageJS$$anonfun$11 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anonfun$11: 0
+}, false, "client.teachers.OperationPageJS$$anonfun$11", {
+  Lclient_teachers_OperationPageJS$$anonfun$11: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$11;
+/** @constructor */
+function $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24() {
+  $c_sr_AbstractFunction1.call(this);
+  this.groups$undto$undhandle$1$f = null
+}
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24;
+/** @constructor */
+function $h_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24.prototype;
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24.prototype.apply__O__O = (function(v1) {
+  this.apply__Lfacades_fabricjs_Group__V(v1)
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24.prototype.apply__Lfacades_fabricjs_Group__V = (function(group) {
+  group.forEachObject((function(arg$outer, group$2) {
+    return (function(myobj2$2) {
+      if (((($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject() !== null) && $m_sr_BoxesRunTime$().equals__O__O__Z($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject(), myobj2$2)) || (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null) && $uZ($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().contains(myobj2$2))))) {
+        var this$1 = arg$outer.groups$undto$undhandle$1$f;
+        var elems = new $c_sjs_js_WrappedArray().init___sjs_js_Array([group$2]);
+        this$1.$$plus$plus$eq__sc_TraversableOnce__scm_ListBuffer(elems)
+      }
+    })
+  })(this, group), null)
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$11__scm_ListBuffer = (function($$outer, groups_to_handle$1) {
+  this.groups$undto$undhandle$1$f = groups_to_handle$1;
+  return this
+});
+var $d_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24: 0
+}, false, "client.teachers.OperationPageJS$$anonfun$11$$anonfun$apply$24", {
+  Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$24;
+/** @constructor */
+function $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26;
+/** @constructor */
+function $h_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26.prototype;
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26.prototype.apply__O__O = (function(v1) {
+  this.apply__Lfacades_fabricjs_Group__V(v1)
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26.prototype.apply__Lfacades_fabricjs_Group__V = (function(group) {
+  group.forEachObject((function(f) {
+    return (function(arg1) {
+      return f.apply__O__O(arg1)
+    })
+  })(new $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27().init___Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26(this)), null)
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$11 = (function($$outer) {
+  return this
+});
+var $d_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26: 0
+}, false, "client.teachers.OperationPageJS$$anonfun$11$$anonfun$apply$26", {
+  Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26;
+/** @constructor */
+function $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27;
+/** @constructor */
+function $h_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27.prototype;
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lfacades_fabricjs_Object__O(v1)
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27.prototype.apply__Lfacades_fabricjs_Object__O = (function(myobj2) {
+  return ((!$uZ($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().contains(myobj2))) ? (myobj2.set("active", (function() {
+    return true
+  })), myobj2.bringToFront(), $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().addWithUpdate(myobj2)) : (void 0))
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26 = (function($$outer) {
+  return this
+});
+var $d_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27: 0
+}, false, "client.teachers.OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27", {
+  Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$26$$anonfun$apply$27;
+/** @constructor */
+function $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28;
+/** @constructor */
+function $h_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28.prototype;
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object(v1)
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28.prototype.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object = (function(myobj2) {
+  myobj2.set("active", (function() {
+    return true
+  }));
+  return myobj2.bringToFront()
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$11 = (function($$outer) {
+  return this
+});
+var $d_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28: 0
+}, false, "client.teachers.OperationPageJS$$anonfun$11$$anonfun$apply$28", {
+  Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$28;
+/** @constructor */
+function $c_Lclient_teachers_OperationPageJS$$anonfun$12() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lclient_teachers_OperationPageJS$$anonfun$12.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_OperationPageJS$$anonfun$12.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$12;
+/** @constructor */
+function $h_Lclient_teachers_OperationPageJS$$anonfun$12() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_OperationPageJS$$anonfun$12.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$12.prototype;
+$c_Lclient_teachers_OperationPageJS$$anonfun$12.prototype.init___ = (function() {
+  return this
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$12.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lorg_scalajs_dom_raw_KeyboardEvent__Lfacades_fabricjs_Canvas(v1)
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$12.prototype.apply__Lorg_scalajs_dom_raw_KeyboardEvent__Lfacades_fabricjs_Canvas = (function(e) {
+  if (($uI(e.keyCode) === 37)) {
+    e.preventDefault();
+    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().left = ((-4.0) + $uD($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().left))
+    } else {
+      var activeGroup$2 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
+      activeGroup$2.left = ((-4.0) + $uD(activeGroup$2.left))
+    };
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
+  };
+  if (($uI(e.keyCode) === 38)) {
+    e.preventDefault();
+    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+      var activeGroup$3 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
+      activeGroup$3.top = ((-4.0) + $uD(activeGroup$3.top))
+    } else {
+      var activeGroup$4 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
+      activeGroup$4.top = ((-4.0) + $uD(activeGroup$4.top))
+    };
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
+  };
+  if (($uI(e.keyCode) === 39)) {
+    e.preventDefault();
+    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+      var activeGroup$5 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
+      activeGroup$5.left = (4 + $uD(activeGroup$5.left))
+    } else {
+      var activeGroup$6 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
+      activeGroup$6.left = (4 + $uD(activeGroup$6.left))
+    };
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
+  };
+  if (($uI(e.keyCode) === 40)) {
+    e.preventDefault();
+    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+      var activeGroup$7 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
+      activeGroup$7.top = (4 + $uD(activeGroup$7.top))
+    } else {
+      var activeGroup$8 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
+      activeGroup$8.top = (4 + $uD(activeGroup$8.top))
+    };
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
+  };
+  if (($uI(e.keyCode) === 46)) {
+    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().forEachObject((function(myobj$2) {
+        return myobj$2.remove()
+      }), null)
+    } else {
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().remove()
+    };
+    var qual$1 = $m_Lclient_teachers_OperationPageJS$().canvas$1.discardActiveGroup();
+    qual$1.renderAll()
+  };
+  return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
+});
+var $d_Lclient_teachers_OperationPageJS$$anonfun$12 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anonfun$12: 0
+}, false, "client.teachers.OperationPageJS$$anonfun$12", {
+  Lclient_teachers_OperationPageJS$$anonfun$12: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$12.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$12;
+/** @constructor */
+function $c_Lclient_teachers_OperationPageJS$$anonfun$13() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lclient_teachers_OperationPageJS$$anonfun$13.prototype = new $h_sr_AbstractFunction0();
+$c_Lclient_teachers_OperationPageJS$$anonfun$13.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$13;
+/** @constructor */
+function $h_Lclient_teachers_OperationPageJS$$anonfun$13() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_OperationPageJS$$anonfun$13.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$13.prototype;
+$c_Lclient_teachers_OperationPageJS$$anonfun$13.prototype.init___ = (function() {
+  return this
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$13.prototype.apply__Lfacades_fabricjs_Canvas = (function() {
+  var color = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").val());
+  if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().forEachObject((function(f) {
+      return (function(arg1) {
+        return f.apply__O__O(arg1)
+      })
+    })(new $c_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31().init___Lclient_teachers_OperationPageJS$$anonfun$13__T(this, color)), null)
+  } else {
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().set("fill", (function(color$1) {
+      return (function() {
+        return color$1
+      })
+    })(color))
+  };
+  return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$13.prototype.apply__O = (function() {
+  return this.apply__Lfacades_fabricjs_Canvas()
+});
+var $d_Lclient_teachers_OperationPageJS$$anonfun$13 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anonfun$13: 0
+}, false, "client.teachers.OperationPageJS$$anonfun$13", {
+  Lclient_teachers_OperationPageJS$$anonfun$13: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$13.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$13;
+/** @constructor */
+function $c_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31() {
+  $c_sr_AbstractFunction1.call(this);
+  this.color$1$f = null
+}
+$c_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31;
+/** @constructor */
+function $h_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31.prototype;
+$c_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object(v1)
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31.prototype.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object = (function(myobj) {
+  return myobj.set("fill", (function(arg$outer) {
+    return (function() {
+      return arg$outer.color$1$f
+    })
+  })(this))
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$13__T = (function($$outer, color$1) {
+  this.color$1$f = color$1;
+  return this
+});
+var $d_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31: 0
+}, false, "client.teachers.OperationPageJS$$anonfun$13$$anonfun$apply$31", {
+  Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$13$$anonfun$apply$31;
+/** @constructor */
+function $c_Lclient_teachers_OperationPageJS$$anonfun$14() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lclient_teachers_OperationPageJS$$anonfun$14.prototype = new $h_sr_AbstractFunction0();
+$c_Lclient_teachers_OperationPageJS$$anonfun$14.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$14;
+/** @constructor */
+function $h_Lclient_teachers_OperationPageJS$$anonfun$14() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_OperationPageJS$$anonfun$14.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$14.prototype;
+$c_Lclient_teachers_OperationPageJS$$anonfun$14.prototype.init___ = (function() {
+  return this
+});
+$c_Lclient_teachers_OperationPageJS$$anonfun$14.prototype.apply__Lfacades_fabricjs_Canvas = (function() {
   var color = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").val());
   if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
     $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().forEachObject((function(f) {
       return (function(arg1) {
         return f.apply__O__O(arg1)
       })
-    })(new $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14().init___Lclient_teachers_OperationPageJS$$anonfun$11__T(this, color)), null)
+    })(new $c_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34().init___Lclient_teachers_OperationPageJS$$anonfun$14__T(this, color)), null)
   } else {
     $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().set("backgroundColor", (function(color$2) {
       return (function() {
@@ -20966,57 +21238,57 @@ $c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype.apply__Lfacades_fabric
   };
   return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype.apply__O = (function() {
+$c_Lclient_teachers_OperationPageJS$$anonfun$14.prototype.apply__O = (function() {
   return this.apply__Lfacades_fabricjs_Canvas()
 });
-var $d_Lclient_teachers_OperationPageJS$$anonfun$11 = new $TypeData().initClass({
-  Lclient_teachers_OperationPageJS$$anonfun$11: 0
-}, false, "client.teachers.OperationPageJS$$anonfun$11", {
-  Lclient_teachers_OperationPageJS$$anonfun$11: 1,
+var $d_Lclient_teachers_OperationPageJS$$anonfun$14 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anonfun$14: 0
+}, false, "client.teachers.OperationPageJS$$anonfun$14", {
+  Lclient_teachers_OperationPageJS$$anonfun$14: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$11.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$11;
+$c_Lclient_teachers_OperationPageJS$$anonfun$14.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$14;
 /** @constructor */
-function $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14() {
+function $c_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34() {
   $c_sr_AbstractFunction1.call(this);
   this.color$2$f = null
 }
-$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14;
+$c_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34;
 /** @constructor */
-function $h_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14() {
+function $h_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34() {
   /*<skip>*/
 }
-$h_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14.prototype;
-$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14.prototype.apply__O__O = (function(v1) {
+$h_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34.prototype;
+$c_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34.prototype.apply__O__O = (function(v1) {
   return this.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object(v1)
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14.prototype.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object = (function(myobj) {
+$c_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34.prototype.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object = (function(myobj) {
   return myobj.set("backgroundColor", (function(arg$outer) {
     return (function() {
       return arg$outer.color$2$f
     })
   })(this))
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$11__T = (function($$outer, color$2) {
+$c_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$14__T = (function($$outer, color$2) {
   this.color$2$f = color$2;
   return this
 });
-var $d_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14 = new $TypeData().initClass({
-  Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14: 0
-}, false, "client.teachers.OperationPageJS$$anonfun$11$$anonfun$apply$14", {
-  Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14: 1,
+var $d_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34 = new $TypeData().initClass({
+  Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34: 0
+}, false, "client.teachers.OperationPageJS$$anonfun$14$$anonfun$apply$34", {
+  Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$11$$anonfun$apply$14;
+$c_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$14$$anonfun$apply$34;
 /** @constructor */
 function $c_Lclient_teachers_OperationPageJS$$anonfun$5() {
   $c_sr_AbstractFunction1.call(this)
@@ -21043,10 +21315,7 @@ $c_Lclient_teachers_OperationPageJS$$anonfun$5.prototype.apply__Lorg_scalajs_dom
   }));
   text.width = 400.0;
   text.set("fontSize", (function() {
-    var this$2 = new $c_sci_StringOps().init___T($as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontSizeForm").getAttribute("value")));
-    var this$4 = $m_jl_Integer$();
-    var s = this$2.repr$1;
-    return this$4.parseInt__T__I__I(s, 10)
+    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontSizeForm").getAttribute("value"))
   }));
   text.set("fontFamily", (function() {
     return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("font").getAttribute("value"))
@@ -21103,96 +21372,10 @@ var $d_Lclient_teachers_OperationPageJS$$anonfun$7 = new $TypeData().initClass({
 });
 $c_Lclient_teachers_OperationPageJS$$anonfun$7.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$7;
 /** @constructor */
-function $c_Lclient_teachers_OperationPageJS$$anonfun$8() {
+function $c_Lclient_teachers_OperationPageJS$$anonfun$9() {
   $c_sr_AbstractFunction1.call(this)
 }
-$c_Lclient_teachers_OperationPageJS$$anonfun$8.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_OperationPageJS$$anonfun$8.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$8;
-/** @constructor */
-function $h_Lclient_teachers_OperationPageJS$$anonfun$8() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_OperationPageJS$$anonfun$8.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$8.prototype;
-$c_Lclient_teachers_OperationPageJS$$anonfun$8.prototype.init___ = (function() {
-  return this
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$8.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lorg_scalajs_dom_raw_KeyboardEvent__Lfacades_fabricjs_Canvas(v1)
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$8.prototype.apply__Lorg_scalajs_dom_raw_KeyboardEvent__Lfacades_fabricjs_Canvas = (function(e) {
-  if (($uI(e.keyCode) === 37)) {
-    e.preventDefault();
-    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
-      var activeGroup = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
-      activeGroup.left = ((-4.0) + $uD(activeGroup.left))
-    } else {
-      var activeGroup$2 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
-      activeGroup$2.left = ((-4.0) + $uD(activeGroup$2.left))
-    };
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
-  };
-  if (($uI(e.keyCode) === 38)) {
-    e.preventDefault();
-    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
-      var activeGroup$3 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
-      activeGroup$3.top = ((-4.0) + $uD(activeGroup$3.top))
-    } else {
-      var activeGroup$4 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
-      activeGroup$4.top = ((-4.0) + $uD(activeGroup$4.top))
-    };
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
-  };
-  if (($uI(e.keyCode) === 39)) {
-    e.preventDefault();
-    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
-      var activeGroup$5 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
-      activeGroup$5.left = (4 + $uD(activeGroup$5.left))
-    } else {
-      var activeGroup$6 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
-      activeGroup$6.left = (4 + $uD(activeGroup$6.left))
-    };
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
-  };
-  if (($uI(e.keyCode) === 40)) {
-    e.preventDefault();
-    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
-      var activeGroup$7 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
-      activeGroup$7.top = (4 + $uD(activeGroup$7.top))
-    } else {
-      var activeGroup$8 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
-      activeGroup$8.top = (4 + $uD(activeGroup$8.top))
-    };
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
-  };
-  if (($uI(e.keyCode) === 46)) {
-    if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
-      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().forEachObject((function(myobj$2) {
-        return myobj$2.remove()
-      }), null)
-    } else {
-      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().remove()
-    };
-    var qual$1 = $m_Lclient_teachers_OperationPageJS$().canvas$1.discardActiveGroup();
-    qual$1.renderAll()
-  };
-  return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
-});
-var $d_Lclient_teachers_OperationPageJS$$anonfun$8 = new $TypeData().initClass({
-  Lclient_teachers_OperationPageJS$$anonfun$8: 0
-}, false, "client.teachers.OperationPageJS$$anonfun$8", {
-  Lclient_teachers_OperationPageJS$$anonfun$8: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$8.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$8;
-/** @constructor */
-function $c_Lclient_teachers_OperationPageJS$$anonfun$9() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lclient_teachers_OperationPageJS$$anonfun$9.prototype = new $h_sr_AbstractFunction0();
+$c_Lclient_teachers_OperationPageJS$$anonfun$9.prototype = new $h_sr_AbstractFunction1();
 $c_Lclient_teachers_OperationPageJS$$anonfun$9.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$9;
 /** @constructor */
 function $h_Lclient_teachers_OperationPageJS$$anonfun$9() {
@@ -21202,148 +21385,63 @@ $h_Lclient_teachers_OperationPageJS$$anonfun$9.prototype = $c_Lclient_teachers_O
 $c_Lclient_teachers_OperationPageJS$$anonfun$9.prototype.init___ = (function() {
   return this
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$9.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$1 = new $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1().init___Lclient_teachers_OperationPageJS$$anonfun$9(this);
-  return this$1.derive$macro$1__Lupickle_Types$Reader()
+$c_Lclient_teachers_OperationPageJS$$anonfun$9.prototype.apply__O__O = (function(v1) {
+  this.apply__Lorg_scalajs_dom_raw_MouseEvent__V(v1)
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$9.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
+$c_Lclient_teachers_OperationPageJS$$anonfun$9.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__V = (function(e0) {
+  if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+    var activeGroup = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
+    var jsx$1 = $m_Lclient_teachers_OperationPageJS$();
+    var this$1 = $m_Lclient_teachers_OperationPageJS$().group$undlist$1;
+    $m_scm_ListBuffer$();
+    var b = new $c_scm_GrowingBuilder().init___scg_Growable(new $c_scm_ListBuffer().init___());
+    var this$3 = this$1.scala$collection$mutable$ListBuffer$$start$6;
+    var these = this$3;
+    while ((!these.isEmpty__Z())) {
+      var arg1 = these.head__O();
+      var flag = new $c_sr_BooleanRef().init___Z(true);
+      activeGroup.forEachObject((function(flag$1, group$1) {
+        return (function(myobj2$2) {
+          if ($uZ(group$1.contains(myobj2$2))) {
+            flag$1.elem$1 = false
+          }
+        })
+      })(flag, arg1), null);
+      if (flag.elem$1) {
+        b.$$plus$eq__O__scm_GrowingBuilder(arg1)
+      };
+      these = $as_sci_List(these.tail__O())
+    };
+    jsx$1.group$undlist$1 = $as_scm_ListBuffer(b.elems$1)
+  } else if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject() !== null)) {
+    var activeObject = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
+    var jsx$2 = $m_Lclient_teachers_OperationPageJS$();
+    var this$5 = $m_Lclient_teachers_OperationPageJS$().group$undlist$1;
+    $m_scm_ListBuffer$();
+    var b$1 = new $c_scm_GrowingBuilder().init___scg_Growable(new $c_scm_ListBuffer().init___());
+    var this$7 = this$5.scala$collection$mutable$ListBuffer$$start$6;
+    var these$1 = this$7;
+    while ((!these$1.isEmpty__Z())) {
+      var arg1$1 = these$1.head__O();
+      if ((!$uZ(arg1$1.contains(activeObject)))) {
+        b$1.$$plus$eq__O__scm_GrowingBuilder(arg1$1)
+      };
+      these$1 = $as_sci_List(these$1.tail__O())
+    };
+    jsx$2.group$undlist$1 = $as_scm_ListBuffer(b$1.elems$1)
+  }
 });
 var $d_Lclient_teachers_OperationPageJS$$anonfun$9 = new $TypeData().initClass({
   Lclient_teachers_OperationPageJS$$anonfun$9: 0
 }, false, "client.teachers.OperationPageJS$$anonfun$9", {
   Lclient_teachers_OperationPageJS$$anonfun$9: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$9.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$9;
-/** @constructor */
-function $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1;
-/** @constructor */
-function $h_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1.prototype;
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1 = (function($$outer) {
-  return this
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8().init___Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["text", "x", "y", "width", "height", "fontsize", "font", "fontcolor", "textalign", "fontweight", "fontstyle", "textdecoration"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null, null, null, null, null, null, null, null, null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$145 = $m_Lupickle_default$().StringRW$1;
-  var evidence$146 = $m_Lupickle_default$().IntRW$1;
-  var evidence$147 = $m_Lupickle_default$().IntRW$1;
-  var evidence$148 = $m_Lupickle_default$().IntRW$1;
-  var evidence$149 = $m_Lupickle_default$().IntRW$1;
-  var evidence$150 = $m_Lupickle_default$().IntRW$1;
-  var evidence$151 = $m_Lupickle_default$().StringRW$1;
-  var evidence$152 = $m_Lupickle_default$().StringRW$1;
-  var evidence$153 = $m_Lupickle_default$().StringRW$1;
-  var evidence$154 = $m_Lupickle_default$().StringRW$1;
-  var evidence$155 = $m_Lupickle_default$().StringRW$1;
-  var evidence$156 = $m_Lupickle_default$().StringRW$1;
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple12R__Lupickle_Generated__O__O__O__O__O__O__O__O__O__O__O__O__O(this$9, evidence$145, evidence$146, evidence$147, evidence$148, evidence$149, evidence$150, evidence$151, evidence$152, evidence$153, evidence$154, evidence$155, evidence$156));
-  return $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14)
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1 = new $TypeData().initClass({
-  Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1: 0
-}, false, "client.teachers.OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1", {
-  Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1;
-/** @constructor */
-function $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8.prototype.constructor = $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8;
-/** @constructor */
-function $h_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8.prototype = $c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8.prototype;
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8.prototype.apply__O__O = (function(v1) {
-  return this.apply__T12__Lteachers_SmallTextBox($as_T12(v1))
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8.prototype.apply__T12__Lteachers_SmallTextBox = (function(derive$macro$20) {
-  var arg1 = derive$macro$20.$$und1$1;
-  var arg2 = derive$macro$20.$$und2$1;
-  var arg3 = derive$macro$20.$$und3$1;
-  var arg4 = derive$macro$20.$$und4$1;
-  var arg5 = derive$macro$20.$$und5$1;
-  var arg6 = derive$macro$20.$$und6$1;
-  var arg7 = derive$macro$20.$$und7$1;
-  var arg8 = derive$macro$20.$$und8$1;
-  var arg9 = derive$macro$20.$$und9$1;
-  var arg10 = derive$macro$20.$$und10$1;
-  var arg11 = derive$macro$20.$$und11$1;
-  var arg12 = derive$macro$20.$$und12$1;
-  var text = $as_T(arg1);
-  var x = $uI(arg2);
-  var y = $uI(arg3);
-  var width = $uI(arg4);
-  var height = $uI(arg5);
-  var fontsize = $uI(arg6);
-  var font = $as_T(arg7);
-  var fontcolor = $as_T(arg8);
-  var textalign = $as_T(arg9);
-  var fontweight = $as_T(arg10);
-  var fontstyle = $as_T(arg11);
-  var textdecoration = $as_T(arg12);
-  return new $c_Lteachers_SmallTextBox().init___T__I__I__I__I__I__T__T__T__T__T__T(text, x, y, width, height, fontsize, font, fontcolor, textalign, fontweight, fontstyle, textdecoration)
-});
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8.prototype.init___Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1 = (function($$outer) {
-  return this
-});
-var $d_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8 = new $TypeData().initClass({
-  Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8: 0
-}, false, "client.teachers.OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8", {
-  Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$9$$anon$1$$anonfun$derive$macro$1$1$$anonfun$apply$8;
+$c_Lclient_teachers_OperationPageJS$$anonfun$9.prototype.$classData = $d_Lclient_teachers_OperationPageJS$$anonfun$9;
 /** @constructor */
 function $c_Lclient_teachers_OperationPageJS$$anonfun$changeFont$2() {
   $c_sr_AbstractFunction1.call(this);
@@ -25248,145 +25346,6 @@ var $d_Lsourcecode_Enclosing = new $TypeData().initClass({
 });
 $c_Lsourcecode_Enclosing.prototype.$classData = $d_Lsourcecode_Enclosing;
 /** @constructor */
-function $c_Lupickle_Generated$$anonfun$Tuple12R$1() {
-  $c_sr_AbstractPartialFunction.call(this);
-  this.$$outer$2 = null;
-  this.evidence$145$1$2 = null;
-  this.evidence$146$1$2 = null;
-  this.evidence$147$1$2 = null;
-  this.evidence$148$1$2 = null;
-  this.evidence$149$1$2 = null;
-  this.evidence$150$1$2 = null;
-  this.evidence$151$1$2 = null;
-  this.evidence$152$1$2 = null;
-  this.evidence$153$1$2 = null;
-  this.evidence$154$1$2 = null;
-  this.evidence$155$1$2 = null;
-  this.evidence$156$1$2 = null
-}
-$c_Lupickle_Generated$$anonfun$Tuple12R$1.prototype = new $h_sr_AbstractPartialFunction();
-$c_Lupickle_Generated$$anonfun$Tuple12R$1.prototype.constructor = $c_Lupickle_Generated$$anonfun$Tuple12R$1;
-/** @constructor */
-function $h_Lupickle_Generated$$anonfun$Tuple12R$1() {
-  /*<skip>*/
-}
-$h_Lupickle_Generated$$anonfun$Tuple12R$1.prototype = $c_Lupickle_Generated$$anonfun$Tuple12R$1.prototype;
-$c_Lupickle_Generated$$anonfun$Tuple12R$1.prototype.init___Lupickle_Generated__O__O__O__O__O__O__O__O__O__O__O__O = (function($$outer, evidence$145$1, evidence$146$1, evidence$147$1, evidence$148$1, evidence$149$1, evidence$150$1, evidence$151$1, evidence$152$1, evidence$153$1, evidence$154$1, evidence$155$1, evidence$156$1) {
-  if (($$outer === null)) {
-    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
-  } else {
-    this.$$outer$2 = $$outer
-  };
-  this.evidence$145$1$2 = evidence$145$1;
-  this.evidence$146$1$2 = evidence$146$1;
-  this.evidence$147$1$2 = evidence$147$1;
-  this.evidence$148$1$2 = evidence$148$1;
-  this.evidence$149$1$2 = evidence$149$1;
-  this.evidence$150$1$2 = evidence$150$1;
-  this.evidence$151$1$2 = evidence$151$1;
-  this.evidence$152$1$2 = evidence$152$1;
-  this.evidence$153$1$2 = evidence$153$1;
-  this.evidence$154$1$2 = evidence$154$1;
-  this.evidence$155$1$2 = evidence$155$1;
-  this.evidence$156$1$2 = evidence$156$1;
-  return this
-});
-$c_Lupickle_Generated$$anonfun$Tuple12R$1.prototype.applyOrElse__Lupickle_Js$Value__F1__O = (function(x12, $default) {
-  if ($is_Lupickle_Js$Arr(x12)) {
-    var x2 = ((x12 === null) ? null : $as_Lupickle_Js$Arr(x12).value$1);
-    if (((x2 !== null) && (x2.lengthCompare__I__I(12) === 0))) {
-      var x1$2 = $as_Lupickle_Js$Value(x2.apply__I__O(0));
-      var x2$2 = $as_Lupickle_Js$Value(x2.apply__I__O(1));
-      var x3 = $as_Lupickle_Js$Value(x2.apply__I__O(2));
-      var x4 = $as_Lupickle_Js$Value(x2.apply__I__O(3));
-      var x5 = $as_Lupickle_Js$Value(x2.apply__I__O(4));
-      var x6 = $as_Lupickle_Js$Value(x2.apply__I__O(5));
-      var x7 = $as_Lupickle_Js$Value(x2.apply__I__O(6));
-      var x8 = $as_Lupickle_Js$Value(x2.apply__I__O(7));
-      var x9 = $as_Lupickle_Js$Value(x2.apply__I__O(8));
-      var x10 = $as_Lupickle_Js$Value(x2.apply__I__O(9));
-      var x11 = $as_Lupickle_Js$Value(x2.apply__I__O(10));
-      var x12$2 = $as_Lupickle_Js$Value(x2.apply__I__O(11));
-      var this$1 = this.$$outer$2;
-      var evidence$1 = this.evidence$145$1$2;
-      var evidence$4 = $as_Lupickle_Types$Reader(evidence$1);
-      var jsx$11 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$1, x1$2, evidence$4);
-      var this$2 = this.$$outer$2;
-      var evidence$1$1 = this.evidence$146$1$2;
-      var evidence$4$1 = $as_Lupickle_Types$Reader(evidence$1$1);
-      var jsx$10 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$2, x2$2, evidence$4$1);
-      var this$3 = this.$$outer$2;
-      var evidence$1$2 = this.evidence$147$1$2;
-      var evidence$4$2 = $as_Lupickle_Types$Reader(evidence$1$2);
-      var jsx$9 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$3, x3, evidence$4$2);
-      var this$4 = this.$$outer$2;
-      var evidence$1$3 = this.evidence$148$1$2;
-      var evidence$4$3 = $as_Lupickle_Types$Reader(evidence$1$3);
-      var jsx$8 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$4, x4, evidence$4$3);
-      var this$5 = this.$$outer$2;
-      var evidence$1$4 = this.evidence$149$1$2;
-      var evidence$4$4 = $as_Lupickle_Types$Reader(evidence$1$4);
-      var jsx$7 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$5, x5, evidence$4$4);
-      var this$6 = this.$$outer$2;
-      var evidence$1$5 = this.evidence$150$1$2;
-      var evidence$4$5 = $as_Lupickle_Types$Reader(evidence$1$5);
-      var jsx$6 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$6, x6, evidence$4$5);
-      var this$7 = this.$$outer$2;
-      var evidence$1$6 = this.evidence$151$1$2;
-      var evidence$4$6 = $as_Lupickle_Types$Reader(evidence$1$6);
-      var jsx$5 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$7, x7, evidence$4$6);
-      var this$8 = this.$$outer$2;
-      var evidence$1$7 = this.evidence$152$1$2;
-      var evidence$4$7 = $as_Lupickle_Types$Reader(evidence$1$7);
-      var jsx$4 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$8, x8, evidence$4$7);
-      var this$9 = this.$$outer$2;
-      var evidence$1$8 = this.evidence$153$1$2;
-      var evidence$4$8 = $as_Lupickle_Types$Reader(evidence$1$8);
-      var jsx$3 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$9, x9, evidence$4$8);
-      var this$10 = this.$$outer$2;
-      var evidence$1$9 = this.evidence$154$1$2;
-      var evidence$4$9 = $as_Lupickle_Types$Reader(evidence$1$9);
-      var jsx$2 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$10, x10, evidence$4$9);
-      var this$11 = this.$$outer$2;
-      var evidence$1$10 = this.evidence$155$1$2;
-      var evidence$4$10 = $as_Lupickle_Types$Reader(evidence$1$10);
-      var jsx$1 = $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$11, x11, evidence$4$10);
-      var this$12 = this.$$outer$2;
-      var evidence$1$11 = this.evidence$156$1$2;
-      var evidence$4$11 = $as_Lupickle_Types$Reader(evidence$1$11);
-      return new $c_T12().init___O__O__O__O__O__O__O__O__O__O__O__O(jsx$11, jsx$10, jsx$9, jsx$8, jsx$7, jsx$6, jsx$5, jsx$4, jsx$3, jsx$2, jsx$1, $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$12, x12$2, evidence$4$11))
-    }
-  };
-  return $default.apply__O__O(x12)
-});
-$c_Lupickle_Generated$$anonfun$Tuple12R$1.prototype.isDefinedAt__O__Z = (function(x) {
-  return this.isDefinedAt__Lupickle_Js$Value__Z($as_Lupickle_Js$Value(x))
-});
-$c_Lupickle_Generated$$anonfun$Tuple12R$1.prototype.applyOrElse__O__F1__O = (function(x, $default) {
-  return this.applyOrElse__Lupickle_Js$Value__F1__O($as_Lupickle_Js$Value(x), $default)
-});
-$c_Lupickle_Generated$$anonfun$Tuple12R$1.prototype.isDefinedAt__Lupickle_Js$Value__Z = (function(x12) {
-  if ($is_Lupickle_Js$Arr(x12)) {
-    var x2 = ((x12 === null) ? null : $as_Lupickle_Js$Arr(x12).value$1);
-    if (((x2 !== null) && (x2.lengthCompare__I__I(12) === 0))) {
-      return true
-    }
-  };
-  return false
-});
-var $d_Lupickle_Generated$$anonfun$Tuple12R$1 = new $TypeData().initClass({
-  Lupickle_Generated$$anonfun$Tuple12R$1: 0
-}, false, "upickle.Generated$$anonfun$Tuple12R$1", {
-  Lupickle_Generated$$anonfun$Tuple12R$1: 1,
-  sr_AbstractPartialFunction: 1,
-  O: 1,
-  F1: 1,
-  s_PartialFunction: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lupickle_Generated$$anonfun$Tuple12R$1.prototype.$classData = $d_Lupickle_Generated$$anonfun$Tuple12R$1;
-/** @constructor */
 function $c_Lupickle_Implicits$$anonfun$4() {
   $c_sr_AbstractPartialFunction.call(this)
 }
@@ -25694,132 +25653,6 @@ var $d_Lupickle_Implicits$$anonfun$9 = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_Lupickle_Implicits$$anonfun$9.prototype.$classData = $d_Lupickle_Implicits$$anonfun$9;
-/** @constructor */
-function $c_Lupickle_Implicits$$anonfun$CaseR$1() {
-  $c_sr_AbstractPartialFunction.call(this);
-  this.$$outer$2 = null;
-  this.f$4$2 = null;
-  this.names$1$2 = null;
-  this.defaults$1$2 = null;
-  this.evidence$14$1$2 = null
-}
-$c_Lupickle_Implicits$$anonfun$CaseR$1.prototype = new $h_sr_AbstractPartialFunction();
-$c_Lupickle_Implicits$$anonfun$CaseR$1.prototype.constructor = $c_Lupickle_Implicits$$anonfun$CaseR$1;
-/** @constructor */
-function $h_Lupickle_Implicits$$anonfun$CaseR$1() {
-  /*<skip>*/
-}
-$h_Lupickle_Implicits$$anonfun$CaseR$1.prototype = $c_Lupickle_Implicits$$anonfun$CaseR$1.prototype;
-$c_Lupickle_Implicits$$anonfun$CaseR$1.prototype.applyOrElse__Lupickle_Js$Value__F1__O = (function(x7, $default) {
-  if ($is_Lupickle_Js$Obj(x7)) {
-    var x2 = ((x7 === null) ? null : $as_Lupickle_Js$Obj(x7).value$1);
-    var jsx$2 = this.f$4$2;
-    var jsx$1 = this.evidence$14$1$2.read__s_PartialFunction();
-    var this$2 = $as_Lupickle_GeneratedUtil(this.$$outer$2);
-    var names = this.names$1$2;
-    var defaults = this.defaults$1$2;
-    return jsx$2.apply__O__O(jsx$1.apply__O__O(new $c_Lupickle_Js$Arr().init___sc_Seq($s_Lupickle_GeneratedUtil$class__mapToArray__Lupickle_GeneratedUtil__sc_Seq__AT__ALupickle_Js$Value__sc_Seq(this$2, x2, names, defaults))))
-  } else {
-    return $default.apply__O__O(x7)
-  }
-});
-$c_Lupickle_Implicits$$anonfun$CaseR$1.prototype.isDefinedAt__O__Z = (function(x) {
-  return this.isDefinedAt__Lupickle_Js$Value__Z($as_Lupickle_Js$Value(x))
-});
-$c_Lupickle_Implicits$$anonfun$CaseR$1.prototype.applyOrElse__O__F1__O = (function(x, $default) {
-  return this.applyOrElse__Lupickle_Js$Value__F1__O($as_Lupickle_Js$Value(x), $default)
-});
-$c_Lupickle_Implicits$$anonfun$CaseR$1.prototype.isDefinedAt__Lupickle_Js$Value__Z = (function(x7) {
-  return $is_Lupickle_Js$Obj(x7)
-});
-$c_Lupickle_Implicits$$anonfun$CaseR$1.prototype.init___Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader = (function($$outer, f$4, names$1, defaults$1, evidence$14$1) {
-  if (($$outer === null)) {
-    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
-  } else {
-    this.$$outer$2 = $$outer
-  };
-  this.f$4$2 = f$4;
-  this.names$1$2 = names$1;
-  this.defaults$1$2 = defaults$1;
-  this.evidence$14$1$2 = evidence$14$1;
-  return this
-});
-var $d_Lupickle_Implicits$$anonfun$CaseR$1 = new $TypeData().initClass({
-  Lupickle_Implicits$$anonfun$CaseR$1: 0
-}, false, "upickle.Implicits$$anonfun$CaseR$1", {
-  Lupickle_Implicits$$anonfun$CaseR$1: 1,
-  sr_AbstractPartialFunction: 1,
-  O: 1,
-  F1: 1,
-  s_PartialFunction: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lupickle_Implicits$$anonfun$CaseR$1.prototype.$classData = $d_Lupickle_Implicits$$anonfun$CaseR$1;
-/** @constructor */
-function $c_Lupickle_Implicits$$anonfun$SeqishR$1() {
-  $c_sr_AbstractPartialFunction.call(this);
-  this.$$outer$2 = null;
-  this.cbf$1$2 = null;
-  this.r$3$f = null
-}
-$c_Lupickle_Implicits$$anonfun$SeqishR$1.prototype = new $h_sr_AbstractPartialFunction();
-$c_Lupickle_Implicits$$anonfun$SeqishR$1.prototype.constructor = $c_Lupickle_Implicits$$anonfun$SeqishR$1;
-/** @constructor */
-function $h_Lupickle_Implicits$$anonfun$SeqishR$1() {
-  /*<skip>*/
-}
-$h_Lupickle_Implicits$$anonfun$SeqishR$1.prototype = $c_Lupickle_Implicits$$anonfun$SeqishR$1.prototype;
-$c_Lupickle_Implicits$$anonfun$SeqishR$1.prototype.init___Lupickle_Implicits__scg_CanBuildFrom__Lupickle_Types$Reader = (function($$outer, cbf$1, r$3) {
-  if (($$outer === null)) {
-    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
-  } else {
-    this.$$outer$2 = $$outer
-  };
-  this.cbf$1$2 = cbf$1;
-  this.r$3$f = r$3;
-  return this
-});
-$c_Lupickle_Implicits$$anonfun$SeqishR$1.prototype.applyOrElse__Lupickle_Js$Value__F1__O = (function(x12, $default) {
-  if ($is_Lupickle_Js$Arr(x12)) {
-    var x2 = ((x12 === null) ? null : $as_Lupickle_Js$Arr(x12).value$1);
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
-      return (function(expr$2) {
-        var expr = $as_Lupickle_Js$Value(expr$2);
-        var this$1 = arg$outer.$$outer$2;
-        var evidence$4 = arg$outer.r$3$f;
-        return $s_Lupickle_Types$class__readJs__Lupickle_Types__Lupickle_Js$Value__Lupickle_Types$Reader__O(this$1, expr, evidence$4)
-      })
-    })(this));
-    var this$2 = $m_sc_Seq$();
-    var this$3 = $as_sc_TraversableLike(x2.map__F1__scg_CanBuildFrom__O(jsx$1, this$2.ReusableCBFInstance$2));
-    var cbf = this.cbf$1$2;
-    return $s_sc_TraversableLike$class__to__sc_TraversableLike__scg_CanBuildFrom__O(this$3, cbf)
-  } else {
-    return $default.apply__O__O(x12)
-  }
-});
-$c_Lupickle_Implicits$$anonfun$SeqishR$1.prototype.isDefinedAt__O__Z = (function(x) {
-  return this.isDefinedAt__Lupickle_Js$Value__Z($as_Lupickle_Js$Value(x))
-});
-$c_Lupickle_Implicits$$anonfun$SeqishR$1.prototype.applyOrElse__O__F1__O = (function(x, $default) {
-  return this.applyOrElse__Lupickle_Js$Value__F1__O($as_Lupickle_Js$Value(x), $default)
-});
-$c_Lupickle_Implicits$$anonfun$SeqishR$1.prototype.isDefinedAt__Lupickle_Js$Value__Z = (function(x12) {
-  return $is_Lupickle_Js$Arr(x12)
-});
-var $d_Lupickle_Implicits$$anonfun$SeqishR$1 = new $TypeData().initClass({
-  Lupickle_Implicits$$anonfun$SeqishR$1: 0
-}, false, "upickle.Implicits$$anonfun$SeqishR$1", {
-  Lupickle_Implicits$$anonfun$SeqishR$1: 1,
-  sr_AbstractPartialFunction: 1,
-  O: 1,
-  F1: 1,
-  s_PartialFunction: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lupickle_Implicits$$anonfun$SeqishR$1.prototype.$classData = $d_Lupickle_Implicits$$anonfun$SeqishR$1;
 /** @constructor */
 function $c_Lupickle_Implicits$$anonfun$upickle$Implicits$$numericReaderFunc$1() {
   $c_sr_AbstractPartialFunction.call(this);
@@ -26334,121 +26167,6 @@ function $m_Lupickle_Js$True$() {
   };
   return $n_Lupickle_Js$True$
 }
-/** @constructor */
-function $c_Lupickle_Types$Knot$Reader() {
-  $c_O.call(this);
-  this.reader0$1 = null;
-  this.reader$1 = null;
-  this.$$outer$f = null;
-  this.upickle$Types$Reader$$readNull$1 = null;
-  this.read$1 = null;
-  this.bitmap$0$1 = false
-}
-$c_Lupickle_Types$Knot$Reader.prototype = new $h_O();
-$c_Lupickle_Types$Knot$Reader.prototype.constructor = $c_Lupickle_Types$Knot$Reader;
-/** @constructor */
-function $h_Lupickle_Types$Knot$Reader() {
-  /*<skip>*/
-}
-$h_Lupickle_Types$Knot$Reader.prototype = $c_Lupickle_Types$Knot$Reader.prototype;
-$c_Lupickle_Types$Knot$Reader.prototype.reader$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if ((!this.bitmap$0$1)) {
-    this.reader$1 = $as_Lupickle_Types$Reader(this.reader0$1.apply__O());
-    this.bitmap$0$1 = true
-  };
-  return this.reader$1
-});
-$c_Lupickle_Types$Knot$Reader.prototype.productPrefix__T = (function() {
-  return "Reader"
-});
-$c_Lupickle_Types$Knot$Reader.prototype.read0__s_PartialFunction = (function() {
-  return this.reader__Lupickle_Types$Reader().read0__s_PartialFunction()
-});
-$c_Lupickle_Types$Knot$Reader.prototype.productArity__I = (function() {
-  return 1
-});
-$c_Lupickle_Types$Knot$Reader.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if (($is_Lupickle_Types$Knot$Reader(x$1) && ($as_Lupickle_Types$Knot$Reader(x$1).$$outer$f === this.$$outer$f))) {
-    var Reader$1 = $as_Lupickle_Types$Knot$Reader(x$1);
-    var x = this.reader0$1;
-    var x$2 = Reader$1.reader0$1;
-    return (x === x$2)
-  } else {
-    return false
-  }
-});
-$c_Lupickle_Types$Knot$Reader.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.reader0$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_Lupickle_Types$Knot$Reader.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_Lupickle_Types$Knot$Reader.prototype.init___Lupickle_Types$Knot$__F0 = (function($$outer, reader0) {
-  this.reader0$1 = reader0;
-  if (($$outer === null)) {
-    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
-  } else {
-    this.$$outer$f = $$outer
-  };
-  $s_Lupickle_Types$Reader$class__$$init$__Lupickle_Types$Reader__V(this);
-  return this
-});
-$c_Lupickle_Types$Knot$Reader.prototype.upickle$Types$Reader$$undsetter$und$read$und$eq__s_PartialFunction__V = (function(x$1) {
-  this.read$1 = x$1
-});
-$c_Lupickle_Types$Knot$Reader.prototype.read__s_PartialFunction = (function() {
-  return this.read$1
-});
-$c_Lupickle_Types$Knot$Reader.prototype.upickle$Types$Reader$$readNull__s_PartialFunction = (function() {
-  return this.upickle$Types$Reader$$readNull$1
-});
-$c_Lupickle_Types$Knot$Reader.prototype.upickle$Types$Reader$$undsetter$und$upickle$Types$Reader$$readNull$und$eq__s_PartialFunction__V = (function(x$1) {
-  this.upickle$Types$Reader$$readNull$1 = x$1
-});
-$c_Lupickle_Types$Knot$Reader.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_Lupickle_Types$Knot$Reader.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-$c_Lupickle_Types$Knot$Reader.prototype.reader__Lupickle_Types$Reader = (function() {
-  return ((!this.bitmap$0$1) ? this.reader$lzycompute__p1__Lupickle_Types$Reader() : this.reader$1)
-});
-function $is_Lupickle_Types$Knot$Reader(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lupickle_Types$Knot$Reader)))
-}
-function $as_Lupickle_Types$Knot$Reader(obj) {
-  return (($is_Lupickle_Types$Knot$Reader(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "upickle.Types$Knot$Reader"))
-}
-function $isArrayOf_Lupickle_Types$Knot$Reader(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lupickle_Types$Knot$Reader)))
-}
-function $asArrayOf_Lupickle_Types$Knot$Reader(obj, depth) {
-  return (($isArrayOf_Lupickle_Types$Knot$Reader(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lupickle.Types$Knot$Reader;", depth))
-}
-var $d_Lupickle_Types$Knot$Reader = new $TypeData().initClass({
-  Lupickle_Types$Knot$Reader: 0
-}, false, "upickle.Types$Knot$Reader", {
-  Lupickle_Types$Knot$Reader: 1,
-  O: 1,
-  Lupickle_Types$Reader: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lupickle_Types$Knot$Reader.prototype.$classData = $d_Lupickle_Types$Knot$Reader;
 /** @constructor */
 function $c_Lupickle_Types$Knot$Writer() {
   $c_O.call(this);

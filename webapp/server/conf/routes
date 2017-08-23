@@ -22,8 +22,9 @@ POST    /teachers/class/:class_id/disableclass                            contro
 POST    /teachers/class/:class_id/enableclass                             controllers.teachers.ClassPage.enableClass(class_id: Int)
 POST    /teachers/pupil/:pupil_id/disablepupil                            controllers.teachers.PupilPage.disablePupil(pupil_id: Int)
 POST    /teachers/pupil/:pupil_id/enablepupil                             controllers.teachers.PupilPage.enablePupil(pupil_id: Int)
-GET    /teachers/disabled/index                                           controllers.teachers.DisabledPage.index()
-GET    /teachers/operations                                               controllers.teachers.OperationPage.index()
+GET     /teachers/disabled/index                                          controllers.teachers.DisabledPage.index()
+GET     /teachers/operations                                              controllers.teachers.OperationPage.index()
+GET     /teachers/operations/pdf                                          controllers.teachers.OperationPage.index()
 POST    /teachers/operations/pdf                                          controllers.teachers.OperationPage.download()
 
 
