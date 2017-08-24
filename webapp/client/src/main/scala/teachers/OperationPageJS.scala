@@ -136,10 +136,15 @@ object OperationPageJS extends JSApp {
   })
 
 
+  canvas.on("selection:cleared", ()=>{
+    canvas.getObjects().map(e => s"${e.left},${e.top}").foreach(e => println(s"cleared group : ${e}"))
+  })
+
+
   canvas.on("selection:created", ()=>{
     if(canvas.getActiveGroup()!=null){
 
-      println("group selected")
+      canvas.getObjects().map(e => s"${e.left},${e.top}").foreach(e => println(s"selected group : ${e}"))
     }
   })
 
@@ -249,8 +254,6 @@ object OperationPageJS extends JSApp {
     canvas.add(text)
 
 
-
-
   }
 
 
@@ -274,375 +277,262 @@ object OperationPageJS extends JSApp {
 
 
 
+  var addGroupButton =  jQuery("#addGroup")
+  addGroupButton.click { (e0: MouseEvent) =>
 
-  var group_list = ListBuffer[Group]()
+    val with_correction = true
+    val list = js.Array[fabricjs.Object]()
+    val positions = computeDigitPosition(123.7,11.1, 200, 600, 20)
+
+    var first_line = true
+    positions.foreach { case (digit, x, y) =>
+
+      if (digit == "-----") {
+        first_line = false
+        val width = positions.groupBy(_._3).map(_._2).toSeq.map(_.size).max*20
+        val line = new fabricjs.Line(js.Array("50", "100", "100", "100"))
+        line.setStroke("black")
+        line.left=x-width+20-5
+        line.top=canvas.getHeight()-y+12
+        line.width=width
+        //canvas.add(line)
+        list.append(line)
+      } else {
+        val text = if(with_correction || first_line ){
+          new facades.fabricjs.Textbox(digit)
+        } else {
+          new facades.fabricjs.Textbox("_")
+        }
+
+        if(with_correction || first_line ){
+          text.height = 4
+        }
+
+        text.left = x
+        text.top = canvas.getHeight() - y
+        text.set("editable", () => "true")
+        // text.width = 20
+        // text.fontSize = jQuery("#fontSizeForm").value().toString.toDouble
+        text.set("fontSize", () => document.getElementById("fontSizeForm").getAttribute("value"))
+        text.set("fontFamily", () => document.getElementById("font").getAttribute("value"))
+        text.set("fontWeight", () => document.getElementById("fontWeight").getAttribute("value"))
+        text.fill = jQuery("#text-color").value.toString
+        text.backgroundColor = jQuery("#text-bg-color").value.toString
+        list.append(text)
+        //canvas.add(text)
+      }
+    }
+    // list.reverse.foreach{obj => obj.bringToFront()}
+    val group = new Group(list.reverse)
+    group.set("editable", () => "true")
+    group.setCoords()
+    canvas.add(group)
+    //  canvas.setActiveGroup(group)
+    canvas.renderAll()
+
+  }
+
+
   var createGroupButton =  jQuery("#createGroup")
   createGroupButton.click { (e0: MouseEvent) =>
-    if(canvas.getActiveGroup()!=null) {
-      val activeGroup = canvas.getActiveGroup()
 
-      group_list.append(activeGroup)
-      //println("SIZE  " +group_list.size)
-      //group_list.map(_.size()).foreach(e =>println("size " + e))
-      //group_list.foreach(println)
+    if(canvas.getActiveGroup()!=null){
+
+      var activegroup = canvas.getActiveGroup();
+      var objectsInGroup = activegroup.getObjects();
+
+      activegroup.clone((newgroup: Group) => {
+        canvas.discardActiveGroup();
+        objectsInGroup.foreach{case myobj2: fabricjs.Object =>
+          canvas.remove(myobj2)
+        }
+        canvas.add(newgroup);
+        canvas.setActiveObject(newgroup)
+      });
     }
   }
 
 
   var deleteGroupButton =  jQuery("#deleteGroup")
   deleteGroupButton.click { (e0: MouseEvent) =>
-    if(canvas.getActiveGroup()!=null) {
-      val activeGroup = canvas.getActiveGroup()
-      group_list = group_list.filter{group =>
-        var flag = true
-        activeGroup.forEachObject({ (myobj2: fabricjs.Object) =>
-          if(group.contains(myobj2)){
-            flag=false
-          }
-        },null)
-        flag
-      }
-    } else if(canvas.getActiveObject()!=null) {
-      val activeObject = canvas.getActiveObject()
-      group_list = group_list.filter { group =>
-        !group.contains(activeObject)
-      }
+
+    var activeObject = canvas.getActiveObject();
+    if(activeObject.get("type")=="group"){
+    var items = activeObject.asInstanceOf[Group].getObjects();
+    activeObject._restoreObjectsState();
+    canvas.remove(activeObject);
+      items.foreach{ item =>
+      canvas.add(item);
+      //canvas.item(canvas.size()-1).hasControls = true;
     }
+      val group = new Group(items)
+      canvas.setActiveGroup(group)
+    canvas.renderAll();
+  }
+  }
+
+
+  def getMultiplicationSteps(x:Double, y:Double) : Seq[String] = {
+
+    var steps = Seq[String]()
+    var i = 1
+    println(s"  ${x}")
+    println(s"* ${y}")
+    println("------------")
+    val point_index = x.toString.split("\\.").last.size + y.toString.split("\\.").last.size
+
+    y.toString.filter(_.isDigit).reverse.foreach{ digit =>
+      val step = x.toString.filter(_.isDigit).toInt*digit.toString.toInt*i
+
+      val strstep = (0 until Math.max((Math.min(x.toString.filter(_.isDigit).length,y.toString.filter(_.isDigit).length)-step.toString.length),0)).map(e=>"0").mkString("")+step.toString
+
+      steps :+= strstep.slice(0, strstep.size-point_index).mkString("")+"."+strstep.slice(strstep.size-point_index,strstep.size).mkString("")
+      println(s"+ ${strstep.slice(0, strstep.size-point_index+1).mkString("")+"."+strstep.slice(strstep.size-point_index,strstep.size).mkString("")}")
+      i*=10
+    }
+    println("------------")
+    println(s"  ${x*y}")
+
+    return steps
+  }
+
+  def computeDigitPosition(x:Double,y:Double, initial_xoffset:Int, initial_yoffset:Int, font_size:Int) : Seq[(String,Int,Int)] = {
+
+    var list = Seq[(String,Int,Int)]()
+
+    var current_x_offset = 0
+    var current_y_offset = 0
+
+    x.toString.reverse.foreach{ digit =>
+      list :+= (digit.toString, initial_xoffset-current_x_offset, initial_yoffset-current_y_offset)
+      current_x_offset+=font_size
+    }
+
+    current_x_offset=0
+    current_y_offset+=font_size
+
+    y.toString.reverse.foreach{ digit =>
+      list :+= (digit.toString, initial_xoffset-current_x_offset, initial_yoffset-current_y_offset)
+      current_x_offset+=font_size
+    }
+
+    list :+= ("x", initial_xoffset-Math.max(x.toString.length, y.toString.length)*font_size, initial_yoffset-current_y_offset)
+
+
+    list :+= ("-----", initial_xoffset, initial_yoffset-current_y_offset-12)
+    current_x_offset=0
+    current_y_offset+=font_size+10
+
+    getMultiplicationSteps(x,y).foreach{ step =>
+
+      step.toString.reverse.foreach{ digit =>
+        list :+= (digit.toString, initial_xoffset-current_x_offset, initial_yoffset-current_y_offset)
+        current_x_offset+=font_size
+      }
+
+      current_x_offset=0
+      current_y_offset+=font_size
+    }
+
+    list :+= ("-----", initial_xoffset, initial_yoffset-current_y_offset+8)
+
+    current_y_offset+=10
+
+    (x*y).toString.reverse.foreach{ digit =>
+      list :+= (digit.toString, initial_xoffset-current_x_offset, initial_yoffset-current_y_offset)
+      current_x_offset+=font_size
+    }
+
+    return list
   }
 
 
 
 
-  var addGroupButton =  jQuery("#addGroup")
-  addGroupButton.click { (e0: MouseEvent) =>
 
 
-    val text = new facades.fabricjs.Textbox("Tap and Typeeee")
-    text.left = 50
-    text.top = 100
-    text.set("editable",()=>"true")
-    text.width = 400
-    // text.fontSize = jQuery("#fontSizeForm").value().toString.toDouble
-    text.set("fontSize",()=>document.getElementById("fontSizeForm").getAttribute("value"))
-    text.set("fontFamily",()=>document.getElementById("font").getAttribute("value"))
-    text.set("fontWeight",()=>document.getElementById("fontWeight").getAttribute("value"))
-    text.fill = jQuery("#text-color").value.toString
-    text.backgroundColor = jQuery("#text-bg-color").value.toString
-
-
-    val text1 = new facades.fabricjs.Textbox("Tap and Typeeee")
-    text1.left = 50
-    text1.top = 200
-    text1.set("editable",()=>"true")
-    text1.width = 400
-    // text1.fontSize = jQuery("#fontSizeForm").value().toString.toDouble
-    text1.set("fontSize",()=>document.getElementById("fontSizeForm").getAttribute("value"))
-    text1.set("fontFamily",()=>document.getElementById("font").getAttribute("value"))
-    text1.set("fontWeight",()=>document.getElementById("fontWeight").getAttribute("value"))
-    text1.fill = jQuery("#text-color").value.toString
-    text1.backgroundColor = jQuery("#text-bg-color").value.toString
-
-
-    val text2 = new facades.fabricjs.Textbox("Tap and Typeeee")
-    text2.left = 50
-    text2.top = 150
-    text2.set("editable",()=>"true")
-    text2.width = 400
-    // text2.fontSize = jQuery("#fontSizeForm").value().toString.toDouble
-    text2.set("fontSize",()=>document.getElementById("fontSizeForm").getAttribute("value"))
-    text2.set("fontFamily",()=>document.getElementById("font").getAttribute("value"))
-    text2.set("fontWeight",()=>document.getElementById("fontWeight").getAttribute("value"))
-    text2.fill = jQuery("#text-color").value.toString
-    text2.backgroundColor = jQuery("#text-bg-color").value.toString
-
-
-    val group = new Group(js.Array(text,text1,text2))
-
-    group.setCoords()
-    canvas.add(text)
-    canvas.add(text1)
-    canvas.add(text2)
-   // canvas.add(group)
-    canvas.setActiveGroup(group)
-    canvas.renderAll()
-    group_list.append(group)
-  }
-
-
-
-
-
-// canvas.clear()
-jQuery(document).click { (e0: MouseEvent) =>
-
-  /*try {
-    println("here")
-    val groups_to_handle = ListBuffer[Group]()
-
-    group_list.foreach { group =>
-      group.forEachObject({ (myobj2: fabricjs.Object) =>
-        if (canvas.getActiveObject() == myobj2 || (canvas.getActiveGroup()!=null && canvas.getActiveGroup().contains(myobj2)) ) {
-          println("it happens !")
-          groups_to_handle.append(group)
-        }
-      }, null)
-    }
-
-
-    if (groups_to_handle.nonEmpty) {
-      println("group")
-     // val new_group = empty_group
-      //new_group.setLeft(canvas.getActiveObject().left)
-      //new_group.setTop(canvas.getActiveObject().top)
-    //  canvas.setActiveGroup(groups_to_handle.head)
-//canvas.getActiveGroup().setOnGroup()
-//      canvas.getActiveGroup().bringToFront()
-  //    canvas.renderAll()
-
-      val new_group = groups_to_handle.head
-
-      canvas.getActiveGroup().forEachObject({ (myobj2: fabricjs.Object) =>
-       // new_group.removeWithUpdate(myobj2)
-        if (!new_group.contains(myobj2)) {
-          new_group.add(myobj2)
-          myobj2.setOnGroup()
-          myobj2.bringToFront()
-          canvas.bringToFront(myobj2)
-        }
-      },null)
-
-     // val objects = ListBuffer[fabricjs.Object]()
-
-      var i = 0
-      //groups_to_handle.map(_.size()).foreach(println)
-      groups_to_handle.foreach{ group =>
-        println("group1 "+group.size())
-        group.forEachObject({ (myobj2: fabricjs.Object) =>
-
-         if (!canvas.getActiveGroup().contains(myobj2)){
-            println("group2")
-          //objects.append(myobj2)
-           new_group.add(myobj2)
-           myobj2.setOnGroup()
-           myobj2.bringToFront()
-            canvas.bringToFront(myobj2)
-            i+=1
-            println(i)
-          }
-        }, null)
-      }
-
-      canvas.deactivateAll()
-      //canvas.add(new_group)
-      new_group.setCoords()
-      canvas.setActiveGroup(new_group).renderAll()
-
-
-      //println(s"SIZE ${objects.size}")
-
-      println(s"size ${canvas.getActiveGroup().size()}")
-      //canvas.deactivateAll()
-     // canvas.setActiveGroup(new_group)
-      //throw new Exception()
-    }
-  } catch {
-    case e : Throwable =>
-  }*/
-
-  /* if( (canvas.getActiveObject()!=null || canvas.getActiveGroup()!=null)) {
-     val groups_to_handle = ListBuffer[Group]()
-
-     group_list.foreach { group =>
-       group.forEachObject({ (myobj2: fabricjs.Object) =>
-         if ( (canvas.getActiveObject()!=null && canvas.getActiveObject() == myobj2) || (canvas.getActiveGroup() != null && canvas.getActiveGroup().contains(myobj2))) {
-           println("it happens !")
-           groups_to_handle.append(group)
-         }
-       }, null)
-     }
-
-     var initial_objects = if(canvas.getActiveObject()!=null){
-       Seq(canvas.getActiveObject())
-     } else {
-       Nil
-     }
-
-     if(canvas.getActiveGroup()!=null) {
-       try {
-         canvas.getActiveGroup().forEachObject({ (myobj2: fabricjs.Object) =>
-           initial_objects :+= myobj2
-         }, null)
-       } catch {
-         case e : Throwable =>
-       }
-     }
-
-     groups_to_handle.foreach{ group =>
-       group.forEachObject({ (myobj2: fabricjs.Object) =>
-         initial_objects :+= myobj2
-       }, null)
-     }
-
-
-     var objs = canvas.getObjects().map { el =>
-         el.set("active", () => true)
-     }
-
-     var group = new fabricjs.Group(objs);
-
-     canvas.getObjects().foreach{ el =>
-       if( !initial_objects.contains(el)) {
-           group.removeWithUpdate(el)
-         el.set("active", () => false)
-       }
-     }
-
-
-     group.originX = "left"
-     group.originY = "top"
-
-     group.setCoords()
-     canvas.setActiveGroup(group)//.renderAll();
-   }*/
-
-
-
-
-
-  if(canvas.getActiveGroup()!=null) {
-
-  val groups_to_handle = ListBuffer[Group]()
-
-  group_list.foreach { group =>
-  group.forEachObject({ (myobj2: fabricjs.Object) =>
-  if ( (canvas.getActiveObject()!=null && canvas.getActiveObject() == myobj2) || (canvas.getActiveGroup() != null && canvas.getActiveGroup().contains(myobj2))) {
-  // println("it happens !")
-  groups_to_handle.append(group)
-}
-}, null)
-}
-
-  if(canvas.getActiveGroup()!=null){
-  groups_to_handle.foreach { group =>
-  group.forEachObject({ (myobj2: fabricjs.Object) =>
-  if(!canvas.getActiveGroup().contains(myobj2)) {
-  myobj2.set("active", () => true)
-  myobj2.bringToFront()
-  canvas.getActiveGroup().addWithUpdate(myobj2)
-}
-}, null)
-}
-}else if(groups_to_handle.nonEmpty){
-  canvas.discardActiveObject()
-  canvas.discardActiveGroup()
-  canvas.setActiveGroup(groups_to_handle.head)
-  canvas.getActiveGroup().forEachObject({ (myobj2: fabricjs.Object) =>
-  myobj2.set("active", () => true)
-  myobj2.bringToFront()
-},null)
-}
-  //canvas.discardActiveObject()
-  //val group = new Group(js.Object())
-  //group.add(activeObject)
-  //canvas.setActiveGroup(group)
-  //group.setCoords()
-  // println(s"SIZE ${canvas.getActiveGroup().size()}")
-}
-
-
-
-
-}
-
-  /*
-  if(canvas.getActiveGroup()==null && canvas.getActiveObject()!=null && group_list.nonEmpty) {
-      }
-   */
   jQuery.apply(document).keydown{ (e: KeyboardEvent) =>
 
 
+    if(e.keyCode==37){
+      e.preventDefault();
+      if(canvas.getActiveGroup()!=null) {
+        val activeGroup = canvas.getActiveGroup()
+        // activeGroup.left = activeGroup.left - 4;
+        //println(canvas.getActiveGroup().size())
+
+        canvas.getActiveGroup().left = canvas.getActiveGroup().left - 4;
 
 
+      } else {
+        val activeGroup = canvas.getActiveObject()
+        activeGroup.left = activeGroup.left - 4;
+      }
+      canvas.renderAll();
+    }
+    if(e.keyCode==38){
+      e.preventDefault();
+      if(canvas.getActiveGroup()!=null) {
+        val activeGroup = canvas.getActiveGroup()
+        /*canvas.getActiveGroup().forEachObject({ (myobj2: fabricjs.Object) =>
+          myobj2.top = myobj2.top -4
+          myobj2.bringToFront()
+        },null)*/
+        activeGroup.top = activeGroup.top - 4;
 
-  if(e.keyCode==37){
-  e.preventDefault();
-  if(canvas.getActiveGroup()!=null) {
-  val activeGroup = canvas.getActiveGroup()
-  // activeGroup.left = activeGroup.left - 4;
-  //println(canvas.getActiveGroup().size())
+      } else {
+        val activeGroup = canvas.getActiveObject()
+        activeGroup.top = activeGroup.top - 4;
+      }
+      canvas.renderAll();
 
-  canvas.getActiveGroup().left = canvas.getActiveGroup().left - 4;
+    }
+    if(e.keyCode==39){
+      e.preventDefault();
+      if(canvas.getActiveGroup()!=null) {
+        val activeGroup = canvas.getActiveGroup()
+        /*canvas.getActiveGroup().forEachObject({ (myobj2: fabricjs.Object) =>
+          myobj2.left = myobj2.left +4
+          myobj2.bringToFront()
+        },null)*/
+        activeGroup.left = activeGroup.left + 4;
 
+      } else {
+        val activeGroup = canvas.getActiveObject()
+        activeGroup.left = activeGroup.left + 4;
+      }
+      canvas.renderAll();
 
-} else {
-  val activeGroup = canvas.getActiveObject()
-  activeGroup.left = activeGroup.left - 4;
-}
-  canvas.renderAll();
-}
-  if(e.keyCode==38){
-  e.preventDefault();
-  if(canvas.getActiveGroup()!=null) {
-  val activeGroup = canvas.getActiveGroup()
-  /*canvas.getActiveGroup().forEachObject({ (myobj2: fabricjs.Object) =>
-    myobj2.top = myobj2.top -4
-    myobj2.bringToFront()
-  },null)*/
-  activeGroup.top = activeGroup.top - 4;
+    }
+    if(e.keyCode==40){
+      e.preventDefault();
+      if(canvas.getActiveGroup()!=null) {
+        val activeGroup = canvas.getActiveGroup()
+        /*canvas.getActiveGroup().forEachObject({ (myobj2: fabricjs.Object) =>
+          myobj2.top = myobj2.top +4
+          myobj2.bringToFront()
+        },null)*/
+        activeGroup.top = activeGroup.top + 4;
 
-} else {
-  val activeGroup = canvas.getActiveObject()
-  activeGroup.top = activeGroup.top - 4;
-}
-  canvas.renderAll();
+      } else {
+        val activeGroup = canvas.getActiveObject()
+        activeGroup.top = activeGroup.top + 4;
+      }
+      canvas.renderAll();
+    }
+    if(e.keyCode==46){
+      if(canvas.getActiveGroup()!=null) {
+        canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Object) =>
+          myobj.remove()
+        }, null)
+      } else {
+        canvas.getActiveObject().remove();
+      }
+      canvas.discardActiveGroup().renderAll();
+    }
 
-}
-  if(e.keyCode==39){
-  e.preventDefault();
-  if(canvas.getActiveGroup()!=null) {
-  val activeGroup = canvas.getActiveGroup()
-  /*canvas.getActiveGroup().forEachObject({ (myobj2: fabricjs.Object) =>
-    myobj2.left = myobj2.left +4
-    myobj2.bringToFront()
-  },null)*/
-  activeGroup.left = activeGroup.left + 4;
-
-} else {
-  val activeGroup = canvas.getActiveObject()
-  activeGroup.left = activeGroup.left + 4;
-}
-  canvas.renderAll();
-
-}
-  if(e.keyCode==40){
-  e.preventDefault();
-  if(canvas.getActiveGroup()!=null) {
-  val activeGroup = canvas.getActiveGroup()
-  /*canvas.getActiveGroup().forEachObject({ (myobj2: fabricjs.Object) =>
-    myobj2.top = myobj2.top +4
-    myobj2.bringToFront()
-  },null)*/
-  activeGroup.top = activeGroup.top + 4;
-
-} else {
-  val activeGroup = canvas.getActiveObject()
-  activeGroup.top = activeGroup.top + 4;
-}
-  canvas.renderAll();
-}
-  if(e.keyCode==46){
-  if(canvas.getActiveGroup()!=null) {
-  canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Object) =>
-  myobj.remove()
-}, null)
-} else {
-  canvas.getActiveObject().remove();
-}
-  canvas.discardActiveGroup().renderAll();
-}
-
-  canvas.renderAll();
-}
+    canvas.renderAll();
+  }
 
 
   /*
@@ -655,200 +545,234 @@ jQuery(document).click { (e0: MouseEvent) =>
   def main(): Unit = {
 
 
-}
+  }
 
   @JSExport
   def createPDF(): Unit = {
-  /* val json = document.getElementById("canvas_data").getAttribute("value")
-   //println(json)
+    /* val json = document.getElementById("canvas_data").getAttribute("value")
+     //println(json)
 
 
-   println(json)
-   val boxList = if(json.isEmpty) Nil else read[Seq[SmallTextBox]](json)
-   println(boxList)*/
-  val smallTextBoxes = ListBuffer[SmallTextBox]()
-  canvas.forEachObject({ (text : fabricjs.Textbox) =>
+     println(json)
+     val boxList = if(json.isEmpty) Nil else read[Seq[SmallTextBox]](json)
+     println(boxList)*/
+    val smallTextBoxes = ListBuffer[SmallTextBox]()
 
 
-  smallTextBoxes.append(new SmallTextBox(
-  text.getText().toString,
-  text.getLeft().toInt,
-  text.getTop().toInt,
-  text.getWidth().toInt,
-  text.getHeight().toInt,
-  text.getFontSize().toInt,
-  text.getFontFamily().toString,
-  text.getTextBackgroundColor().toString,
-  text.getTextAlign().toString,
-  if(document.getElementById("fontWeight").getAttribute("value").isEmpty) "" else "bold",
-  text.getFontStyle().toString,
-  text.getTextDecoration().toString
-  ))
-}, null)
+    canvas.getObjects("textbox").foreach{ text =>
+      //if (Try{text.asInstanceOf[Textbox].getText();true}.getOrElse(false)) {
+      smallTextBoxes.append(new SmallTextBox(
+        text.asInstanceOf[Textbox].getText().toString,
+        text.asInstanceOf[Textbox].getLeft().toInt,
+        text.asInstanceOf[Textbox].getTop().toInt,
+        text.asInstanceOf[Textbox].getWidth().toInt,
+        text.asInstanceOf[Textbox].getHeight().toInt,
+        text.asInstanceOf[Textbox].getFontSize().toInt,
+        text.asInstanceOf[Textbox].getFontFamily().toString,
+        text.asInstanceOf[Textbox].getTextBackgroundColor().toString,
+        text.asInstanceOf[Textbox].getTextAlign().toString,
+        if (document.getElementById("fontWeight").getAttribute("value").isEmpty) "" else "bold",
+        text.asInstanceOf[Textbox].getFontStyle().toString,
+        text.asInstanceOf[Textbox].getTextDecoration().toString
+      ))
+    }
 
-  println(smallTextBoxes)
-  ajaxClientHandler.createPDF(smallTextBoxes).call().onSuccess{ case result =>
 
-  println("PDF generated !")
-}
-}
+
+
+    canvas.getObjects("group").foreach { case activeObject : Group =>
+      if(activeObject.get("type")=="group"){
+        var items = activeObject.asInstanceOf[Group].getObjects("textbox");
+        activeObject._restoreObjectsState();
+
+        //canvas.remove(activeObject);
+        items.foreach{ text =>
+          smallTextBoxes.append(new SmallTextBox(
+            text.asInstanceOf[Textbox].getText().toString,
+            text.asInstanceOf[Textbox].getLeft().toInt,
+            text.asInstanceOf[Textbox].getTop().toInt,
+            text.asInstanceOf[Textbox].getWidth().toInt,
+            text.asInstanceOf[Textbox].getHeight().toInt,
+            text.asInstanceOf[Textbox].getFontSize().toInt,
+            text.asInstanceOf[Textbox].getFontFamily().toString,
+            text.asInstanceOf[Textbox].getTextBackgroundColor().toString,
+            text.asInstanceOf[Textbox].getTextAlign().toString,
+            if (document.getElementById("fontWeight").getAttribute("value").isEmpty) "" else "bold",
+            text.asInstanceOf[Textbox].getFontStyle().toString,
+            text.asInstanceOf[Textbox].getTextDecoration().toString
+          ))
+          //canvas.add(item);
+          //canvas.item(canvas.size()-1).hasControls = true;
+        }
+       // val group = new Group(items)
+        //canvas.setActiveGroup(group)
+        //canvas.renderAll();
+      }
+    }
+
+    println(smallTextBoxes)
+    ajaxClientHandler.createPDF(smallTextBoxes).call().onSuccess{ case result =>
+
+      println("PDF generated !")
+    }
+  }
 
 
 
   jQuery("#text-color").change { () =>
-  val color = jQuery("#text-color").value.toString;
-  if(canvas.getActiveGroup()!=null){
-  canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Object) =>
-  myobj.set("fill",()=>color)
-}, null)
+    val color = jQuery("#text-color").value.toString;
+    if(canvas.getActiveGroup()!=null){
+      canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Object) =>
+        myobj.set("fill",()=>color)
+      }, null)
 
-} else {
-  canvas.getActiveObject().set("fill",()=>color)
-}
-  canvas.renderAll();
-}
+    } else {
+      canvas.getActiveObject().set("fill",()=>color)
+    }
+    canvas.renderAll();
+  }
 
 
 
   jQuery("#text-bg-color").change{ () =>
-  val color = jQuery("#text-bg-color").value.toString;
-  if(canvas.getActiveGroup()!=null){
-  canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Object) =>
-  myobj.set("backgroundColor",()=>color)
-}, null)
-} else {
-  canvas.getActiveObject().set("backgroundColor",()=>color)
-}
-  canvas.renderAll();
-}
+    val color = jQuery("#text-bg-color").value.toString;
+    if(canvas.getActiveGroup()!=null){
+      canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Object) =>
+        myobj.set("backgroundColor",()=>color)
+      }, null)
+    } else {
+      canvas.getActiveObject().set("backgroundColor",()=>color)
+    }
+    canvas.renderAll();
+  }
 
 
   @JSExport
   def changeFont(font:String) {
 
-  document.getElementById("font").setAttribute("value",font)
-  document.getElementById("font").textContent=fontMap.getOrElse(font,"")
+    document.getElementById("font").setAttribute("value",font)
+    document.getElementById("font").textContent=fontMap.getOrElse(font,"")
 
-  if(canvas.getActiveGroup()!=null){
-  canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
-  myobj.set("fontFamily",()=>font)
-}, null)
-} else {
-  canvas.getActiveObject().asInstanceOf[Textbox].set("fontFamily",()=>font)
-}
-  canvas.renderAll();
-};
+    if(canvas.getActiveGroup()!=null){
+      canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
+        myobj.set("fontFamily",()=>font)
+      }, null)
+    } else {
+      canvas.getActiveObject().asInstanceOf[Textbox].set("fontFamily",()=>font)
+    }
+    canvas.renderAll();
+  };
 
 
   @JSExport
   def changeFontSize(fontsize:Int) {
-  document.getElementById("fontSizeForm").setAttribute("value",fontsize.toString)
-  document.getElementById("fontSizeForm").textContent=fontsize.toString
-  if(canvas.getActiveGroup()!=null){
-  canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
-  myobj.set("fontSize",()=>fontsize)
-}, null)
-} else {
-  canvas.getActiveObject().asInstanceOf[Textbox].set("fontSize",()=>fontsize)
-}
-  canvas.renderAll();
-};
+    document.getElementById("fontSizeForm").setAttribute("value",fontsize.toString)
+    document.getElementById("fontSizeForm").textContent=fontsize.toString
+    if(canvas.getActiveGroup()!=null){
+      canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
+        myobj.set("fontSize",()=>fontsize)
+      }, null)
+    } else {
+      canvas.getActiveObject().asInstanceOf[Textbox].set("fontSize",()=>fontsize)
+    }
+    canvas.renderAll();
+  };
 
 
   @JSExport
   def changeTextAlign(align:String) {
-  if(canvas.getActiveGroup()!=null){
-  canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
-  myobj.set("textAlign",()=>align)
-}, null)
-} else {
-  canvas.getActiveObject().asInstanceOf[Textbox].set("textAlign",()=>align)
-}
+    if(canvas.getActiveGroup()!=null){
+      canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
+        myobj.set("textAlign",()=>align)
+      }, null)
+    } else {
+      canvas.getActiveObject().asInstanceOf[Textbox].set("textAlign",()=>align)
+    }
 
-  canvas.renderAll()
+    canvas.renderAll()
 
-};
+  };
 
 
 
 
   @JSExport
   def changeFontWeight() {
-  if(canvas.getActiveGroup()!=null){
-  canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
-  if(myobj.get("fontWeight")=="bold"){
-  myobj.set("fontWeight",()=>"")
-  document.getElementById("fontWeight").setAttribute("style","cursor: pointer;filter:brightness(100%);")
-  document.getElementById("fontWeight").setAttribute("value","")
+    if(canvas.getActiveGroup()!=null){
+      canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
+        if(myobj.get("fontWeight")=="bold"){
+          myobj.set("fontWeight",()=>"")
+          document.getElementById("fontWeight").setAttribute("style","cursor: pointer;filter:brightness(100%);")
+          document.getElementById("fontWeight").setAttribute("value","")
 
-}else{
-  myobj.set("fontWeight",()=>"bold")
-  document.getElementById("fontWeight").setAttribute("style","cursor: pointer;filter:brightness(85%);")
-  document.getElementById("fontWeight").setAttribute("value","bold")
+        }else{
+          myobj.set("fontWeight",()=>"bold")
+          document.getElementById("fontWeight").setAttribute("style","cursor: pointer;filter:brightness(85%);")
+          document.getElementById("fontWeight").setAttribute("value","bold")
 
-}
-}, null)
-} else {
-  if(canvas.getActiveObject().asInstanceOf[Textbox].get("fontWeight")=="bold"){
-  canvas.getActiveObject().asInstanceOf[Textbox].set("fontWeight",()=>"")
-  document.getElementById("fontWeight").setAttribute("style","cursor: pointer;filter:brightness(100%);")
-  document.getElementById("fontWeight").setAttribute("value","")
+        }
+      }, null)
+    } else {
+      if(canvas.getActiveObject().asInstanceOf[Textbox].get("fontWeight")=="bold"){
+        canvas.getActiveObject().asInstanceOf[Textbox].set("fontWeight",()=>"")
+        document.getElementById("fontWeight").setAttribute("style","cursor: pointer;filter:brightness(100%);")
+        document.getElementById("fontWeight").setAttribute("value","")
 
-}else{
-  canvas.getActiveObject().asInstanceOf[Textbox].set("fontWeight",()=>"bold")
-  document.getElementById("fontWeight").setAttribute("style","cursor: pointer;filter:brightness(85%);")
-  document.getElementById("fontWeight").setAttribute("value","bold")
-}
-}
-  //Thread sleep 100
+      }else{
+        canvas.getActiveObject().asInstanceOf[Textbox].set("fontWeight",()=>"bold")
+        document.getElementById("fontWeight").setAttribute("style","cursor: pointer;filter:brightness(85%);")
+        document.getElementById("fontWeight").setAttribute("value","bold")
+      }
+    }
+    //Thread sleep 100
 
-  canvas.renderAll();
-};
+    canvas.renderAll();
+  };
 
 
 
   @JSExport
   def changeFontStyle() {
-  if(canvas.getActiveGroup()!=null){
-  canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
-  if(myobj.fontStyle=="italic"){
-  myobj.set("fontStyle",()=>"")
-}else{
-  myobj.set("fontStyle",()=>"italic")
-}
-}, null)
-} else {
+    if(canvas.getActiveGroup()!=null){
+      canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
+        if(myobj.fontStyle=="italic"){
+          myobj.set("fontStyle",()=>"")
+        }else{
+          myobj.set("fontStyle",()=>"italic")
+        }
+      }, null)
+    } else {
 
-  if( canvas.getActiveObject().asInstanceOf[Textbox].fontStyle=="italic"){
-  canvas.getActiveObject().asInstanceOf[Textbox].set("fontStyle",()=>"")
-}else{
-  canvas.getActiveObject().asInstanceOf[Textbox].set("fontStyle",()=>"italic")
-}
-}
-  canvas.renderAll();
-}
+      if( canvas.getActiveObject().asInstanceOf[Textbox].fontStyle=="italic"){
+        canvas.getActiveObject().asInstanceOf[Textbox].set("fontStyle",()=>"")
+      }else{
+        canvas.getActiveObject().asInstanceOf[Textbox].set("fontStyle",()=>"italic")
+      }
+    }
+    canvas.renderAll();
+  }
 
 
 
   @JSExport
   def changeTextDecoration() {
-  if(canvas.getActiveGroup()!=null){
-  canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
-  if(myobj.textDecoration=="underline"){
-  myobj.set("textDecoration",()=>"")
-}else{
-  myobj.set("textDecoration",()=>"underline")
-}
-}, null)
-} else {
-  if( canvas.getActiveObject().asInstanceOf[Textbox].textDecoration=="underline"){
-  canvas.getActiveObject().asInstanceOf[Textbox].set("textDecoration",()=>"")
-}else{
-  canvas.getActiveObject().asInstanceOf[Textbox].set("textDecoration",()=>"underline")
-}
-}
-  canvas.renderAll();
-}
+    if(canvas.getActiveGroup()!=null){
+      canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
+        if(myobj.textDecoration=="underline"){
+          myobj.set("textDecoration",()=>"")
+        }else{
+          myobj.set("textDecoration",()=>"underline")
+        }
+      }, null)
+    } else {
+      if( canvas.getActiveObject().asInstanceOf[Textbox].textDecoration=="underline"){
+        canvas.getActiveObject().asInstanceOf[Textbox].set("textDecoration",()=>"")
+      }else{
+        canvas.getActiveObject().asInstanceOf[Textbox].set("textDecoration",()=>"underline")
+      }
+    }
+    canvas.renderAll();
+  }
 
 
 

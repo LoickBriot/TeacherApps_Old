@@ -277,6 +277,11 @@ class Object(options: js.Object = new js.Object()) extends js.Object {
     * Sets canvas globalCompositeOperation for specific object custom composition operation for the particular object can be specifed using globalCompositeOperation property
     */
   def _setupCompositeOperation(ctx: org.scalajs.dom.CanvasRenderingContext2D): js.Object = js.native
+
+
+  def _objects() : js.Array[Object] = js.native
+
+  def _restoreObjectsState() : Unit = js.native
   /**
     * Parameters:
     */

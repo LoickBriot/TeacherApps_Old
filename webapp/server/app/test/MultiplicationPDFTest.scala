@@ -18,6 +18,7 @@ object MultiplicationPDFTest {
     val font_size = 20
     val list = MultiplicationTest.computeDigitPosition(123.7,11.1, 200, 700, font_size)
 
+    /*
     //Loading an existing document
     val document = new PDDocument()
 
@@ -71,5 +72,6 @@ object MultiplicationPDFTest {
 
     //Closing the document
     document.close();
+    */
   }
 }
