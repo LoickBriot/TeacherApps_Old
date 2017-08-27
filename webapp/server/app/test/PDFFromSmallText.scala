@@ -5,7 +5,7 @@ import java.io.File
 import org.apache.pdfbox.pdmodel.font.PDType0Font
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm
 import org.apache.pdfbox.pdmodel.{PDResources, PDPageContentStream, PDPage, PDDocument}
-import teachers.SmallTextBox
+import teachers.JSONTextBox
 
 /**
   * Created by loick on 20/04/17.
@@ -17,7 +17,7 @@ object PDFFromSmallText {
   def main(args: Array[String]) {
 
     val boxList = Seq(
-      new SmallTextBox(
+      new JSONTextBox(
         "Test",
         100,
         200,
@@ -36,7 +36,7 @@ object PDFFromSmallText {
     createPDFPage(boxList)
   }
 
-  def createPDFPage(boxList : Seq[SmallTextBox]): Unit = {
+  def createPDFPage(boxList : Seq[JSONTextBox]): Unit = {
 
     //Loading an existing document
     val document = new PDDocument()

@@ -7,25 +7,33 @@ import derive.key
   * Created by loick on 5/13/16.
   */
 
-@key("SmallTextBox") case class SmallTextBox(
-                                              var text: String,
-                                              var x: Int,
-                                              var y: Int,
-                                              var width: Int,
-                                              var height: Int,
-                                              var fontsize: Int,
-                                              var font: String,
-                                              var fontcolor: String,
-                                              var textalign: String,
-                                              var fontweight: String,
-                                              var fontstyle: String,
-                                              var textdecoration: String
+@key("JSONTextBox") case class JSONTextBox(
+                                              text: String,
+                                              x: Int,
+                                              y: Int,
+                                              width: Int,
+                                              height: Int,
+                                              fontsize: Int,
+                                              font: String,
+                                              fontcolor: String,
+                                              textalign: String,
+                                              fontweight: String,
+                                              fontstyle: String,
+                                              textdecoration: String
+                                            )
+
+
+@key("JSONLine") case class JSONLine(
+                                              x: Int,
+                                              y: Int,
+                                              width: Int,
+                                              height: Int
                                             )
 
 trait AjaxApi_OperationPage{
 
 
-   def createPDF(boxList : Seq[SmallTextBox]): Unit
+   def createPDF(correction : Boolean, boxList : Seq[JSONTextBox], lines : Seq[JSONLine]): Unit
 
 
 
