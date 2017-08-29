@@ -11519,14 +11519,7 @@ function $m_sr_Statics$() {
 }
 /** @constructor */
 function $c_Lclient_teachers_ButtonEventListeners$() {
-  $c_O.call(this);
-  this.display$undimage$undbutton$1 = null;
-  this.addTextButton$1 = null;
-  this.addLineButton$1 = null;
-  this.addImageButton$1 = null;
-  this.addGroupButton$1 = null;
-  this.createGroupButton$1 = null;
-  this.deleteGroupButton$1 = null
+  $c_O.call(this)
 }
 $c_Lclient_teachers_ButtonEventListeners$.prototype = new $h_O();
 $c_Lclient_teachers_ButtonEventListeners$.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$;
@@ -11537,66 +11530,56 @@ function $h_Lclient_teachers_ButtonEventListeners$() {
 $h_Lclient_teachers_ButtonEventListeners$.prototype = $c_Lclient_teachers_ButtonEventListeners$.prototype;
 $c_Lclient_teachers_ButtonEventListeners$.prototype.init___ = (function() {
   $n_Lclient_teachers_ButtonEventListeners$ = this;
-  this.display$undimage$undbutton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#console");
-  this.display$undimage$undbutton$1.click((function(e0$2) {
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#pdfGeneration").click((function(e0$2) {
     $m_Lclient_teachers_PDFUtils$().createPDF__V()
   }));
-  this.addTextButton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#addText");
-  this.addTextButton$1.click((function(f) {
-    return (function(arg1) {
-      return f.apply__O__O(arg1)
-    })
-  })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$2().init___()));
-  this.addLineButton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#addLine");
-  this.addLineButton$1.click((function(e0$2$1) {
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#addText").click((function(e0$2$1) {
+    if ($m_Lclient_teachers_CanvasEventListeners$().isTextActivated$1) {
+      $m_Lclient_teachers_CanvasEventListeners$().isTextActivated$1 = false
+    } else {
+      $m_Lclient_teachers_CanvasEventListeners$().isTextActivated$1 = true
+    }
+  }));
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#addLine").click((function(e0$2$2) {
     var line = new $g.fabric.Line(["50", "100", "100", "100"]);
     line.setStroke("black");
     line.left = 170.0;
     line.top = 150.0;
     $m_Lclient_teachers_OperationPageJS$().canvas$1.add(line)
   }));
-  this.addImageButton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#addImage");
-  this.addImageButton$1.click((function(f$1) {
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#addOperation").click((function(f) {
+    return (function(arg1) {
+      return f.apply__O__O(arg1)
+    })
+  })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$4().init___()));
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#createGroup").click((function(f$1) {
     return (function(arg1$1) {
       return f$1.apply__O__O(arg1$1)
     })
-  })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$4().init___()));
-  this.addGroupButton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#addGroup");
-  this.addGroupButton$1.click((function(f$2) {
+  })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$8().init___()));
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#deleteGroup").click((function(f$2) {
     return (function(arg1$2) {
       return f$2.apply__O__O(arg1$2)
     })
-  })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$5().init___()));
-  this.createGroupButton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#createGroup");
-  this.createGroupButton$1.click((function(f$3) {
+  })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$9().init___()));
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#pdfGeneration").click((function(f$3) {
     return (function(arg1$3) {
       return f$3.apply__O__O(arg1$3)
     })
-  })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$9().init___()));
-  this.deleteGroupButton$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#deleteGroup");
-  this.deleteGroupButton$1.click((function(f$4) {
+  })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$10().init___()));
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#formbutton").click((function(f$4) {
     return (function(arg1$4) {
       return f$4.apply__O__O(arg1$4)
     })
   })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$11().init___()));
-  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#console").click((function(f$5) {
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#formbutton2").click((function(f$5) {
     return (function(arg1$5) {
       return f$5.apply__O__O(arg1$5)
     })
   })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$12().init___()));
-  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#formbutton").click((function(f$6) {
-    return (function(arg1$6) {
-      return f$6.apply__O__O(arg1$6)
-    })
-  })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$13().init___()));
-  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#formbutton2").click((function(f$7) {
-    return (function(arg1$7) {
-      return f$7.apply__O__O(arg1$7)
-    })
-  })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$14().init___()));
   return this
 });
-$c_Lclient_teachers_ButtonEventListeners$.prototype.loop__Lfacades_fabricjs_Object__V = (function(obj1) {
+$c_Lclient_teachers_ButtonEventListeners$.prototype.client$teachers$ButtonEventListeners$$loop__Lfacades_fabricjs_Object__V = (function(obj1) {
   var x1 = obj1.get("type");
   if ((x1 === "group")) {
     obj1._restoreObjectsState();
@@ -11606,7 +11589,7 @@ $c_Lclient_teachers_ButtonEventListeners$.prototype.loop__Lfacades_fabricjs_Obje
     while ((i < len)) {
       var index = i;
       var arg1 = array[index];
-      $m_Lclient_teachers_ButtonEventListeners$().loop__Lfacades_fabricjs_Object__V(arg1);
+      $m_Lclient_teachers_ButtonEventListeners$().client$teachers$ButtonEventListeners$$loop__Lfacades_fabricjs_Object__V(arg1);
       i = ((1 + i) | 0)
     };
     var array$1 = [];
@@ -11667,7 +11650,14 @@ function $c_Lclient_teachers_CanvasEventListeners$() {
   this.currentFontColor$1 = null;
   this.currentBackgroundColor$1 = null;
   this.currentTextAlign$1 = null;
-  this.currentTextDecoration$1 = null
+  this.currentTextDecoration$1 = null;
+  this.rectangle$1 = null;
+  this.isDown$1 = false;
+  this.isTextActivated$1 = false;
+  this.origX$1 = 0.0;
+  this.origY$1 = 0.0;
+  this.origX2$1 = 0.0;
+  this.origY2$1 = 0.0
 }
 $c_Lclient_teachers_CanvasEventListeners$.prototype = new $h_O();
 $c_Lclient_teachers_CanvasEventListeners$.prototype.constructor = $c_Lclient_teachers_CanvasEventListeners$;
@@ -11686,31 +11676,51 @@ $c_Lclient_teachers_CanvasEventListeners$.prototype.init___ = (function() {
   this.currentBackgroundColor$1 = "#FFFFFF";
   this.currentTextAlign$1 = "left";
   this.currentTextDecoration$1 = "";
-  $m_Lclient_teachers_OperationPageJS$().canvas$1.on("before:selection:cleared", (function(f) {
-    return (function() {
-      return f.apply__O()
+  this.rectangle$1 = null;
+  this.isDown$1 = false;
+  this.isTextActivated$1 = false;
+  this.origX$1 = 0.0;
+  this.origY$1 = 0.0;
+  this.origX2$1 = 0.0;
+  this.origY2$1 = 0.0;
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument()).mousedown((function(e0$2) {
+    var qual$1 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)();
+    qual$1.delay(1000);
+    if ($m_Lclient_teachers_CanvasEventListeners$().isTextActivated$1) {
+      if ($m_Lclient_teachers_CanvasEventListeners$().isDown$1) {
+        $m_Lclient_teachers_CanvasEventListeners$().isDown$1 = false
+      } else {
+        $m_Lclient_teachers_CanvasEventListeners$().isDown$1 = true;
+        $m_Lclient_teachers_CanvasEventListeners$().origX$1 = ($uD(e0$2.clientX) - $uD($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("main_canvas").getBoundingClientRect().left));
+        $m_Lclient_teachers_CanvasEventListeners$().origY$1 = ($uD(e0$2.clientY) - $uD($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("main_canvas").getBoundingClientRect().top))
+      }
+    }
+  }), null);
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument()).mouseup((function(f) {
+    return (function(arg1) {
+      return f.apply__O__O(arg1)
     })
-  })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$1().init___()));
-  $m_Lclient_teachers_OperationPageJS$().canvas$1.on("selection:created", (function(f$1) {
+  })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$4().init___()), null);
+  $m_Lclient_teachers_OperationPageJS$().canvas$1.on("before:selection:cleared", (function(f$1) {
     return (function() {
       return f$1.apply__O()
     })
-  })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$2().init___()));
+  })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$1().init___()));
   $m_Lclient_teachers_OperationPageJS$().canvas$1.on("object:selected", (function(f$2) {
     return (function() {
       return f$2.apply__O()
     })
-  })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$3().init___()));
+  })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$2().init___()));
   (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").change((function(f$3) {
     return (function() {
       return f$3.apply__O()
     })
-  })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$4().init___()));
+  })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$5().init___()));
   (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").change((function(f$4) {
     return (function() {
       return f$4.apply__O()
     })
-  })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$5().init___()));
+  })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$6().init___()));
   return this
 });
 $c_Lclient_teachers_CanvasEventListeners$.prototype.changeFontSize__I__V = (function(fontsize) {
@@ -11721,11 +11731,11 @@ $c_Lclient_teachers_CanvasEventListeners$.prototype.changeFontSize__I__V = (func
       return (function(arg1) {
         return f.apply__O__O(arg1)
       })
-    })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2().init___I(fontsize)), null)
+    })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1().init___I(fontsize)), null)
   } else {
     $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().set("fontSize", (function(fontsize$1) {
       return (function() {
-        return fontsize$1
+        return ("" + fontsize$1)
       })
     })(fontsize))
   };
@@ -11838,11 +11848,11 @@ $c_Lclient_teachers_CanvasEventListeners$.prototype.$$js$exported$meth$changeFon
 $c_Lclient_teachers_CanvasEventListeners$.prototype.$$js$exported$meth$main__O = (function() {
   return (void 0)
 });
-$c_Lclient_teachers_CanvasEventListeners$.prototype.$$js$exported$meth$changeTextDecoration__O = (function() {
-  this.changeTextDecoration__V()
-});
 $c_Lclient_teachers_CanvasEventListeners$.prototype.$$js$exported$meth$changeFontStyle__O = (function() {
   this.changeFontStyle__V()
+});
+$c_Lclient_teachers_CanvasEventListeners$.prototype.$$js$exported$meth$changeTextDecoration__O = (function() {
+  this.changeTextDecoration__V()
 });
 $c_Lclient_teachers_CanvasEventListeners$.prototype.changeTextDecoration__V = (function() {
   if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
@@ -11907,6 +11917,7 @@ $e.client.teachers.CanvasEventListeners = $m_Lclient_teachers_CanvasEventListene
 /** @constructor */
 function $c_Lclient_teachers_OperationPageJS$() {
   $c_O.call(this);
+  this.round$undpad$1 = 0;
   this.ajaxClientHandler$1 = null;
   this.fontMap$1 = null;
   this.canvas$1 = null
@@ -11920,6 +11931,7 @@ function $h_Lclient_teachers_OperationPageJS$() {
 $h_Lclient_teachers_OperationPageJS$.prototype = $c_Lclient_teachers_OperationPageJS$.prototype;
 $c_Lclient_teachers_OperationPageJS$.prototype.init___ = (function() {
   $n_Lclient_teachers_OperationPageJS$ = this;
+  this.round$undpad$1 = 20;
   var this$1 = new $c_Lservices_ajax_AjaxClientHandler().init___T("/operation/ajaxapi/");
   this.ajaxClientHandler$1 = new $c_Lautowire_ClientProxy().init___Lautowire_Client(this$1);
   var array = [new $c_T2().init___O__O("arial", "Arial"), new $c_T2().init___O__O("helvetica", "Helvetica"), new $c_T2().init___O__O("verdana", "Verdana"), new $c_T2().init___O__O("courier", "Courier"), new $c_T2().init___O__O("pacifico", "Pacifico")];
@@ -11934,7 +11946,7 @@ $c_Lclient_teachers_OperationPageJS$.prototype.init___ = (function() {
   };
   this.fontMap$1 = $as_sci_Map(this$13.elems$1);
   this.canvas$1 = new $g.fabric.Canvas("main_canvas");
-  this.canvas$1.setHeight(878.0);
+  this.canvas$1.setHeight(808.0);
   this.canvas$1.setWidth(622.0);
   $m_Lclient_teachers_CanvasEventListeners$();
   $m_Lclient_teachers_ButtonEventListeners$();
@@ -11944,6 +11956,9 @@ $c_Lclient_teachers_OperationPageJS$.prototype.init___ = (function() {
     })
   })(new $c_Lclient_teachers_OperationPageJS$$anonfun$1().init___()));
   return this
+});
+$c_Lclient_teachers_OperationPageJS$.prototype.roundCoordinates__D__D = (function(coord) {
+  return $imul($doubleToInt((coord / this.round$undpad$1)), this.round$undpad$1)
 });
 $c_Lclient_teachers_OperationPageJS$.prototype.$$js$exported$meth$main__O = (function() {
   return (void 0)
@@ -22023,6 +22038,57 @@ var $d_Lautowire_Core$Request = new $TypeData().initClass({
 });
 $c_Lautowire_Core$Request.prototype.$classData = $d_Lautowire_Core$Request;
 /** @constructor */
+function $c_Lclient_teachers_ButtonEventListeners$$anonfun$10() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$10.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$10.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$$anonfun$10;
+/** @constructor */
+function $h_Lclient_teachers_ButtonEventListeners$$anonfun$10() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_ButtonEventListeners$$anonfun$10.prototype = $c_Lclient_teachers_ButtonEventListeners$$anonfun$10.prototype;
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$10.prototype.init___ = (function() {
+  return this
+});
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$10.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lorg_scalajs_dom_raw_MouseEvent__Lfacades_fabricjs_Canvas(v1)
+});
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$10.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__Lfacades_fabricjs_Canvas = (function(e) {
+  var array = $m_Lclient_teachers_OperationPageJS$().canvas$1.getObjects();
+  var i = 0;
+  var len = $uI(array.length);
+  while ((i < len)) {
+    var index = i;
+    var arg1 = array[index];
+    $m_Lclient_teachers_ButtonEventListeners$().client$teachers$ButtonEventListeners$$loop__Lfacades_fabricjs_Object__V(arg1);
+    i = ((1 + i) | 0)
+  };
+  var qual$3 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)();
+  qual$3.delay(1000);
+  var array$1 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getObjects();
+  var i$1 = 0;
+  var len$1 = $uI(array$1.length);
+  while ((i$1 < len$1)) {
+    var index$1 = i$1;
+    var arg1$1 = array$1[index$1];
+    $m_Lclient_teachers_ButtonEventListeners$().client$teachers$ButtonEventListeners$$loop__Lfacades_fabricjs_Object__V(arg1$1);
+    i$1 = ((1 + i$1) | 0)
+  };
+  return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
+});
+var $d_Lclient_teachers_ButtonEventListeners$$anonfun$10 = new $TypeData().initClass({
+  Lclient_teachers_ButtonEventListeners$$anonfun$10: 0
+}, false, "client.teachers.ButtonEventListeners$$anonfun$10", {
+  Lclient_teachers_ButtonEventListeners$$anonfun$10: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$10.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$10;
+/** @constructor */
 function $c_Lclient_teachers_ButtonEventListeners$$anonfun$11() {
   $c_sr_AbstractFunction1.call(this)
 }
@@ -22037,29 +22103,19 @@ $c_Lclient_teachers_ButtonEventListeners$$anonfun$11.prototype.init___ = (functi
   return this
 });
 $c_Lclient_teachers_ButtonEventListeners$$anonfun$11.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lorg_scalajs_dom_raw_MouseEvent__O(v1)
+  return this.apply__Lorg_scalajs_dom_raw_MouseEvent__Lfacades_fabricjs_Canvas(v1)
 });
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$11.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__O = (function(e0) {
-  var activeObject = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
-  var x = activeObject.get("type");
-  if (((x !== null) && $objectEquals(x, "group"))) {
-    var items = activeObject.getObjects();
-    activeObject._restoreObjectsState();
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.remove(activeObject);
-    var i = 0;
-    var len = $uI(items.length);
-    while ((i < len)) {
-      var index = i;
-      var arg1 = items[index];
-      $m_Lclient_teachers_OperationPageJS$().canvas$1.add(arg1);
-      i = ((1 + i) | 0)
-    };
-    var group = new $g.fabric.Group(items);
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.setActiveGroup(group);
-    return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
-  } else {
-    return (void 0)
-  }
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$11.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__Lfacades_fabricjs_Canvas = (function(e) {
+  var array = $m_Lclient_teachers_OperationPageJS$().canvas$1.getObjects();
+  var i = 0;
+  var len = $uI(array.length);
+  while ((i < len)) {
+    var index = i;
+    var arg1 = array[index];
+    $m_Lclient_teachers_ButtonEventListeners$().client$teachers$ButtonEventListeners$$loop__Lfacades_fabricjs_Object__V(arg1);
+    i = ((1 + i) | 0)
+  };
+  return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
 });
 var $d_Lclient_teachers_ButtonEventListeners$$anonfun$11 = new $TypeData().initClass({
   Lclient_teachers_ButtonEventListeners$$anonfun$11: 0
@@ -22096,19 +22152,8 @@ $c_Lclient_teachers_ButtonEventListeners$$anonfun$12.prototype.apply__Lorg_scala
   while ((i < len)) {
     var index = i;
     var arg1 = array[index];
-    $m_Lclient_teachers_ButtonEventListeners$().loop__Lfacades_fabricjs_Object__V(arg1);
+    $m_Lclient_teachers_ButtonEventListeners$().client$teachers$ButtonEventListeners$$loop__Lfacades_fabricjs_Object__V(arg1);
     i = ((1 + i) | 0)
-  };
-  var qual$5 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)();
-  qual$5.delay(1000);
-  var array$1 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getObjects();
-  var i$1 = 0;
-  var len$1 = $uI(array$1.length);
-  while ((i$1 < len$1)) {
-    var index$1 = i$1;
-    var arg1$1 = array$1[index$1];
-    $m_Lclient_teachers_ButtonEventListeners$().loop__Lfacades_fabricjs_Object__V(arg1$1);
-    i$1 = ((1 + i$1) | 0)
   };
   return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
 });
@@ -22124,135 +22169,6 @@ var $d_Lclient_teachers_ButtonEventListeners$$anonfun$12 = new $TypeData().initC
 });
 $c_Lclient_teachers_ButtonEventListeners$$anonfun$12.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$12;
 /** @constructor */
-function $c_Lclient_teachers_ButtonEventListeners$$anonfun$13() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$13.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$13.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$$anonfun$13;
-/** @constructor */
-function $h_Lclient_teachers_ButtonEventListeners$$anonfun$13() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_ButtonEventListeners$$anonfun$13.prototype = $c_Lclient_teachers_ButtonEventListeners$$anonfun$13.prototype;
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$13.prototype.init___ = (function() {
-  return this
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$13.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lorg_scalajs_dom_raw_MouseEvent__Lfacades_fabricjs_Canvas(v1)
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$13.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__Lfacades_fabricjs_Canvas = (function(e) {
-  var array = $m_Lclient_teachers_OperationPageJS$().canvas$1.getObjects();
-  var i = 0;
-  var len = $uI(array.length);
-  while ((i < len)) {
-    var index = i;
-    var arg1 = array[index];
-    $m_Lclient_teachers_ButtonEventListeners$().loop__Lfacades_fabricjs_Object__V(arg1);
-    i = ((1 + i) | 0)
-  };
-  return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
-});
-var $d_Lclient_teachers_ButtonEventListeners$$anonfun$13 = new $TypeData().initClass({
-  Lclient_teachers_ButtonEventListeners$$anonfun$13: 0
-}, false, "client.teachers.ButtonEventListeners$$anonfun$13", {
-  Lclient_teachers_ButtonEventListeners$$anonfun$13: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$13.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$13;
-/** @constructor */
-function $c_Lclient_teachers_ButtonEventListeners$$anonfun$14() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$14.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$14.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$$anonfun$14;
-/** @constructor */
-function $h_Lclient_teachers_ButtonEventListeners$$anonfun$14() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_ButtonEventListeners$$anonfun$14.prototype = $c_Lclient_teachers_ButtonEventListeners$$anonfun$14.prototype;
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$14.prototype.init___ = (function() {
-  return this
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$14.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lorg_scalajs_dom_raw_MouseEvent__Lfacades_fabricjs_Canvas(v1)
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$14.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__Lfacades_fabricjs_Canvas = (function(e) {
-  var array = $m_Lclient_teachers_OperationPageJS$().canvas$1.getObjects();
-  var i = 0;
-  var len = $uI(array.length);
-  while ((i < len)) {
-    var index = i;
-    var arg1 = array[index];
-    $m_Lclient_teachers_ButtonEventListeners$().loop__Lfacades_fabricjs_Object__V(arg1);
-    i = ((1 + i) | 0)
-  };
-  return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
-});
-var $d_Lclient_teachers_ButtonEventListeners$$anonfun$14 = new $TypeData().initClass({
-  Lclient_teachers_ButtonEventListeners$$anonfun$14: 0
-}, false, "client.teachers.ButtonEventListeners$$anonfun$14", {
-  Lclient_teachers_ButtonEventListeners$$anonfun$14: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$14.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$14;
-/** @constructor */
-function $c_Lclient_teachers_ButtonEventListeners$$anonfun$2() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$2.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$2.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$$anonfun$2;
-/** @constructor */
-function $h_Lclient_teachers_ButtonEventListeners$$anonfun$2() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_ButtonEventListeners$$anonfun$2.prototype = $c_Lclient_teachers_ButtonEventListeners$$anonfun$2.prototype;
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$2.prototype.init___ = (function() {
-  return this
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$2.prototype.apply__O__O = (function(v1) {
-  this.apply__Lorg_scalajs_dom_raw_MouseEvent__V(v1)
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$2.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__V = (function(e0) {
-  var text = new $g.fabric.Textbox("Tap and Typeeee");
-  text.left = 50.0;
-  text.top = 100.0;
-  text.set("editable", (function() {
-    return "true"
-  }));
-  text.width = 400.0;
-  text.set("fontSize", (function() {
-    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontSizeForm").getAttribute("value"))
-  }));
-  text.set("fontFamily", (function() {
-    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("font").getAttribute("value"))
-  }));
-  text.set("fontWeight", (function() {
-    return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontWeight").getAttribute("value"))
-  }));
-  text.fill = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").val());
-  text.backgroundColor = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").val());
-  $m_Lclient_teachers_OperationPageJS$().canvas$1.add(text)
-});
-var $d_Lclient_teachers_ButtonEventListeners$$anonfun$2 = new $TypeData().initClass({
-  Lclient_teachers_ButtonEventListeners$$anonfun$2: 0
-}, false, "client.teachers.ButtonEventListeners$$anonfun$2", {
-  Lclient_teachers_ButtonEventListeners$$anonfun$2: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$2.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$2;
-/** @constructor */
 function $c_Lclient_teachers_ButtonEventListeners$$anonfun$4() {
   $c_sr_AbstractFunction1.call(this)
 }
@@ -22267,42 +22183,9 @@ $c_Lclient_teachers_ButtonEventListeners$$anonfun$4.prototype.init___ = (functio
   return this
 });
 $c_Lclient_teachers_ButtonEventListeners$$anonfun$4.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lorg_scalajs_dom_raw_MouseEvent__sjs_js_Object(v1)
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$4.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__sjs_js_Object = (function(e0) {
-  return $g.fabric.Image.fromURL("http://fabricjs.com/assets/pug_small.jpg", (function(myImg$2) {
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.add(myImg$2)
-  }))
-});
-var $d_Lclient_teachers_ButtonEventListeners$$anonfun$4 = new $TypeData().initClass({
-  Lclient_teachers_ButtonEventListeners$$anonfun$4: 0
-}, false, "client.teachers.ButtonEventListeners$$anonfun$4", {
-  Lclient_teachers_ButtonEventListeners$$anonfun$4: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$4.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$4;
-/** @constructor */
-function $c_Lclient_teachers_ButtonEventListeners$$anonfun$5() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$$anonfun$5;
-/** @constructor */
-function $h_Lclient_teachers_ButtonEventListeners$$anonfun$5() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_ButtonEventListeners$$anonfun$5.prototype = $c_Lclient_teachers_ButtonEventListeners$$anonfun$5.prototype;
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5.prototype.init___ = (function() {
-  return this
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5.prototype.apply__O__O = (function(v1) {
   return this.apply__Lorg_scalajs_dom_raw_MouseEvent__O(v1)
 });
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__O = (function(e0) {
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$4.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__O = (function(e0) {
   var list = [];
   var this$2 = new $c_sci_StringOps().init___T($objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#number1").val()));
   if ($s_sc_TraversableOnce$class__nonEmpty__sc_TraversableOnce__Z(this$2)) {
@@ -22318,7 +22201,7 @@ $c_Lclient_teachers_ButtonEventListeners$$anonfun$5.prototype.apply__Lorg_scalaj
     var this$9 = new $c_sci_StringOps().init___T($objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#number2").val()));
     var positions = jsx$3.computeDigitPosition__D__D__I__I__I__sc_Seq(jsx$2, $m_jl_Double$().parseDouble__T__D(this$9.repr$1), 200, 750, 20);
     var first_line = new $c_sr_BooleanRef().init___Z(true);
-    positions.foreach__F1__V(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6().init___Lclient_teachers_ButtonEventListeners$$anonfun$5__Z__sjs_js_Array__sc_Seq__sr_BooleanRef(this, true, list, positions, first_line));
+    positions.foreach__F1__V(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1().init___Lclient_teachers_ButtonEventListeners$$anonfun$4__Z__sjs_js_Array__sc_Seq__sr_BooleanRef(this, true, list, positions, first_line));
     var jsx$4 = $g.fabric.Group;
     var array = [];
     $uI(list.length);
@@ -22334,49 +22217,51 @@ $c_Lclient_teachers_ButtonEventListeners$$anonfun$5.prototype.apply__Lorg_scalaj
       return "true"
     }));
     group.setCoords();
+    group.left = $m_Lclient_teachers_OperationPageJS$().roundCoordinates__D__D($uD(group.left));
+    group.top = $m_Lclient_teachers_OperationPageJS$().roundCoordinates__D__D($uD(group.top));
     $m_Lclient_teachers_OperationPageJS$().canvas$1.add(group);
     return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
   } else {
     return (void 0)
   }
 });
-var $d_Lclient_teachers_ButtonEventListeners$$anonfun$5 = new $TypeData().initClass({
-  Lclient_teachers_ButtonEventListeners$$anonfun$5: 0
-}, false, "client.teachers.ButtonEventListeners$$anonfun$5", {
-  Lclient_teachers_ButtonEventListeners$$anonfun$5: 1,
+var $d_Lclient_teachers_ButtonEventListeners$$anonfun$4 = new $TypeData().initClass({
+  Lclient_teachers_ButtonEventListeners$$anonfun$4: 0
+}, false, "client.teachers.ButtonEventListeners$$anonfun$4", {
+  Lclient_teachers_ButtonEventListeners$$anonfun$4: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$5;
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$4.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$4;
 /** @constructor */
-function $c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6() {
+function $c_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1() {
   $c_sr_AbstractFunction1.call(this);
   this.with$undcorrection$1$2 = false;
   this.list$1$2 = null;
   this.positions$1$2 = null;
   this.first$undline$1$2 = null
 }
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6;
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1;
 /** @constructor */
-function $h_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6() {
+function $h_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1() {
   /*<skip>*/
 }
-$h_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6.prototype = $c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6.prototype;
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6.prototype.apply__O__O = (function(v1) {
+$h_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1.prototype = $c_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1.prototype;
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1.prototype.apply__O__O = (function(v1) {
   this.apply__T3__V($as_T3(v1))
 });
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6.prototype.init___Lclient_teachers_ButtonEventListeners$$anonfun$5__Z__sjs_js_Array__sc_Seq__sr_BooleanRef = (function($$outer, with_correction$1, list$1, positions$1, first_line$1) {
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1.prototype.init___Lclient_teachers_ButtonEventListeners$$anonfun$4__Z__sjs_js_Array__sc_Seq__sr_BooleanRef = (function($$outer, with_correction$1, list$1, positions$1, first_line$1) {
   this.with$undcorrection$1$2 = with_correction$1;
   this.list$1$2 = list$1;
   this.positions$1$2 = positions$1;
   this.first$undline$1$2 = first_line$1;
   return this
 });
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6.prototype.apply__T3__V = (function(x0$1) {
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1.prototype.apply__T3__V = (function(x0$1) {
   if ((x0$1 !== null)) {
     var digit = $as_T(x0$1.$$und1$1);
     var x = $uI(x0$1.$$und2$1);
@@ -22453,17 +22338,102 @@ $c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6.prototype.a
     throw new $c_s_MatchError().init___O(x0$1)
   }
 });
-var $d_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6 = new $TypeData().initClass({
-  Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6: 0
-}, false, "client.teachers.ButtonEventListeners$$anonfun$5$$anonfun$apply$6", {
-  Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6: 1,
+var $d_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1 = new $TypeData().initClass({
+  Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1: 0
+}, false, "client.teachers.ButtonEventListeners$$anonfun$4$$anonfun$apply$1", {
+  Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$5$$anonfun$apply$6;
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$4$$anonfun$apply$1;
+/** @constructor */
+function $c_Lclient_teachers_ButtonEventListeners$$anonfun$8() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$$anonfun$8;
+/** @constructor */
+function $h_Lclient_teachers_ButtonEventListeners$$anonfun$8() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_ButtonEventListeners$$anonfun$8.prototype = $c_Lclient_teachers_ButtonEventListeners$$anonfun$8.prototype;
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8.prototype.init___ = (function() {
+  return this
+});
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lorg_scalajs_dom_raw_MouseEvent__O(v1)
+});
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__O = (function(e0) {
+  var group = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
+  if ((group !== null)) {
+    var objectsInGroup = group.getObjects();
+    return group.clone((function(f) {
+      return (function(arg1) {
+        return f.apply__O__O(arg1)
+      })
+    })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7().init___Lclient_teachers_ButtonEventListeners$$anonfun$8__sjs_js_Array(this, objectsInGroup)))
+  } else {
+    return (void 0)
+  }
+});
+var $d_Lclient_teachers_ButtonEventListeners$$anonfun$8 = new $TypeData().initClass({
+  Lclient_teachers_ButtonEventListeners$$anonfun$8: 0
+}, false, "client.teachers.ButtonEventListeners$$anonfun$8", {
+  Lclient_teachers_ButtonEventListeners$$anonfun$8: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$8;
+/** @constructor */
+function $c_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7() {
+  $c_sr_AbstractFunction1.call(this);
+  this.objectsInGroup$1$2 = null
+}
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7;
+/** @constructor */
+function $h_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7.prototype = $c_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7.prototype;
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lfacades_fabricjs_Group__Lfacades_fabricjs_Canvas(v1)
+});
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7.prototype.apply__Lfacades_fabricjs_Group__Lfacades_fabricjs_Canvas = (function(newgroup) {
+  $m_Lclient_teachers_OperationPageJS$().canvas$1.discardActiveGroup();
+  var array = this.objectsInGroup$1$2;
+  var i = 0;
+  var len = $uI(array.length);
+  while ((i < len)) {
+    var index = i;
+    var arg1 = array[index];
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.remove(arg1);
+    i = ((1 + i) | 0)
+  };
+  $m_Lclient_teachers_OperationPageJS$().canvas$1.add(newgroup);
+  return $m_Lclient_teachers_OperationPageJS$().canvas$1.setActiveObject(newgroup)
+});
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7.prototype.init___Lclient_teachers_ButtonEventListeners$$anonfun$8__sjs_js_Array = (function($$outer, objectsInGroup$1) {
+  this.objectsInGroup$1$2 = objectsInGroup$1;
+  return this
+});
+var $d_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7 = new $TypeData().initClass({
+  Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7: 0
+}, false, "client.teachers.ButtonEventListeners$$anonfun$8$$anonfun$apply$7", {
+  Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$8$$anonfun$apply$7;
 /** @constructor */
 function $c_Lclient_teachers_ButtonEventListeners$$anonfun$9() {
   $c_sr_AbstractFunction1.call(this)
@@ -22482,16 +22452,23 @@ $c_Lclient_teachers_ButtonEventListeners$$anonfun$9.prototype.apply__O__O = (fun
   return this.apply__Lorg_scalajs_dom_raw_MouseEvent__O(v1)
 });
 $c_Lclient_teachers_ButtonEventListeners$$anonfun$9.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__O = (function(e0) {
-  if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
-    var activegroup = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
-    var elem = activegroup.getObjects();
-    var objectsInGroup = new $c_sr_ObjectRef().init___O(elem);
-    var x$5 = (function(f) {
-      return (function(arg1) {
-        return f.apply__O__O(arg1)
-      })
-    })(new $c_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10().init___Lclient_teachers_ButtonEventListeners$$anonfun$9__sr_ObjectRef(this, objectsInGroup));
-    return activegroup.clone(x$5)
+  var activeObject = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
+  var x = activeObject.get("type");
+  if (((x !== null) && $objectEquals(x, "group"))) {
+    var items = activeObject.getObjects();
+    activeObject._restoreObjectsState();
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.remove(activeObject);
+    var i = 0;
+    var len = $uI(items.length);
+    while ((i < len)) {
+      var index = i;
+      var arg1 = items[index];
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.add(arg1);
+      i = ((1 + i) | 0)
+    };
+    var group = new $g.fabric.Group(items);
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.setActiveGroup(group);
+    return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
   } else {
     return (void 0)
   }
@@ -22508,58 +22485,10 @@ var $d_Lclient_teachers_ButtonEventListeners$$anonfun$9 = new $TypeData().initCl
 });
 $c_Lclient_teachers_ButtonEventListeners$$anonfun$9.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$9;
 /** @constructor */
-function $c_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10() {
-  $c_sr_AbstractFunction1.call(this);
-  this.objectsInGroup$1$2 = null
-}
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10.prototype.constructor = $c_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10;
-/** @constructor */
-function $h_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10.prototype = $c_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10.prototype;
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lfacades_fabricjs_Group__Lfacades_fabricjs_Canvas(v1)
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10.prototype.apply__Lfacades_fabricjs_Group__Lfacades_fabricjs_Canvas = (function(newgroup) {
-  $m_Lclient_teachers_OperationPageJS$().canvas$1.discardActiveGroup();
-  var array = this.objectsInGroup$1$2.elem$1;
-  var i = 0;
-  var len = $uI(array.length);
-  while ((i < len)) {
-    var index = i;
-    var arg1 = array[index];
-    if ((arg1 !== null)) {
-      $m_Lclient_teachers_OperationPageJS$().canvas$1.remove(arg1)
-    } else {
-      throw new $c_s_MatchError().init___O(arg1)
-    };
-    i = ((1 + i) | 0)
-  };
-  $m_Lclient_teachers_OperationPageJS$().canvas$1.add(newgroup);
-  return $m_Lclient_teachers_OperationPageJS$().canvas$1.setActiveObject(newgroup)
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10.prototype.init___Lclient_teachers_ButtonEventListeners$$anonfun$9__sr_ObjectRef = (function($$outer, objectsInGroup$1) {
-  this.objectsInGroup$1$2 = objectsInGroup$1;
-  return this
-});
-var $d_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10 = new $TypeData().initClass({
-  Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10: 0
-}, false, "client.teachers.ButtonEventListeners$$anonfun$9$$anonfun$10", {
-  Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10.prototype.$classData = $d_Lclient_teachers_ButtonEventListeners$$anonfun$9$$anonfun$10;
-/** @constructor */
 function $c_Lclient_teachers_CanvasEventListeners$$anonfun$4() {
-  $c_sr_AbstractFunction0.call(this)
+  $c_sr_AbstractFunction1.call(this)
 }
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype = new $h_sr_AbstractFunction0();
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype = new $h_sr_AbstractFunction1();
 $c_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype.constructor = $c_Lclient_teachers_CanvasEventListeners$$anonfun$4;
 /** @constructor */
 function $h_Lclient_teachers_CanvasEventListeners$$anonfun$4() {
@@ -22569,74 +22498,60 @@ $h_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype = $c_Lclient_teach
 $c_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype.init___ = (function() {
   return this
 });
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype.apply__Lfacades_fabricjs_Canvas = (function() {
-  var color = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").val());
-  if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().forEachObject((function(f) {
-      return (function(arg1) {
-        return f.apply__O__O(arg1)
-      })
-    })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2().init___Lclient_teachers_CanvasEventListeners$$anonfun$4__T(this, color)), null)
-  } else {
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().set("fill", (function(color$1) {
-      return (function() {
-        return color$1
-      })
-    })(color))
-  };
-  return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype.apply__O__O = (function(v1) {
+  this.apply__Lorg_scalajs_dom_raw_MouseEvent__V(v1)
 });
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype.apply__O = (function() {
-  return this.apply__Lfacades_fabricjs_Canvas()
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype.apply__Lorg_scalajs_dom_raw_MouseEvent__V = (function(e0) {
+  var qual$2 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)();
+  qual$2.delay(1000);
+  if ($m_Lclient_teachers_CanvasEventListeners$().isTextActivated$1) {
+    if ($m_Lclient_teachers_CanvasEventListeners$().isDown$1) {
+      $m_Lclient_teachers_CanvasEventListeners$().isDown$1 = false;
+      $m_Lclient_teachers_CanvasEventListeners$().origX2$1 = ($uD(e0.clientX) - $uD($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("main_canvas").getBoundingClientRect().left));
+      $m_Lclient_teachers_CanvasEventListeners$().origY2$1 = ($uD(e0.clientY) - $uD($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("main_canvas").getBoundingClientRect().top));
+      var text = new $g.fabric.Textbox("...");
+      var jsx$1 = $m_Lclient_teachers_OperationPageJS$();
+      var a = $m_Lclient_teachers_CanvasEventListeners$().origX$1;
+      var b = $m_Lclient_teachers_CanvasEventListeners$().origX2$1;
+      text.left = jsx$1.roundCoordinates__D__D($uD($g.Math.min(a, b)));
+      var jsx$2 = $m_Lclient_teachers_OperationPageJS$();
+      var a$1 = $m_Lclient_teachers_CanvasEventListeners$().origY$1;
+      var b$1 = $m_Lclient_teachers_CanvasEventListeners$().origY2$1;
+      text.top = jsx$2.roundCoordinates__D__D($uD($g.Math.min(a$1, b$1)));
+      text.set("editable", (function() {
+        return "true"
+      }));
+      var a$2 = ($m_Lclient_teachers_CanvasEventListeners$().origX2$1 - $m_Lclient_teachers_CanvasEventListeners$().origX$1);
+      text.width = $uD($g.Math.abs(a$2));
+      var a$3 = ($m_Lclient_teachers_CanvasEventListeners$().origY2$1 - $m_Lclient_teachers_CanvasEventListeners$().origY$1);
+      text.height = $uD($g.Math.abs(a$3));
+      text.set("fontSize", (function() {
+        return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontSizeForm").getAttribute("value"))
+      }));
+      text.set("fontFamily", (function() {
+        return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("font").getAttribute("value"))
+      }));
+      text.set("fontWeight", (function() {
+        return $as_T($m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fontWeight").getAttribute("value"))
+      }));
+      text.fill = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").val());
+      text.backgroundColor = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").val());
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.add(text);
+      $m_Lclient_teachers_CanvasEventListeners$().isTextActivated$1 = false
+    }
+  }
 });
 var $d_Lclient_teachers_CanvasEventListeners$$anonfun$4 = new $TypeData().initClass({
   Lclient_teachers_CanvasEventListeners$$anonfun$4: 0
 }, false, "client.teachers.CanvasEventListeners$$anonfun$4", {
   Lclient_teachers_CanvasEventListeners$$anonfun$4: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$4;
-/** @constructor */
-function $c_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2() {
-  $c_sr_AbstractFunction1.call(this);
-  this.color$1$f = null
-}
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2.prototype.constructor = $c_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2;
-/** @constructor */
-function $h_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2.prototype = $c_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2.prototype;
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object(v1)
-});
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2.prototype.init___Lclient_teachers_CanvasEventListeners$$anonfun$4__T = (function($$outer, color$1) {
-  this.color$1$f = color$1;
-  return this
-});
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2.prototype.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object = (function(myobj) {
-  return myobj.set("fill", (function(arg$outer) {
-    return (function() {
-      return arg$outer.color$1$f
-    })
-  })(this))
-});
-var $d_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2 = new $TypeData().initClass({
-  Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2: 0
-}, false, "client.teachers.CanvasEventListeners$$anonfun$4$$anonfun$apply$2", {
-  Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$4$$anonfun$apply$2;
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$4.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$4;
 /** @constructor */
 function $c_Lclient_teachers_CanvasEventListeners$$anonfun$5() {
   $c_sr_AbstractFunction0.call(this)
@@ -22652,7 +22567,7 @@ $c_Lclient_teachers_CanvasEventListeners$$anonfun$5.prototype.init___ = (functio
   return this
 });
 $c_Lclient_teachers_CanvasEventListeners$$anonfun$5.prototype.apply__Lfacades_fabricjs_Canvas = (function() {
-  var color = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").val());
+  var color = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-color").val());
   if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
     $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().forEachObject((function(f) {
       return (function(arg1) {
@@ -22660,9 +22575,9 @@ $c_Lclient_teachers_CanvasEventListeners$$anonfun$5.prototype.apply__Lfacades_fa
       })
     })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5().init___Lclient_teachers_CanvasEventListeners$$anonfun$5__T(this, color)), null)
   } else {
-    $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().set("backgroundColor", (function(color$2) {
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().set("fill", (function(color$1) {
       return (function() {
-        return color$2
+        return color$1
       })
     })(color))
   };
@@ -22685,7 +22600,7 @@ $c_Lclient_teachers_CanvasEventListeners$$anonfun$5.prototype.$classData = $d_Lc
 /** @constructor */
 function $c_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5() {
   $c_sr_AbstractFunction1.call(this);
-  this.color$2$f = null
+  this.color$1$f = null
 }
 $c_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5.prototype = new $h_sr_AbstractFunction1();
 $c_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5.prototype.constructor = $c_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5;
@@ -22698,14 +22613,14 @@ $c_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5.prototype.a
   return this.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object(v1)
 });
 $c_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5.prototype.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object = (function(myobj) {
-  return myobj.set("backgroundColor", (function(arg$outer) {
+  return myobj.set("fill", (function(arg$outer) {
     return (function() {
-      return arg$outer.color$2$f
+      return arg$outer.color$1$f
     })
   })(this))
 });
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5.prototype.init___Lclient_teachers_CanvasEventListeners$$anonfun$5__T = (function($$outer, color$2) {
-  this.color$2$f = color$2;
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5.prototype.init___Lclient_teachers_CanvasEventListeners$$anonfun$5__T = (function($$outer, color$1) {
+  this.color$1$f = color$1;
   return this
 });
 var $d_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5 = new $TypeData().initClass({
@@ -22719,6 +22634,88 @@ var $d_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5 = new $
   Ljava_io_Serializable: 1
 });
 $c_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$5$$anonfun$apply$5;
+/** @constructor */
+function $c_Lclient_teachers_CanvasEventListeners$$anonfun$6() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6.prototype = new $h_sr_AbstractFunction0();
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6.prototype.constructor = $c_Lclient_teachers_CanvasEventListeners$$anonfun$6;
+/** @constructor */
+function $h_Lclient_teachers_CanvasEventListeners$$anonfun$6() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_CanvasEventListeners$$anonfun$6.prototype = $c_Lclient_teachers_CanvasEventListeners$$anonfun$6.prototype;
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6.prototype.init___ = (function() {
+  return this
+});
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6.prototype.apply__Lfacades_fabricjs_Canvas = (function() {
+  var color = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#text-bg-color").val());
+  if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().forEachObject((function(f) {
+      return (function(arg1) {
+        return f.apply__O__O(arg1)
+      })
+    })(new $c_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8().init___Lclient_teachers_CanvasEventListeners$$anonfun$6__T(this, color)), null)
+  } else {
+    $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().set("backgroundColor", (function(color$2) {
+      return (function() {
+        return color$2
+      })
+    })(color))
+  };
+  return $m_Lclient_teachers_OperationPageJS$().canvas$1.renderAll()
+});
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6.prototype.apply__O = (function() {
+  return this.apply__Lfacades_fabricjs_Canvas()
+});
+var $d_Lclient_teachers_CanvasEventListeners$$anonfun$6 = new $TypeData().initClass({
+  Lclient_teachers_CanvasEventListeners$$anonfun$6: 0
+}, false, "client.teachers.CanvasEventListeners$$anonfun$6", {
+  Lclient_teachers_CanvasEventListeners$$anonfun$6: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$6;
+/** @constructor */
+function $c_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8() {
+  $c_sr_AbstractFunction1.call(this);
+  this.color$2$f = null
+}
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8.prototype.constructor = $c_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8;
+/** @constructor */
+function $h_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8() {
+  /*<skip>*/
+}
+$h_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8.prototype = $c_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8.prototype;
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object(v1)
+});
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8.prototype.init___Lclient_teachers_CanvasEventListeners$$anonfun$6__T = (function($$outer, color$2) {
+  this.color$2$f = color$2;
+  return this
+});
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8.prototype.apply__Lfacades_fabricjs_Object__Lfacades_fabricjs_Object = (function(myobj) {
+  return myobj.set("backgroundColor", (function(arg$outer) {
+    return (function() {
+      return arg$outer.color$2$f
+    })
+  })(this))
+});
+var $d_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8 = new $TypeData().initClass({
+  Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8: 0
+}, false, "client.teachers.CanvasEventListeners$$anonfun$6$$anonfun$apply$8", {
+  Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$6$$anonfun$apply$8;
 /** @constructor */
 function $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFont$2() {
   $c_sr_AbstractFunction1.call(this);
@@ -22757,42 +22754,43 @@ var $d_Lclient_teachers_CanvasEventListeners$$anonfun$changeFont$2 = new $TypeDa
 });
 $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFont$2.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$changeFont$2;
 /** @constructor */
-function $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2() {
+function $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1() {
   $c_sr_AbstractFunction1.call(this);
   this.fontsize$1$f = 0
 }
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2.prototype = new $h_sr_AbstractFunction1();
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2.prototype.constructor = $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2;
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1.prototype = new $h_sr_AbstractFunction1();
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1.prototype.constructor = $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1;
 /** @constructor */
-function $h_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2() {
+function $h_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1() {
   /*<skip>*/
 }
-$h_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2.prototype = $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2.prototype;
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2.prototype.apply__O__O = (function(v1) {
+$h_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1.prototype = $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1.prototype;
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1.prototype.apply__O__O = (function(v1) {
   return this.apply__Lfacades_fabricjs_Textbox__Lfacades_fabricjs_Object(v1)
 });
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2.prototype.apply__Lfacades_fabricjs_Textbox__Lfacades_fabricjs_Object = (function(myobj) {
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1.prototype.apply__Lfacades_fabricjs_Textbox__Lfacades_fabricjs_Object = (function(myobj) {
   return myobj.set("fontSize", (function(arg$outer) {
     return (function() {
-      return arg$outer.fontsize$1$f
+      var this$1 = arg$outer.fontsize$1$f;
+      return ("" + this$1)
     })
   })(this))
 });
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2.prototype.init___I = (function(fontsize$1) {
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1.prototype.init___I = (function(fontsize$1) {
   this.fontsize$1$f = fontsize$1;
   return this
 });
-var $d_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2 = new $TypeData().initClass({
-  Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2: 0
-}, false, "client.teachers.CanvasEventListeners$$anonfun$changeFontSize$2", {
-  Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2: 1,
+var $d_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1 = new $TypeData().initClass({
+  Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1: 0
+}, false, "client.teachers.CanvasEventListeners$$anonfun$changeFontSize$1", {
+  Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$2;
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontSize$1;
 /** @constructor */
 function $c_Lclient_teachers_CanvasEventListeners$$anonfun$changeFontStyle$1() {
   $c_sr_AbstractFunction1.call(this)
@@ -22965,18 +22963,19 @@ $c_Lclient_teachers_OperationPageJS$$anonfun$1.prototype.apply__Lorg_scalajs_dom
   if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
     var x1 = $uI(e.keyCode);
     if ((x1 === 37)) {
-      var ev$1 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
-      ev$1.left = ((-4.0) + $uD(ev$1.left))
+      e.preventDefault();
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().left = $m_Lclient_teachers_OperationPageJS$().roundCoordinates__D__D(($uD($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().left) - $m_Lclient_teachers_OperationPageJS$().round$undpad$1))
     } else if ((x1 === 38)) {
-      var ev$2 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
-      ev$2.top = ((-4.0) + $uD(ev$2.top))
+      e.preventDefault();
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().top = $m_Lclient_teachers_OperationPageJS$().roundCoordinates__D__D(($uD($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().top) - $m_Lclient_teachers_OperationPageJS$().round$undpad$1))
     } else if ((x1 === 39)) {
-      var ev$3 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
-      ev$3.left = (4 + $uD(ev$3.left))
+      e.preventDefault();
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().left = $m_Lclient_teachers_OperationPageJS$().roundCoordinates__D__D(($uD($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().left) + $m_Lclient_teachers_OperationPageJS$().round$undpad$1))
     } else if ((x1 === 40)) {
-      var ev$4 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
-      ev$4.top = (4 + $uD(ev$4.top))
+      e.preventDefault();
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().top = $m_Lclient_teachers_OperationPageJS$().roundCoordinates__D__D(($uD($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup().top) + $m_Lclient_teachers_OperationPageJS$().round$undpad$1))
     } else if ((x1 === 46)) {
+      e.preventDefault();
       var qual$1 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup();
       var array = qual$1.getObjects();
       var i = 0;
@@ -22993,18 +22992,19 @@ $c_Lclient_teachers_OperationPageJS$$anonfun$1.prototype.apply__Lorg_scalajs_dom
   if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject() !== null)) {
     var x1$2 = $uI(e.keyCode);
     if ((x1$2 === 37)) {
-      var ev$5 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
-      ev$5.left = ((-4.0) + $uD(ev$5.left))
+      e.preventDefault();
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().left = $m_Lclient_teachers_OperationPageJS$().roundCoordinates__D__D(($uD($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().left) - $m_Lclient_teachers_OperationPageJS$().round$undpad$1))
     } else if ((x1$2 === 38)) {
-      var ev$6 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
-      ev$6.top = ((-4.0) + $uD(ev$6.top))
+      e.preventDefault();
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().top = $m_Lclient_teachers_OperationPageJS$().roundCoordinates__D__D(($uD($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().top) - $m_Lclient_teachers_OperationPageJS$().round$undpad$1))
     } else if ((x1$2 === 39)) {
-      var ev$7 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
-      ev$7.left = (4 + $uD(ev$7.left))
+      e.preventDefault();
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().left = $m_Lclient_teachers_OperationPageJS$().roundCoordinates__D__D(($uD($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().left) + $m_Lclient_teachers_OperationPageJS$().round$undpad$1))
     } else if ((x1$2 === 40)) {
-      var ev$8 = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
-      ev$8.top = (4 + $uD(ev$8.top))
+      e.preventDefault();
+      $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().top = $m_Lclient_teachers_OperationPageJS$().roundCoordinates__D__D(($uD($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject().top) + $m_Lclient_teachers_OperationPageJS$().round$undpad$1))
     } else if ((x1$2 === 46)) {
+      e.preventDefault();
       $m_Lclient_teachers_OperationPageJS$().canvas$1.remove($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject());
       $m_Lclient_teachers_OperationPageJS$().canvas$1.discardActiveObject()
     }
@@ -29875,64 +29875,6 @@ $c_Lclient_teachers_CanvasEventListeners$$anonfun$2.prototype.init___ = (functio
   return this
 });
 $c_Lclient_teachers_CanvasEventListeners$$anonfun$2.prototype.apply$mcV$sp__V = (function() {
-  if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() !== null)) {
-    var array = $m_Lclient_teachers_OperationPageJS$().canvas$1.getObjects();
-    var array$1 = [];
-    $uI(array.length);
-    var i = 0;
-    var len = $uI(array.length);
-    while ((i < len)) {
-      var index = i;
-      var arg1 = array[index];
-      var elem = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["", ",", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$uD(arg1.left), $uD(arg1.top)]));
-      array$1.push(elem);
-      i = ((1 + i) | 0)
-    };
-    var i$1 = 0;
-    var len$1 = $uI(array$1.length);
-    while ((i$1 < len$1)) {
-      var index$1 = i$1;
-      var arg1$1 = array$1[index$1];
-      var e = $as_T(arg1$1);
-      var x = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["selected group : ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([e]));
-      var this$5 = $m_s_Console$();
-      var this$6 = $as_Ljava_io_PrintStream(this$5.outVar$2.v$1);
-      this$6.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
-      i$1 = ((1 + i$1) | 0)
-    }
-  }
-});
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$2.prototype.apply__O = (function() {
-  this.apply$mcV$sp__V()
-});
-var $d_Lclient_teachers_CanvasEventListeners$$anonfun$2 = new $TypeData().initClass({
-  Lclient_teachers_CanvasEventListeners$$anonfun$2: 0
-}, false, "client.teachers.CanvasEventListeners$$anonfun$2", {
-  Lclient_teachers_CanvasEventListeners$$anonfun$2: 1,
-  sr_AbstractFunction0$mcV$sp: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Function0$mcV$sp: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$2.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$2;
-/** @constructor */
-function $c_Lclient_teachers_CanvasEventListeners$$anonfun$3() {
-  $c_sr_AbstractFunction0$mcV$sp.call(this)
-}
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$3.prototype = new $h_sr_AbstractFunction0$mcV$sp();
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$3.prototype.constructor = $c_Lclient_teachers_CanvasEventListeners$$anonfun$3;
-/** @constructor */
-function $h_Lclient_teachers_CanvasEventListeners$$anonfun$3() {
-  /*<skip>*/
-}
-$h_Lclient_teachers_CanvasEventListeners$$anonfun$3.prototype = $c_Lclient_teachers_CanvasEventListeners$$anonfun$3.prototype;
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$3.prototype.init___ = (function() {
-  return this
-});
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$3.prototype.apply$mcV$sp__V = (function() {
   if (($m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveGroup() === null)) {
     var activeObject = $m_Lclient_teachers_OperationPageJS$().canvas$1.getActiveObject();
     $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("font").setAttribute("value", $objectToString(activeObject.get("fontFamily")));
@@ -30003,13 +29945,13 @@ $c_Lclient_teachers_CanvasEventListeners$$anonfun$3.prototype.apply$mcV$sp__V = 
     $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("text-bg-color").setAttribute("value", $objectToString(activeObject.get("backgroundColor")))
   }
 });
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$3.prototype.apply__O = (function() {
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$2.prototype.apply__O = (function() {
   this.apply$mcV$sp__V()
 });
-var $d_Lclient_teachers_CanvasEventListeners$$anonfun$3 = new $TypeData().initClass({
-  Lclient_teachers_CanvasEventListeners$$anonfun$3: 0
-}, false, "client.teachers.CanvasEventListeners$$anonfun$3", {
-  Lclient_teachers_CanvasEventListeners$$anonfun$3: 1,
+var $d_Lclient_teachers_CanvasEventListeners$$anonfun$2 = new $TypeData().initClass({
+  Lclient_teachers_CanvasEventListeners$$anonfun$2: 0
+}, false, "client.teachers.CanvasEventListeners$$anonfun$2", {
+  Lclient_teachers_CanvasEventListeners$$anonfun$2: 1,
   sr_AbstractFunction0$mcV$sp: 1,
   sr_AbstractFunction0: 1,
   O: 1,
@@ -30018,7 +29960,7 @@ var $d_Lclient_teachers_CanvasEventListeners$$anonfun$3 = new $TypeData().initCl
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lclient_teachers_CanvasEventListeners$$anonfun$3.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$3;
+$c_Lclient_teachers_CanvasEventListeners$$anonfun$2.prototype.$classData = $d_Lclient_teachers_CanvasEventListeners$$anonfun$2;
 /** @constructor */
 function $c_Lorg_scalajs_dom_ext_AjaxException() {
   $c_jl_Exception.call(this);

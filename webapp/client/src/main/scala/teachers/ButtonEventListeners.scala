@@ -6,7 +6,6 @@ import facades.fabricjs.Group
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.MouseEvent
 import org.scalajs.jquery.jQuery
-
 import scala.scalajs.js
 import scala.scalajs.js.JSApp
 import scala.scalajs.js.annotation.JSExport
@@ -23,34 +22,35 @@ object ButtonEventListeners extends JSApp {
   }
 
 
-  var display_image_button =  jQuery("#console")
-  display_image_button.click { (e0: MouseEvent) =>
+  jQuery("#pdfGeneration").click { (e0: MouseEvent) =>
     PDFUtils.createPDF()
   }
 
 
 
-  var addTextButton =  jQuery("#addText")
-  addTextButton.click { (e0: MouseEvent) =>
-    val text = new facades.fabricjs.Textbox("Tap and Typeeee")
+  jQuery("#addText").click { (e0: MouseEvent) =>
+    /*val text = new facades.fabricjs.Textbox("Tap and Typeeee")
     text.left = 50
     text.top = 100
     text.set("editable",()=>"true")
     text.width = 400
-    // text.fontSize = jQuery("#fontSizeForm").value().toString.toDouble
     text.set("fontSize",()=>document.getElementById("fontSizeForm").getAttribute("value"))
     text.set("fontFamily",()=>document.getElementById("font").getAttribute("value"))
     text.set("fontWeight",()=>document.getElementById("fontWeight").getAttribute("value"))
     text.fill = jQuery("#text-color").value.toString
     text.backgroundColor = jQuery("#text-bg-color").value.toString
-    canvas.add(text)
-
-
+    canvas.add(text)*/
+    if(CanvasEventListeners.isTextActivated) {
+      CanvasEventListeners.isTextActivated = false
+    } else {
+      CanvasEventListeners.isTextActivated = true
+    }
   }
 
 
-  var addLineButton =  jQuery("#addLine")
-  addLineButton.click { (e0: MouseEvent) =>
+
+
+  jQuery("#addLine").click { (e0: MouseEvent) =>
     val line = new fabricjs.Line(js.Array("50", "100", "100", "100"))
     line.setStroke("black")
     line.left=170
@@ -59,18 +59,19 @@ object ButtonEventListeners extends JSApp {
   }
 
 
+
+  /*
   var addImageButton =  jQuery("#addImage")
   addImageButton.click { (e0: MouseEvent) =>
     fabricjs.Image.fromURL("http://fabricjs.com/assets/pug_small.jpg",  (myImg: fabricjs.Object) => {
       canvas.add(myImg);
     }
     )
-  }
+  }*/
 
 
 
-  var addGroupButton =  jQuery("#addGroup")
-  addGroupButton.click { (e0: MouseEvent) =>
+ jQuery("#addOperation").click { (e0: MouseEvent) =>
 
     val with_correction = true
     val list = js.Array[fabricjs.Object]()
@@ -120,6 +121,8 @@ object ButtonEventListeners extends JSApp {
       val group = new Group(list.reverse)
       group.set("editable", () => "true")
       group.setCoords()
+      group.left = OperationPageJS.roundCoordinates(group.left)
+      group.top = OperationPageJS.roundCoordinates(group.top)
       canvas.add(group)
       //  canvas.setActiveGroup(group)
       canvas.renderAll()
@@ -128,29 +131,28 @@ object ButtonEventListeners extends JSApp {
   }
 
 
-  var createGroupButton =  jQuery("#createGroup")
-  createGroupButton.click { (e0: MouseEvent) =>
 
-    if(canvas.getActiveGroup()!=null){
 
-      var activegroup = canvas.getActiveGroup();
-      var objectsInGroup = activegroup.getObjects();
 
-      activegroup.clone((newgroup: Group) => {
-        canvas.discardActiveGroup();
-        objectsInGroup.foreach{case myobj2: fabricjs.Object =>
-          canvas.remove(myobj2)
+  jQuery("#createGroup").click { (e0: MouseEvent) =>
+    val group = canvas.getActiveGroup()
+    if(group!=null){
+      val objectsInGroup = group.getObjects()
+      group.clone((newgroup: Group) => {
+        canvas.discardActiveGroup()
+        objectsInGroup.foreach{ obj =>
+          canvas.remove(obj)
         }
-        canvas.add(newgroup);
+        canvas.add(newgroup)
         canvas.setActiveObject(newgroup)
-      });
+      })
     }
   }
 
 
-  var deleteGroupButton =  jQuery("#deleteGroup")
-  deleteGroupButton.click { (e0: MouseEvent) =>
 
+
+  jQuery("#deleteGroup").click { (e0: MouseEvent) =>
     var activeObject = canvas.getActiveObject();
     if(activeObject.get("type")=="group"){
       var items = activeObject.asInstanceOf[Group].getObjects();
@@ -158,7 +160,6 @@ object ButtonEventListeners extends JSApp {
       canvas.remove(activeObject);
       items.foreach{ item =>
         canvas.add(item);
-        //canvas.item(canvas.size()-1).hasControls = true;
       }
       val group = new Group(items)
       canvas.setActiveGroup(group)
@@ -170,8 +171,9 @@ object ButtonEventListeners extends JSApp {
 
 
 
-  def loop(obj1 : fabricjs.Object): Unit ={
 
+  /* Handle displaying problem after receiving a POST request */
+  private def loop(obj1 : fabricjs.Object): Unit ={
     obj1.get("type") match {
       case "group" => {
         obj1.asInstanceOf[Group]._restoreObjectsState()
@@ -193,8 +195,7 @@ object ButtonEventListeners extends JSApp {
   }
 
 
-  //var displayAllButton =  jQuery("#displayAll")
-  jQuery("#console").click{ (e: MouseEvent) =>
+  jQuery("#pdfGeneration").click{ (e: MouseEvent) =>
     canvas.getObjects().foreach{ obj =>
       loop(obj)
     }
@@ -205,7 +206,6 @@ object ButtonEventListeners extends JSApp {
     canvas.renderAll()
   }
 
-  //var displayAllButton =  jQuery("#displayAll")
   jQuery("#formbutton").click{ (e: MouseEvent) =>
     canvas.getObjects().foreach{ obj =>
       loop(obj)

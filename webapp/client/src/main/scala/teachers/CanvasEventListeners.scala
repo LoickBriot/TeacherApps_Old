@@ -3,9 +3,11 @@ package client.teachers
 import client.teachers.OperationPageJS._
 import facades.fabricjs
 import facades.fabricjs.Textbox
-import org.scalajs.dom.document
+import org.scalajs.dom.{document, _}
+import org.scalajs.dom.raw.MouseEvent
 import org.scalajs.jquery.jQuery
 
+import scala.scalajs.js
 import scala.scalajs.js.JSApp
 import scala.scalajs.js.annotation.JSExport
 
@@ -31,6 +33,79 @@ object CanvasEventListeners extends JSApp {
   var currentBackgroundColor = "#FFFFFF"
   var currentTextAlign = "left"
   var currentTextDecoration = ""
+
+
+
+  var rectangle = null
+  var isDown = false
+  var isTextActivated = false
+  var origX = 0.0d
+  var origY = 0.0d
+  var origX2 = 0.0d
+  var origY2 = 0.0d
+
+  class Pointer(var x:js.Any, var y:js.Any) extends js.Object
+  jQuery(document).mousedown( (e0: MouseEvent) => {
+    jQuery().delay(1000)
+    if(isTextActivated) {
+      if (isDown) {
+         isDown = false
+      } else {
+        isDown = true
+
+        origX =e0.clientX - document.getElementById("main_canvas").getBoundingClientRect().left
+        origY = e0.clientY - document.getElementById("main_canvas").getBoundingClientRect().top
+       // println(s"${e0.clientX - document.getElementById("main_canvas").getBoundingClientRect().left}   ---   ${e0.clientY - document.getElementById("main_canvas").getBoundingClientRect().top}")
+
+      }
+    }
+  }, null)
+
+
+  jQuery(document).mouseup( (e0: MouseEvent) => {
+    jQuery().delay(1000)
+    if(isTextActivated) {
+      if (isDown) {
+       // println(s" ${e0.clientX - document.getElementById("main_canvas").getBoundingClientRect().left}   ---   ${e0.clientY - document.getElementById("main_canvas").getBoundingClientRect().top}")
+         isDown = false
+        origX2 = e0.clientX - document.getElementById("main_canvas").getBoundingClientRect().left
+        origY2 = e0.clientY - document.getElementById("main_canvas").getBoundingClientRect().top
+
+        val text = new facades.fabricjs.Textbox("...")
+        //text.lockScalingY = false
+        text.left = roundCoordinates(Math.min(origX,origX2))
+        text.top = roundCoordinates(Math.min(origY,origY2))
+        text.set("editable",()=>"true")
+        text.width = Math.abs(origX2-origX)
+        text.height = Math.abs(origY2-origY)
+        text.set("fontSize",()=>document.getElementById("fontSizeForm").getAttribute("value"))
+        text.set("fontFamily",()=>document.getElementById("font").getAttribute("value"))
+        text.set("fontWeight",()=>document.getElementById("fontWeight").getAttribute("value"))
+        text.fill = jQuery("#text-color").value.toString
+        text.backgroundColor = jQuery("#text-bg-color").value.toString
+        canvas.add(text)
+        isTextActivated = false
+      }
+    }
+  }, null)
+
+
+ /* canvas.on("mouse:down", (e0: MouseEvent) => {
+    isDown = true;
+    origX = (e0.clientX - document.getElementById("main_canvas").getBoundingClientRect().left)
+    origY = (e0.clientY - document.getElementById("main_canvas").getBoundingClientRect().top)
+
+    println(s"${origX}  ${origY}")
+  });
+
+  canvas.on("mouse:up", (e0: MouseEvent) => {
+    isDown = false;
+    origX2 = (e0.clientX - document.getElementById("main_canvas").getBoundingClientRect().left)
+    origY2 = (e0.clientY - document.getElementById("main_canvas").getBoundingClientRect().top)
+
+    println(s"${origX2}  ${origY2}")
+  });*/
+
 
 
 
@@ -109,12 +184,12 @@ object CanvasEventListeners extends JSApp {
 
 
 
-  canvas.on("selection:created", ()=>{
+  /*canvas.on("selection:created", ()=>{
     if(canvas.getActiveGroup()!=null){
 
       canvas.getObjects().map(e => s"${e.left},${e.top}").foreach(e => println(s"selected group : ${e}"))
     }
-  })
+  })*/
 
 
   canvas.on("object:selected", ()=>{
@@ -256,10 +331,10 @@ object CanvasEventListeners extends JSApp {
     document.getElementById("fontSizeForm").textContent=fontsize.toString
     if(canvas.getActiveGroup()!=null){
       canvas.getActiveGroup().forEachObject({ (myobj : fabricjs.Textbox) =>
-        myobj.set("fontSize",()=>fontsize)
+        myobj.set("fontSize",()=>fontsize.toString)
       }, null)
     } else {
-      canvas.getActiveObject().asInstanceOf[Textbox].set("fontSize",()=>fontsize)
+      canvas.getActiveObject().asInstanceOf[Textbox].set("fontSize",()=>fontsize.toString)
     }
     canvas.renderAll();
   };

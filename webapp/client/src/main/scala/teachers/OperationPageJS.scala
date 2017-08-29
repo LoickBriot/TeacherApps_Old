@@ -25,6 +25,7 @@ object OperationPageJS extends JSApp {
   @JSExport
   def main(): Unit = {}
 
+  val round_pad = 20
 
   val ajaxClientHandler = new AjaxClientHandler("/operation/ajaxapi/")[AjaxApi_OperationPage]
 
@@ -38,10 +39,13 @@ object OperationPageJS extends JSApp {
   )
 
   val canvas = new facades.fabricjs.Canvas("main_canvas")
-  canvas.setHeight(878)
+  canvas.setHeight(808)
   canvas.setWidth(622)
 
 
+  def roundCoordinates(coord : Double) : Double = {
+    return ((coord/round_pad).toInt*round_pad).toDouble
+  }
 
   CanvasEventListeners.main()
   ButtonEventListeners.main()
@@ -71,12 +75,26 @@ object OperationPageJS extends JSApp {
 //    e.preventDefault();
 
     if (canvas.getActiveGroup() != null) {
+
       e.keyCode match {
-        case LEFT_KEY => canvas.getActiveGroup().left -= 4
-        case TOP_KEY => canvas.getActiveGroup().top -= 4
-        case RIGHT_KEY => canvas.getActiveGroup().left += 4
-        case BOTTOM_KEY => canvas.getActiveGroup().top += 4
+        case LEFT_KEY => {
+          e.preventDefault();
+          canvas.getActiveGroup().left = roundCoordinates(canvas.getActiveGroup().left-round_pad)
+        }
+        case TOP_KEY => {
+          e.preventDefault();
+          canvas.getActiveGroup().top = roundCoordinates(canvas.getActiveGroup().top-round_pad)
+        }
+        case RIGHT_KEY => {
+          e.preventDefault();
+          canvas.getActiveGroup().left = roundCoordinates(canvas.getActiveGroup().left+round_pad)
+        }
+        case BOTTOM_KEY => {
+          e.preventDefault();
+          canvas.getActiveGroup().top = roundCoordinates(canvas.getActiveGroup().top+round_pad)
+        }
         case DELETE_KEY => {
+          e.preventDefault();
           canvas.getActiveGroup().getObjects().foreach{ obj =>
             canvas.remove(obj)
           }
@@ -87,12 +105,26 @@ object OperationPageJS extends JSApp {
     }
 
     if (canvas.getActiveObject() != null) {
+
       e.keyCode match {
-        case LEFT_KEY => canvas.getActiveObject().left -= 4
-        case TOP_KEY => canvas.getActiveObject().top -= 4
-        case RIGHT_KEY => canvas.getActiveObject().left += 4
-        case BOTTOM_KEY => canvas.getActiveObject().top += 4
+        case LEFT_KEY =>{
+          e.preventDefault();
+          canvas.getActiveObject().left = roundCoordinates(canvas.getActiveObject().left - round_pad)
+        }
+        case TOP_KEY => {
+          e.preventDefault();
+          canvas.getActiveObject().top = roundCoordinates(canvas.getActiveObject().top - round_pad)
+        }
+        case RIGHT_KEY => {
+          e.preventDefault();
+          canvas.getActiveObject().left = roundCoordinates(canvas.getActiveObject().left + round_pad)
+        }
+        case BOTTOM_KEY => {
+          e.preventDefault();
+          canvas.getActiveObject().top = roundCoordinates(canvas.getActiveObject().top + round_pad)
+        }
         case DELETE_KEY => {
+          e.preventDefault();
           canvas.remove(canvas.getActiveObject())
           canvas.discardActiveObject()
         }
